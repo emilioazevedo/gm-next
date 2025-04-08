@@ -121,6 +121,15 @@ const AboutPage: React.FC = () => {
             />
             <p className="text-sm text-gray-600 mt-2">AI Assistant</p>
           </div>
+          <div>
+            <Image
+              src="/assets/texasRE.png"
+              alt="TexasRE Icon"
+              width={100}
+              height={100}
+              className="mx-auto"
+            />
+          </div>
         </div>
       </div>
     </section>
