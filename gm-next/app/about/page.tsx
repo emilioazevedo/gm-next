@@ -60,7 +60,7 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Images with Legends */}
-        <div className="mt-30 grid grid-cols-1 md:grid-cols-6 gap-8 text-center">
+        <div className="mt-40 grid grid-cols-1 md:grid-cols-6 gap-8 text-center">
           <div>
             <Image
               src="/assets/platform.webp"
@@ -121,15 +121,7 @@ const AboutPage: React.FC = () => {
             />
             <p className="text-sm text-gray-600 mt-2">AI Assistant</p>
           </div>
-          <div>
-            <Image
-              src="/assets/texasRE.png"
-              alt="TexasRE Icon"
-              width={100}
-              height={100}
-              className="mx-auto"
-            />
-          </div>
+          
         </div>
       </div>
     </section>
