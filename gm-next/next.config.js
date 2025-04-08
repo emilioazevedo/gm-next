@@ -5,6 +5,10 @@ const nextConfig = {
   poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: false,
+  },
+  output: 'standalone',
+  experimental: {
+    outputFileTracingRoot: process.env.VERCEL ? '/vercel/path0' : undefined,
   }
 }
 
