@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore everything outside the project directory
+/*
+!.gitignore
+!app/
+!components/
+!public/
+!styles/
+!next.config.js
+!package.json
+!package-lock.json
+!tsconfig.json
