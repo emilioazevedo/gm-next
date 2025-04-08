@@ -1,0 +1,140 @@
+/* Import Tailwind */
+@import "tailwindcss";
+
+/* Root Variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --global--size: clamp(2rem, 4vw, 5rem);
+  --anim--hover-time: 400ms;
+  --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Body Styles */
+html, body {
+  height: 100%; /* Ensure the height spans the full viewport */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: var(--global--size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+}
+
+/* Corrected Global Button */
+button.global-button {
+  --border-width: clamp(1px, 0.0625em, 2px);
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  z-index: 3; /* Ensure the button is above the shadow */
+  display: inline-block; /* Ensure the button behaves as a block element */
+  background: linear-gradient(to bottom, #e0f2f7, #b3e5fc); /* Light blue gradient */
+  border: 1px solid #81d4fa; /* Optional: Add a subtle border */
+  border-radius: 999vw;
+  padding: 12px 30px; /* Adjust padding to fit text on one line */
+  color: #1976d2; /* Dark blue text color */
+  font-family: sans-serif; /* Or a specific sans-serif font */
+  font-size: 1.1em; /* Adjust as needed */
+  font-weight: 500; /* Adjust as needed for boldness */
+  text-align: center; /* Center the text */
+  transition: all var(--anim--hover-time) var(--anim--hover-ease);
+}
+
+button.global-button:hover {
+  transform: scale(0.98); /* Slightly less aggressive scale down */
+  background: linear-gradient(to bottom, #cce0f5, #90caf9); /* Subtle background change on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add a subtle outer shadow on hover */
+  z-index: 4; /* Ensure hover state is above other elements */
+}
+
+/* Corrected Button Wrap Container */
+.button-wrap {
+  position: relative;
+  z-index: 2; /* Ensure the wrap is below the button */
+  border-radius: 999vw;
+  background: transparent;
+  pointer-events: none; /* Prevent interaction with the wrap */
+  transition: all var(--anim--hover-time) var(--anim--hover-ease);
+}
+
+/* Corrected Button Shadow Container */
+.button-shadow {
+  position: absolute;
+  z-index: 1; /* Ensure the shadow is below the wrap and button */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  filter: blur(4px); /* Adjust blur as needed */
+  background: rgba(0, 0, 0, 0.08); /* More subtle shadow */
+  border-radius: 999vw;
+  pointer-events: none; /* Prevent interaction with the shadow */
+  transition: all var(--anim--hover-time) var(--anim--hover-ease);
+}
+
+.button-wrap:hover .button-shadow {
+  filter: blur(6px); /* Slightly enhance shadow on hover */
+  background: rgba(0, 0, 0, 0.12); /* Slightly darken shadow on hover */
+}
+
+/* Login Button */
+button.header-login-btn,
+.header-login-btn {
+  all: unset; /* Reset all inherited styles */
+  display: inline-block;
+  background-color: #194f90;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.header-login-btn:hover,
+.header-login-btn:hover {
+  background-color: #163d6f;
+}
+
+/* Demo Button */
+button.header-demo-btn,
+.header-demo-btn {
+  all: unset; /* Reset all inherited styles */
+  display: inline-block;
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.header-demo-btn:hover,
+.header-demo-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* Input Field */
+.input-field {
+  font-size: 0.75rem; /* Equivalent to text-xs */
+}

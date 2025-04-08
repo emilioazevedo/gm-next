@@ -1,0 +1,57 @@
+/* Scope the global .button style to avoid affecting specific buttons */
+.button1 {
+  /* ...existing styles... */
+}
+
+/* Ensure header buttons are not overridden */
+.header-login-btn {
+  all: unset; /* Reset all inherited styles */
+  display: inline-block;
+  background-color: #194f90;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header-login-btn:hover {
+  background-color: #163d6f;
+}
+
+.header-demo-btn {
+  all: unset; /* Reset all inherited styles */
+  display: inline-block;
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header-demo-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* Style for the Start your free trial today button */
+.hero-trial-button {
+  all: unset; /* Reset all inherited styles */
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-trial-button:hover {
+  background-color: #1d4ed8;
+}
