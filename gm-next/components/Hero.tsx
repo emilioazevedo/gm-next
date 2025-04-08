@@ -30,7 +30,7 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="container mx-auto px-6 mt-20 w-11/12 relative z-10">
+      <div className="container mx-auto px-6 mt-20 w-11/12 mb-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-screen-xl mx-auto">
           {/* Left Column - Verbiage and Button */}
           <div className="text-left">
@@ -61,11 +61,11 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Video and Features Section */}
-          <div className="h-128 flex items-start justify-center space-x-60 relative">
+          <div className="h-128 flex items-start justify-start space-x-10 relative">
             {/* Video */}
             <video
-              ref={videoRef} // Attach the ref to the video element
-              className="rounded-lg shadow-lg w-3/5 relative z-10"
+              ref={videoRef}
+              className="rounded-lg shadow-lg w-3/5 relative z-10 ml-[50px]"
               autoPlay
               muted
               playsInline
@@ -73,7 +73,7 @@ const Hero = () => {
             ></video>
 
             {/* Features */}
-            <div className="grid grid-cols-1 gap-4 w-1/3 absolute top-1/4 right-[40px] transform -translate-y-1/4 z-0">
+            <div className="grid grid-cols-1 gap-4 w-1/3 absolute top-1/4 right-0 transform -translate-y-1/4 z-0">
               {/* Meetings */}
               <div className="relative bg-blue-200/10 backdrop-blur-md border border-blue-300/50 p-4 rounded-lg shadow">
                 <Image
