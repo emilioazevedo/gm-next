@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"; // Ensure this import is correct
 import Header from "@/components/Header"; // Import the Header component
 import Image from "next/image"; // Import Image component
 import { ReactNode } from "react";
