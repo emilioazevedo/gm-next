@@ -70,7 +70,6 @@ const Hero = () => {
               muted
               playsInline
               src="/assets/sb6AI.mp4"
-              alt="SB6 AI Video"
             ></video>
 
             {/* Features */}

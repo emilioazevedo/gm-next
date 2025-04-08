@@ -20,7 +20,7 @@ const Venues = () => {
         <p className="text-xs text-gray-500">Comprehensive tracking</p>
       </div>
       <div className="flex flex-col items-center">
-        <Image src="/assets/texasre.png" alt="TexasRE Icon" width={60} height={60} />
+        <Image src="/assets/texasRE.png" alt="TexasRE Icon" width={60} height={60} />
         <p className="text-sm text-gray-600 mt-2 font-semibold">TexasRE</p>
         <p className="text-xs text-gray-500">Comprehensive tracking</p>
       </div>
