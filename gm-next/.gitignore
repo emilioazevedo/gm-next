@@ -51,3 +51,6 @@ next-env.d.ts
 !package.json
 !package-lock.json
 !tsconfig.json
+
+# Ensure the styles directory is not ignored
+!styles/

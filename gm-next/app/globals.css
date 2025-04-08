@@ -11,6 +11,9 @@
   --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
   --angle-1: -75deg; /* Initial value for outline gradient */
   --angle-2: -45deg; /* Initial value for text highlight gradient */
+  --background: #ffffff;
+  --foreground: #171717;
+  --global--size: clamp(2rem, 4vw, 5rem);
 }
 
 /* Dark Mode Variables */
@@ -37,6 +40,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow: auto;
+    background: var(--background);
+    color: var(--foreground);
   }
 }
 
