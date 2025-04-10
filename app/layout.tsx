@@ -131,16 +131,16 @@ export default function RootLayout({
               </div>
 
               {/* Stay Updated Form */}
-              <div className="bg-white/20 backdrop-blur-md w-4/12 justify-center p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(white, grey) 1" }}>
+              <div className="bg-white/20 backdrop-blur-md w-4/12 justify-center p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(130deg, white, grey) 1" }}>
                 <div className="w-4/4 md:w-1/2 lg:w-2/5">
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2 text-center">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2 text-left">
                     Stay Updated
                   </h3>
                   <form className="flex flex-row items-center bg-transparent">
                     <input
                       type="email"
                       placeholder="Your email"
-                      className="flex-grow bg-white px-16 py-2 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                      className="flex-grow bg-white px-28 pl-2 py-2 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
                     <button
                       type="submit"
                       className="bg-[#194f90] text-white px-8 py-2 rounded-lg text-lg hover:bg-blue-700 transition">

@@ -1047,6 +1047,12 @@ button.global-button:active::after {
 .mt-\[70px\] {
   margin-top: 70px;
 }
+.ml-0 {
+  margin-left: 0px;
+}
+.ml-10 {
+  margin-left: 2.5rem;
+}
 .inline-block {
   display: inline-block;
 }
@@ -1467,6 +1473,18 @@ button.global-button:active::after {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+.px-28 {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -1490,6 +1508,9 @@ button.global-button:active::after {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pl-0 {
+  padding-left: 0px;
 }
 .text-left {
   text-align: left;
