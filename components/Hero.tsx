@@ -10,8 +10,9 @@ const Hero = () => {
     const interval = setInterval(() => {
       if (videoRef.current) {
         videoRef.current.currentTime = 0; // Restart the video
+        videoRef.current.play(); // Explicitly play the video
       }
-    }, 40000); // Restart every 10 seconds
+    }, 30000); // Restart every 30 seconds
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
