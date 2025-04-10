@@ -41,7 +41,7 @@ const Carousel = () => {
       className="relative w-full py-12 flex flex-col items-center justify-center"
       style={{
         background: "linear-gradient(to bottom, #f3f4f6, #e5e7eb)", // Gradient background
-        minHeight: "750px", // Minimum height of 800px
+        minHeight: "950px", // Minimum height of 800px
       }}
     >
       {/* Header and Description */}
@@ -58,7 +58,7 @@ const Carousel = () => {
         {/* Previous Arrow */}
         <button
           onClick={handlePrev}
-          className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
+          className="absolute left-[-4rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const Carousel = () => {
           {/* Description */}
           <div className="mt-4 md:mt-0 md:mr-6 text-center md:text-left md:w-1/3">
             <h3 className="text-lg font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               {slides[currentSlide].description}
             </p>
           </div>
@@ -96,7 +96,7 @@ const Carousel = () => {
         {/* Next Arrow */}
         <button
           onClick={handleNext}
-          className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
+          className="absolute right-[-4rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

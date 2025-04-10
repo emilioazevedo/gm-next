@@ -31,10 +31,10 @@ const Hero = () => {
       ></div>
 
       <div className="container mx-auto px-6 mt-20 mb-20 w-11/12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-full mx-auto">
           {/* Left Column - Verbiage and Button */}
           <div className="text-left">
-            <div className="inline-flex items-center px-4 py-1 mb-6 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
+            <div className="inline-flex items-center px-4 py-2 mb-6 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
               <Image
                 src="/assets/tx-flag.png"
                 alt="Texas Flag"
@@ -50,11 +50,11 @@ const Hero = () => {
             <p className="text-lg text-gray-700 mb-8">
               Stay ahead with our comprehensive tracking of ERCOT, PUCT, Texas Legislature, TexasRE, and industry conferences.
             </p>
-            <div className="button-wrap relative">
-            <a href="/trial">
-              <button className="global-button">
-                <span>Start your free trial today</span>
-              </button>
+            <div className="button-wrap relative flex items-center">
+              <a href="/trial">
+                <button className="global-button">
+                  <span>Start your free trial today</span>
+                </button>
               </a>
               <div className="button-shadow z-0"></div>
             </div>

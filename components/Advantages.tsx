@@ -64,7 +64,7 @@ const Advantages = () => {
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 text-lg">
                 {feature.description}
               </p>
             </div>

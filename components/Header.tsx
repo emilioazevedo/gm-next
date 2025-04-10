@@ -17,10 +17,10 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-[9999] w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/70 backdrop-blur-sm shadow-md"
-          : "bg-white shadow-md"
+          ? "bg-white/50 backdrop-blur-lg shadow-md" // Translucent with blur when scrolled
+          : "bg-white/50 backdrop-blur-lg shadow-md" // Solid white background when not scrolled
       }`}
     >
       <nav className="w-full">
@@ -35,7 +35,7 @@ const Header = () => {
               />
             </a>
           </div>
-          <ul className="flex justify-center space-x-12 text-base items-center">
+          <ul className="flex justify-center space-x-12 text-lg items-center">
             <li>
               <a href="/about" className="text-gray-700 hover:text-blue-700">
                 About
@@ -65,7 +65,7 @@ const Header = () => {
             <li>
               <a
                 href="/demo"
-                className="text-white bg-gradient-to-r from-[#194f90] via-[#2481c0] to-[#194f90] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-8 py-2.5 text-center me-2 mb-2"
+                className="text-white bg-gradient-to-r from-[#194f90] via-[#2481c0] to-[#194f90] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center me-2 mb-2"
               >
                 Request a Demo
               </a>

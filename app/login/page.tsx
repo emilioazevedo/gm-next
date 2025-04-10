@@ -11,30 +11,21 @@ const LoginPage: React.FC = () => {
         <form className="grid grid-cols-1 gap-6">
           {/* Email Address */}
           <div className="form-group">
-            <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-1">
-              Email Address
-            </label>
+            
             <input
               type="email"
               id="email"
               name="email"
               placeholder="you@company.com"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-            />
-          </div>
+              className="w-full px-4 py-2 border border-gray-300 rounded-md bg-sky-100/50 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
 
-          {/* Password */}
-          <div className="form-group">
-            <label htmlFor="password" className="block text-base font-medium text-gray-700 mb-1">
-              Password
-            </label>
+          {/* Password */}           
             <input
               type="password"
               id="password"
               name="password"
               placeholder="Password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-            />
+              className="w-full px-4 py-2 border border-gray-300 rounded-md bg-sky-100/50 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
           </div>
 
           {/* Remember Me and Forgot Password */}
@@ -44,8 +35,7 @@ const LoginPage: React.FC = () => {
                 type="checkbox"
                 id="rememberMe"
                 name="rememberMe"
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-              />
+                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
               <label htmlFor="rememberMe" className="ml-2 text-sm text-gray-700">
                 Remember me
               </label>

@@ -14,7 +14,7 @@ const DemoPage: React.FC = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group">
@@ -22,7 +22,7 @@ const DemoPage: React.FC = () => {
                 type="text"
                 name="company"
                 placeholder="Company"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group">
@@ -30,7 +30,7 @@ const DemoPage: React.FC = () => {
                 type="text"
                 name="phone"
                 placeholder="Phone Number"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group">
@@ -38,7 +38,7 @@ const DemoPage: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Email Address"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group col-span-2">
@@ -46,7 +46,7 @@ const DemoPage: React.FC = () => {
                 name="comments"
                 placeholder="Comments"
                 rows={5}
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
             <div className="form-group col-span-2">

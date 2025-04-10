@@ -14,7 +14,7 @@ const ContactPage = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group">
@@ -22,7 +22,7 @@ const ContactPage = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group">
@@ -30,7 +30,7 @@ const ContactPage = () => {
                 type="text"
                 name="Company"
                 placeholder="Company"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group">
@@ -38,7 +38,7 @@ const ContactPage = () => {
                 type="text"
                 name="phone"
                 placeholder="Phone"
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="form-group col-span-2">
@@ -46,7 +46,7 @@ const ContactPage = () => {
                 name="message"
                 placeholder="Message"
                 rows={5}
-                className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
             <div className="form-group col-span-2">
@@ -78,15 +78,26 @@ const ContactPage = () => {
               <i className="mr-4"></i>
               <span>1-800-981-6638</span>
             </li>
+            <li className="font-semibold pt-8 flex items-center">
+              <i className="mr-4"></i>
+              <span>Mail Address</span>
+            </li>
+         
+          <li className="flex items-center">
+              <i className="mr-4"></i>
+              <span>PO Box 160882</span>
+            </li>
+            <li className="flex items-center">
+              <i className="mr-4"></i>
+              <span> Austin, TX  78716</span>
+            </li>
           </ul>
-          <h3 className="text-lg mt-8">Mail Address<br/>PO Box 160882 <br/>
-           Austin, TX  78716</h3>
           <div className="mt-10 flex justify-center">
             <Image
               src="/assets/gm-icon.png"
               alt="GridMonitor Icon"
-              width={100}
-              height={100}
+              width={200}
+              height={200}
               className="object-contain"
             />
           </div>

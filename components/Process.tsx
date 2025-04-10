@@ -28,11 +28,11 @@ const Process = () => {
       <div className="container mx-auto px-6 w-11/12 mt-0 text-center">
         <div className="mb-12">
          <div className="mb-12 flex items-center justify-center space-x-2">
-                   <span className="inline-block px-4 py-1 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
+                   <span className="inline-block px-4 py-1 text-lg font-medium text-blue-700 bg-blue-100 rounded-full">
                      <Image
                        src="/assets/logo-bolt.png"
                        alt="Bolt Logo"
-                       width={22}
+                       width={28}
                        height={22}
                        className="inline-block m-px p-1"
                      />
@@ -53,7 +53,7 @@ const Process = () => {
               className="bg-white rounded-lg shadow-md p-6 text-center relative"
             >
               {/* Smaller number in the top-left corner */}
-              <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-[#194f90] text-white text-sm font-bold rounded-full flex items-center justify-center shadow-md">
+              <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-[#194f90] text-white text-lg font-bold rounded-full flex items-center justify-center shadow-md">
                 {step.id}
               </div>
               <div className="flex justify-center mb-4">
@@ -68,7 +68,7 @@ const Process = () => {
               <h3 className="text-lg font-semibold text-[#194f90] mb-2">
                 {step.title}
               </h3>
-              <p className="text-gray-600 text-sm">{step.description}</p>
+              <p className="text-gray-600 text-lg">{step.description}</p>
             </div>
           ))}
         </div>

@@ -2,18 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Ensure full width */
+  height: 100%; /* Ensure full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+header {
+  margin: 0; /* Ensure no margin above the header */
+  padding: 0; /* Ensure no extra padding */
+  position: sticky; /* Ensure the header sticks to the top */
+  top: 0; /* Ensure the header starts at the top */
+  z-index: 9999; /* Set a high z-index to ensure it is above all other elements */
+  background-color: white; /* Ensure the header has a background to cover content below */
+}
+
+body {
+  /* Ensure the body takes up the full height and allows scrolling */
+  display: flex;
+  flex-direction: column; /* Stack header, main, and footer properly */
+  margin: 0; /* Ensure no extra margin */
+  padding: 0; /* Ensure no extra padding */
+  font-family: "Inter", sans-serif;
+  font-size: var(--global--size);
+  background-color: rgba(215, 215, 215, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
 /* Root Variables */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-  --global--size: clamp(2rem, 3vw, 3rem);
+  --global--size: clamp(2rem, 4vw, 5rem);
   --anim--hover-time: 400ms;
   --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
   --angle-1: -75deg; /* Initial value for outline gradient */
   --angle-2: -45deg; /* Initial value for text highlight gradient */
   --background: #ffffff;
   --foreground: #171717;
-  --global--size: clamp(2rem, 4vw, 5rem);
+}
+
+/* Add missing CSS property definitions */
+@property --angle-1 {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: -75deg;
+}
+
+@property --angle-2 {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: -45deg;
 }
 
 /* Dark Mode Variables */
@@ -24,293 +68,166 @@
   }
 }
 
-@layer base {
-  body {
-    color: rgb(var(--foreground-rgb));
-    background: rgb(var(--background-rgb));
-    font-family: "Inter", sans-serif;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--global--size);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow: auto;
-    background: var(--background);
-    color: var(--foreground);
-  }
-}
-
 @layer components {
-  .button-wrap {
-    @apply relative z-[2] rounded-[999vw] bg-transparent pointer-events-none;
+  .global-button-wrap {
+    position: relative;
+    z-index: 2;
+    border-radius: 999vw;
+    background: transparent;
+    pointer-events: none;
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    justify-content: flex-start; /* Align button to the left */
+    text-align: left; /* Ensure text alignment matches */
   }
 
-  .button-shadow {
+  .global-button-shadow {
     --shadow-cuttoff-fix: 2em;
-    @apply absolute pointer-events-none;
+    position: absolute;
     width: calc(100% + var(--shadow-cuttoff-fix));
     height: calc(100% + var(--shadow-cuttoff-fix));
     top: calc(0% - var(--shadow-cuttoff-fix) / 2);
     left: calc(0% - var(--shadow-cuttoff-fix) / 2);
     filter: blur(clamp(2px, 0.125em, 12px));
-    -webkit-filter: blur(clamp(2px, 0.125em, 12px));
-    -moz-filter: blur(clamp(2px, 0.125em, 12px));
-    -ms-filter: blur(clamp(2px, 0.125em, 12px));
-    overflow: visible;
+    pointer-events: none;
+  }
+
+  .global-button-shadow::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: 999vw;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+    width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
+    height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
+    top: calc(var(--shadow-cuttoff-fix) - 0.5em);
+    left: calc(var(--shadow-cuttoff-fix) - 0.875em);
+    padding: 0.125em;
+    box-sizing: border-box;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    opacity: 1;
   }
 
   .global-button {
     --border-width: clamp(1px, 0.0625em, 4px);
-    @apply cursor-pointer relative pointer-events-auto z-[3] rounded-[999vw];
+    all: unset;
+    cursor: pointer;
+    position: relative;
+    pointer-events: auto;
+    z-index: 3;
     background: linear-gradient(
       -75deg,
-      rgba(213, 219, 223, 0.09),
-      rgba(62, 179, 202, 0.2),
-      rgba(187, 215, 245, 0.2),
-      rgba(123, 185, 218, 0.2),
-      rgba(142, 183, 152, 0.05)
+      rgba(116, 204, 219, 0.05),
+      rgba(2, 121, 233, 0.2),
+      rgba(232, 135, 228, 0.05)
     );
+    border-radius: 999vw;
     box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
       inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
       0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
       0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
       0 0 0 0 rgba(255, 255, 255, 1);
     backdrop-filter: blur(clamp(1px, 0.125em, 4px));
-    -webkit-backdrop-filter: blur(clamp(1px, 0.125em, 4px));
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    font-size: 2rem; /* Increase font size for better readability */
+    padding-inline: 2em; /* Increase horizontal padding for balance */
+    padding-block: 0.75em; /* Adjust vertical padding for a balanced look */
   }
 
-  /* Keep all your existing button styles... */
-}
+  .global-button:hover {
+    transform: scale(0.975);
+    box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+      0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+      0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
+      0 0 0 0 rgba(255, 255, 255, 1);
+  }
 
-/* Keep the rest of your custom styles... */
+  button.global-button span {
+    position: relative;
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: inherit; /* Ensure the span inherits the button's font size */
+    color: rgba(50, 50, 50, 1);
+    text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1);
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    padding-inline: 1em;
+    padding-block: 0.025em;
+  }
 
-/* ========== GLOBAL BUTTON STYLES (Corrected) ========== */
+  button.global-button:hover span {
+    text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
+  }
 
-/* Button Shadow Container */
-.button-shadow::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  border-radius: 999vw;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
-  width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-  height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-  top: calc(var(--shadow-cuttoff-fix) - 0.5em);
-  left: calc(var(--shadow-cuttoff-fix) - 0.875em);
-  padding: 0.125em;
-  box-sizing: border-box;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  transition: all var(--anim--hover-time) var(--anim--hover-ease);
-  overflow: visible;
-  opacity: 1;
-}
+  button.global-button span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: calc(100% - var(--border-width));
+    height: calc(100% - var(--border-width));
+    top: calc(0% + var(--border-width) / 2);
+    left: calc(0% + var(--border-width) / 2);
+    border-radius: 999vw;
+    background: linear-gradient(
+      var(--angle-2),
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 40% 50%,
+      rgba(255, 255, 255, 0) 55%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    transition: background-position calc(var(--anim--hover-time) * 1.25)
+        var(--anim--hover-ease),
+      --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
+  }
 
-/* Button Base Styles (Corrected Class Name) */
-button.global-button span { /* Corrected selector */
-  position: relative;
-  display: block;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  font-family: "Inter", sans-serif;
-  letter-spacing: -0.05em;
-  font-weight: 500;
-  font-size: 0.7em;
-  color: rgba(50, 50, 50, 1);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1);
-  transition: all var(--anim--hover-time) var(--anim--hover-ease);
-  padding-inline: 1.5em;
-  padding-block: 0.875em;
-}
+  button.global-button:hover span::after {
+    background-position: 25% 50%;
+  }
 
-button.global-button:hover span { /* Corrected selector */
-  text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
-}
+  button.global-button:active span::after {
+    background-position: 50% 15%;
+    --angle-2: -15deg;
+  }
 
-/* Text Highlight */
-button.global-button span::after { /* Corrected selector */
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: 1;
-  width: calc(100% - var(--border-width)); /* Prevent overlapping border */
-  height: calc(100% - var(--border-width));
-  top: calc(0% + var(--border-width) / 2);
-  left: calc(0% + var(--border-width) / 2);
-  box-sizing: border-box;
-  border-radius: 999vw;
-  overflow: clip;
-  background: linear-gradient(
-    var(--angle-2),
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.5) 40% 50%,
-    rgba(255, 255, 255, 0) 55%
-  );
-  z-index: 3;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  background-size: 200% 200%;
-  background-position: 0% 50%;
-  background-repeat: no-repeat;
-  transition: background-position calc(var(--anim--hover-time) * 1.25)
-      var(--anim--hover-ease),
-    --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
-}
+  button.global-button::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    border-radius: 999vw;
+    width: calc(100% + var(--border-width));
+    height: calc(100% + var(--border-width));
+    top: calc(0% - var(--border-width) / 2);
+    left: calc(0% - var(--border-width) / 2);
+    padding: var(--border-width);
+    box-sizing: border-box;
+    background: conic-gradient(
+        from var(--angle-1) at 50% 50%,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0) 5% 40%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 60% 95%,
+        rgba(0, 0, 0, 0.5)
+      ),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: all var(--anim--hover-time) var(--anim--hover-ease),
+      --angle-1 500ms ease;
+    box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
+  }
+  button.global-button:hover::after {
+    --angle-1: -125deg;
+  }
 
-button.global-button:hover span::after { /* Corrected selector */
-  background-position: 25% 50%;
-}
-
-button.global-button:active span::after { /* Corrected selector */
-  background-position: 50% 15%;
-  --angle-2: -15deg;
-}
-
-/* Touch Devices */
-@media (hover: none) and (pointer: coarse) {
-  button.global-button span::after, /* Corrected selector */
-  button.global-button:active span::after { /* Corrected selector */
-    --angle-2: -45deg;
+  button.global-button:active::after {
+    --angle-1: -075deg;
   }
 }
 
-/* ========== BUTTON OUTLINE ========== */
 
-/* Outline */
-button.global-button::after { /* Corrected selector */
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  border-radius: 999vw;
-  width: calc(100% + var(--border-width));
-  height: calc(100% + var(--border-width));
-  top: calc(0% - var(--border-width) / 2);
-  left: calc(0% - var(--border-width) / 2);
-  padding: var(--border-width);
-  box-sizing: border-box;
-  background: conic-gradient(
-      from var(--angle-1) at 50% 50%,
-      rgba(122, 182, 238, 0.5),
-      rgba(0, 0, 0, 0) 5% 40%,
-      rgba(144, 185, 243, 0.5) 50%,
-      rgba(0, 0, 0, 0) 60% 95%,
-      rgba(25, 129, 220, 0.5)
-    ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  transition: all var(--anim--hover-time) var(--anim--hover-ease),
-    --angle-1 500ms ease;
-  box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
-}
-
-button.global-button:hover::after { /* Corrected selector */
-  --angle-1: -125deg;
-}
-
-button.global-button:active::after { /* Corrected selector */
-  --angle-1: -105deg;
-}
-
-@media (hover: none) and (pointer: coarse) {
-  button.global-button::after, /* Corrected selector */
-  button.global-button:hover::after, /* Corrected selector */
-  button.global-button:active::after { /* Corrected selector */
-    --angle-1: -75deg;
-  }
-}
-
-/* Shadow Hover */
-.button-wrap:has(button.global-button:hover) .button-shadow { /* Corrected selector */
-  filter: blur(clamp(2px, 0.0625em, 6px));
-  -webkit-filter: blur(clamp(2px, 0.0625em, 6px));
-  -moz-filter: blur(clamp(2px, 0.0625em, 6px));
-  -ms-filter: blur(clamp(2px, 0.0625em, 6px));
-  transition: filter var(--anim--hover-time) var(--anim--hover-ease);
-}
-
-.button-wrap:has(button.global-button:hover) .button-shadow::after { /* Corrected selector */
-  top: calc(var(--shadow-cuttoff-fix) - 0.875em);
-  opacity: 1;
-}
-
-/* Rotation */
-.button-wrap:has(button.global-button:active) { /* Corrected selector */
-  transform: rotate3d(1, 0, 0, 25deg);
-}
-
-.button-wrap:has(button.global-button:active) button.global-button { /* Corrected selector */
-  box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
-    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
-    0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2),
-    0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
-    0 0.225em 0.05em 0 rgba(0, 0, 0, 0.05),
-    0 0.25em 0 0 rgba(255, 255, 255, 0.75),
-    inset 0 0.25em !important;
-  color: white !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 0.375rem !important;
-  font-size: 1rem !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-header button.header-login-btn:hover,
-nav button.header-login-btn:hover,
-button.header-login-btn:hover,
-.header-login-btn:hover {
-  background-color: #163d6f !important;
-}
-
-
-
-
-/* Start Your Free Trial Button */
-section button.hero-trial-button,
-.button-wrap button.hero-trial-button,
-button.hero-trial-button,
-.hero-trial-button {
-  all: unset;
-  display: inline-block ;
-  background-color: #2563eb;
-  color: white ;
-  padding: 0.75rem 1.5rem ;
-  border-radius: 0.375rem;
-  font-size: 0.5rem ;
-  font-weight: bold ;
-  cursor: pointer ;
-  border: none ;
-  box-shadow: none;
-  pointer-events: auto ; /* Override any parent pointer-events: none */
-}
-
-section button.hero-trial-button:hover,
-.button-wrap button.hero-trial-button:hover,
-button.hero-trial-button:hover,
-.hero-trial-button:hover {
-  background-color: #1d4ed8 !important;
-}
-
-/* Add these utility classes to override Tailwind's button reset if needed */
-.btn-reset-none {
-  all: unset !important;
-}
-
-.pointer-events-auto {
-  pointer-events: auto !important;
-}

@@ -52,6 +52,13 @@ body {
   );
   border-radius: 999vw;
   transition: all var(--anim--hover-time) var(--anim--hover-ease);
+  font-size: 1rem; /* Increase font size for better readability */
+  padding-inline: 2em; /* Increase horizontal padding for balance */
+  padding-block: 0.75em; /* Adjust vertical padding for a balanced look */
+}
+
+button.global-button span {
+  font-size: inherit; /* Ensure the span inherits the button's font size */
 }
 
 .global-button:hover {

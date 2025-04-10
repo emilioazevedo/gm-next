@@ -2,7 +2,7 @@ import React from 'react';
 
 const Signup = () => {
   return (
-    <section className="bg-[#f9f8f5] py-18 w-full relative"> {/* Reduced vertical padding */}
+    <section className="bg-[#f9f8f5] py-1 pt-20 pb-20 w-full relative"> {/* Reduced vertical padding */}
       {/* Gradient Background */}
    
 
@@ -14,7 +14,7 @@ const Signup = () => {
           Join hundreds of energy professionals who rely on GridMonitor to navigate the complex regulatory landscape.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-2 mb-4">
-          <div className="button-wrap relative scale-75"> {/* Kept smaller button */}
+          <div className="button-wrap relative"> {/* Kept smaller button */}
           <a href="/trial">
             <button className="global-button">
               <span>Start your free trial today</span>
@@ -22,11 +22,9 @@ const Signup = () => {
             </a>
             <div className="button-shadow z-0"></div>
           </div>
-          <a href="/demo" className="text-blue-600 text-sm hover:underline">
-            Schedule a demo
-          </a>
+        
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-2 text-sm text-gray-600">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-2 text-lg text-gray-600">
           <div className="flex items-center gap-1">
             <span className="text-green-500">✔</span> No credit card required
           </div>
@@ -36,6 +34,7 @@ const Signup = () => {
           <div className="flex items-center gap-1">
             <span className="text-green-500">✔</span> Cancel anytime
           </div>
+          
         </div>
 
        

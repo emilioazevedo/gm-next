@@ -12,14 +12,14 @@ const ProudMember = () => {
           <Image
             src="/assets/cleantx-logo.png"
             alt="CleanTX Logo"
-            width={150}
+            width={350}
             height={50}
             className="object-contain"
           />
           <Image
             src="/assets/gcpa.webp"
             alt="GCPA Logo"
-            width={150}
+            width={350}
             height={50}
             className="object-contain"
           />

@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css"; // Ensure this matches the actual file path
 import Header from "@/components/Header"; // Import the Header component
-import Image from "next/image"; // Import Image component
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,39 +15,51 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "GridMonitor",
-  description: "GridMonitor app",
-};
+// Removed metadata export as it is not allowed in a client component
 
 export default function RootLayout({
   children,
 }: { children: ReactNode }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="bg-gray-50 text-gray-900 antialiased min-h-screen overflow-y-auto">
-        <div className="flex flex-col min-h-screen w-full">
-          <Header /> {/* Header spans the full width */}
-          <main className="flex-grow w-full">{children}</main> {/* Allow components to go full width */}
-         
-         <footer className="bg-slate-200 p-6 text-center">
-          <div className="justify-center items-center w-full">
-            <div className="container mx-auto px-6 w-11/12">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6 text-center md:text-left">
+        <div className="flex flex-col min-h-screen">
+          <header
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+              isScrolled ? "bg-white/70 backdrop-blur-lg shadow-lg" : "bg-transparent"
+            }`}
+          >
+            <Header /> {/* Ensure the Header is included at the top */}
+          </header>
+          <main className="flex-grow w-full overflow-visible z-0 pt-16">{children}</main> {/* Ensure no overflow issues */}
+          {/* Footer */}
+          <footer className="bg-[#9aafc2] p-6 w-full">
+            <div className="container mx-auto px-6">
+              {/* Top row with 4 columns side by side */}
+              <div className="flex flex-col md:flex-row justify-between mb-12 w-full">
                 {/* Logo Section */}
-                <div className="flex flex-col items-center md:items-start">
-                  <h3 className="text-lg font-semibold text-gray-700 mb-0 pt-1 invisible">Logo</h3> {/* Invisible title for alignment */}
-                  <Image
+                <div className="flex flex-col items-center md:items-start mb-6 md:mb-0">
+                  <img
                     src="/assets/gridmonitor-logo.png"
                     alt="GridMonitor Logo"
-                    width={200} // Increased width
-                    height={70} // Increased height
+                    width={200}
+                    height={70}
                     className="object-contain"
                   />
                 </div>
 
-                {/* Get in touch Section */}
-                <div>
+                {/* Get in Touch Section */}
+                <div className="mb-6 md:mb-0">
                   <h3 className="text-lg font-semibold text-gray-700 mb-3">Get in touch</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>PO Box 160882</li>
@@ -58,76 +70,101 @@ export default function RootLayout({
                 </div>
 
                 {/* Resources Section */}
-                <div>
+                <div className="mb-6 md:mb-0">
                   <h3 className="text-lg font-semibold text-gray-700 mb-3">Resources</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li><a href="mailto:customercare@gridmonitor.com" className="hover:text-blue-700">customercare@gridmonitor.com</a></li>
-                    <li><a href="#" className="hover:text-blue-700">GridMonitor Blog</a></li>
-                    <li><a href="#" className="hover:text-blue-700">About ERCOT</a></li>
-                    <li><a href="#" className="hover:text-blue-700">About PUCT</a></li>
-                    <li><a href="#" className="hover:text-blue-700">About LEGE</a></li>
+                    <li>
+                      <a
+                        href="mailto:customercare@gridmonitor.com"
+                        className="hover:text-blue-700"
+                      >
+                        customercare@gridmonitor.com
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-blue-700">
+                        GridMonitor Blog
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-blue-700">
+                        About ERCOT
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-blue-700">
+                        About PUCT
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:text-blue-700">
+                        About LEGE
+                      </a>
+                    </li>
                   </ul>
                 </div>
 
                 {/* Follow Us Section */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-700 mb-3">Follow Us</h3>
-                  <ul className="flex space-x-4 justify-center md:justify-start">
-                    <li>
-                      <a href="#" className="hover:opacity-80">
-                        <Image
-                          src="/assets/x-b.png"
-                          alt="X Logo"
-                          width={24}
-                          height={24}
-                          className="object-contain"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:opacity-80">
-                        <Image
-                          src="/assets/linkedin-b.png"
-                          alt="LinkedIn Logo"
-                          width={24}
-                          height={24}
-                          className="object-contain"
-                        />
-                      </a>
-                    </li>
-                  </ul>
+                  <div className="flex space-x-4">
+                    <a href="#" className="hover:opacity-80">
+                      <img
+                        src="/assets/x-b.png"
+                        alt="X Logo"
+                        width={24}
+                        height={24}
+                        className="object-contain"
+                      />
+                    </a>
+                    <a href="#" className="hover:opacity-80">
+                      <img
+                        src="/assets/linkedin-b.png"
+                        alt="LinkedIn Logo"
+                        width={24}
+                        height={24}
+                        className="object-contain"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Centered Sign-Up Form */}
-              <div className="flex justify-center items-center mb-6">
-                <div className="bg-white/0 p-2 rounded-md shadow-sm w-full max-w-md mx-auto">
-                  <h3 className="text-xs font-bold text-gray-700 mb-1">Stay Updated</h3>
-                  <form className="flex flex-row items-center gap-1">
+              {/* Stay Updated Form */}
+              <div className="bg-white/20 backdrop-blur-md w-4/12 justify-center p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(white, grey) 1" }}>
+                <div className="w-4/4 md:w-1/2 lg:w-2/5">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2 text-center">
+                    Stay Updated
+                  </h3>
+                  <form className="flex flex-row items-center bg-transparent">
                     <input
                       type="email"
                       placeholder="Your email"
-                      className="w-full bg-white px-2 py-1 border border-gray-300 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    />
+                      className="flex-grow bg-white px-16 py-2 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
                     <button
                       type="submit"
-                      className="bg-blue-600 text-white px-2 py-1 rounded-md text-xs hover:bg-blue-700 transition"
-                    >
+                      className="bg-[#194f90] text-white px-8 py-2 rounded-lg text-lg hover:bg-blue-700 transition">
                       Subscribe
                     </button>
                   </form>
-                  <a href="#" className="text-xs hover:text-blue-700 block mt-2">
-                    Regulatory Information Management for ERCOT
-                  </a>
                 </div>
               </div>
 
-              <p className="mt-6 text-xs text-gray-600">
-                &copy; {new Date().getFullYear()} GridMonitor. All rights reserved.
-              </p>
+              {/* Regulatory Information */}
+              <div className="text-center mt-1 mb-6">
+                <a
+                  href="#"
+                  className="text-sm text-gray-600 hover:text-blue-700">
+                  Regulatory Information Management for ERCOT
+                </a>
+              </div>
+              <div className="border-t border-gray-300 pt-4 w-full">
+                <p className="text-sm text-gray-900 text-center">
+                  &copy; {new Date().getFullYear()} GridMonitor. All rights reserved.
+                </p>
+              </div>
             </div>
-          </div>
-        </footer>
+          </footer>
         </div>
       </body>
     </html>
