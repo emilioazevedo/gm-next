@@ -1047,12 +1047,6 @@ button.global-button:active::after {
 .mt-\[70px\] {
   margin-top: 70px;
 }
-.ml-0 {
-  margin-left: 0px;
-}
-.ml-10 {
-  margin-left: 2.5rem;
-}
 .inline-block {
   display: inline-block;
 }
@@ -1348,6 +1342,10 @@ button.global-button:active::after {
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
 }
+.bg-\[\#a9bdcf\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(169 189 207 / var(--tw-bg-opacity, 1));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1425,13 +1423,13 @@ button.global-button:active::after {
   padding-left: 0px;
   padding-right: 0px;
 }
-.px-16 {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+.px-28 {
+  padding-left: 7rem;
+  padding-right: 7rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1473,18 +1471,6 @@ button.global-button:active::after {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
-.px-24 {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
-.px-28 {
-  padding-left: 7rem;
-  padding-right: 7rem;
-}
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -1508,9 +1494,6 @@ button.global-button:active::after {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pl-0 {
-  padding-left: 0px;
 }
 .text-left {
   text-align: left;

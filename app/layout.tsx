@@ -43,7 +43,7 @@ export default function RootLayout({
           </header>
           <main className="flex-grow w-full overflow-visible z-0 pt-16">{children}</main> {/* Ensure no overflow issues */}
           {/* Footer */}
-          <footer className="bg-[#9aafc2] p-6 w-full">
+          <footer className="bg-[#a9bdcf] p-6 w-full">
             <div className="container mx-auto px-6">
               {/* Top row with 4 columns side by side */}
               <div className="flex flex-col md:flex-row justify-between mb-12 w-full">
@@ -52,14 +52,32 @@ export default function RootLayout({
                   <img
                     src="/assets/gridmonitor-logo.png"
                     alt="GridMonitor Logo"
-                    width={200}
-                    height={70}
+                    width={300}
+                    height={105}
                     className="object-contain"
                   />
+                  <div className="mt-20 bg-white/20 backdrop-blur-md w-12/12 justify-left p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(130deg, white, grey) 1" }}>
+               
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2 text-left">
+                    Stay Updated
+                  </h3>
+                  <form className="flex flex-row items-start bg-transparent">
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      className="flex-grow bg-white px-28 pl-2 py-2 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                    <button
+                      type="submit"
+                      className="bg-[#194f90] text-white px-8 py-2 rounded-lg text-lg hover:bg-blue-700 transition">
+                      Subscribe
+                    </button>
+                  </form>
+                
+              </div>
                 </div>
 
                 {/* Get in Touch Section */}
-                <div className="mb-6 md:mb-0">
+                <div className="mb-2 md:mb-0">
                   <h3 className="text-lg font-semibold text-gray-700 mb-3">Get in touch</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>PO Box 160882</li>
@@ -70,7 +88,7 @@ export default function RootLayout({
                 </div>
 
                 {/* Resources Section */}
-                <div className="mb-6 md:mb-0">
+                <div className="mb-2 md:mb-0">
                   <h3 className="text-lg font-semibold text-gray-700 mb-3">Resources</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>
@@ -106,7 +124,7 @@ export default function RootLayout({
 
                 {/* Follow Us Section */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-3">Follow Us</h3>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">Follow Us</h3>
                   <div className="flex space-x-4">
                     <a href="#" className="hover:opacity-80">
                       <img
@@ -130,28 +148,10 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Stay Updated Form */}
-              <div className="bg-white/20 backdrop-blur-md w-4/12 justify-center p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(130deg, white, grey) 1" }}>
-                <div className="w-4/4 md:w-1/2 lg:w-2/5">
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2 text-left">
-                    Stay Updated
-                  </h3>
-                  <form className="flex flex-row items-center bg-transparent">
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      className="flex-grow bg-white px-28 pl-2 py-2 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <button
-                      type="submit"
-                      className="bg-[#194f90] text-white px-8 py-2 rounded-lg text-lg hover:bg-blue-700 transition">
-                      Subscribe
-                    </button>
-                  </form>
-                </div>
-              </div>
+              
 
               {/* Regulatory Information */}
-              <div className="text-center mt-1 mb-6">
+              <div className="text-center mt-0 mb-6">
                 <a
                   href="#"
                   className="text-sm text-gray-600 hover:text-blue-700">
