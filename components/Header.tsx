@@ -65,7 +65,7 @@ const Header = () => {
             <li>
               <a
                 href="/demo"
-                className="text-white bg-gradient-to-r from-[#194f90] via-[#2481c0] to-[#194f90] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center me-2 mb-2"
+                className="text-white bg-gradient-to-r from-[#194f90] via-[#2481c0] to-[#194f90] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center"
               >
                 Request a Demo
               </a>

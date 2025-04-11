@@ -41,7 +41,7 @@ const Carousel = () => {
       className="relative w-full py-12 flex flex-col items-center justify-center"
       style={{
         background: "linear-gradient(to bottom, #f3f4f6, #e5e7eb)", // Gradient background
-        minHeight: "950px", // Minimum height of 800px
+        minHeight: "1000px", // Minimum height of 800px
       }}
     >
       {/* Header and Description */}
@@ -54,7 +54,7 @@ const Carousel = () => {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 w-11/12 relative flex items-center justify-center">
+      <div className="container mx-auto px-6 w-10/12 relative flex items-center justify-center">
         {/* Previous Arrow */}
         <button
           onClick={handlePrev}
