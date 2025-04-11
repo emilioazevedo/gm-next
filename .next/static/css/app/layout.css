@@ -798,16 +798,15 @@ select {
     );
     border-radius: 999vw;
     box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
-      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0),
       0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
       0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
-      0 0 0 0 rgba(255, 255, 255, 1);
-    -webkit-backdrop-filter: blur(clamp(1px, 0.125em, 4px));
-            backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+      0 0 0 0 rgba(255, 255, 255, 0);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px); /* Use px instead of clamp for consistency */
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    font-size: 2rem; /* Increase font size for better readability */
-    padding-inline: 2em; /* Increase horizontal padding for balance */
-    padding-block: 0.75em; /* Adjust vertical padding for a balanced look */
+    font-size: 1.5rem; /* More consistent sizing */
+    padding: 0.75em 2em; /* Simplified padding */
   }
 .global-button:hover {
     transform: scale(0.975);
@@ -825,9 +824,7 @@ button.global-button span {
     font-size: inherit; /* Ensure the span inherits the button's font size */
     color: rgb(255, 255, 255);
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    padding-inline: 1em;
-    padding-block: 0.025em;
-    ;
+    padding: 0.025em 4em; /* Simplified padding */
   }
 button.global-button:hover span {
     text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
@@ -1019,9 +1016,6 @@ button.global-button:active::after {
 }
 .mt-0 {
   margin-top: 0px;
-}
-.mt-1 {
-  margin-top: 0.25rem;
 }
 .mt-10 {
   margin-top: 2.5rem;
@@ -1276,9 +1270,9 @@ button.global-button:active::after {
   --tw-bg-opacity: 1;
   background-color: rgb(126 157 186 / var(--tw-bg-opacity, 1));
 }
-.bg-\[\#9aafc2\] {
+.bg-\[\#a9bdcf\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(154 175 194 / var(--tw-bg-opacity, 1));
+  background-color: rgb(169 189 207 / var(--tw-bg-opacity, 1));
 }
 .bg-\[\#f9f8f5\] {
   --tw-bg-opacity: 1;
@@ -1341,10 +1335,6 @@ button.global-button:active::after {
 }
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
-}
-.bg-\[\#a9bdcf\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(169 189 207 / var(--tw-bg-opacity, 1));
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -1653,6 +1643,11 @@ button.global-button:active::after {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Set explicit base font size */
+html {
+  font-size: 16px;
+}
+
 html,
 body {
   margin: 0; /* Remove default margin */
@@ -1685,17 +1680,32 @@ body {
   overflow-y: auto; /* Allow vertical scrolling */
 }
 
-/* Root Variables */
+/* Font declaration for consistent loading */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  /* Add your font sources if loading locally */
+  /* src: url('/fonts/Inter-Regular.woff2') format('woff2'); */
+}
+
+/* Root Variables - Tightened clamp range */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-  --global--size: clamp(2rem, 4vw, 5rem);
+  --global--size: clamp(1.75rem, 2.5vw, 3rem); /* Reduced range for consistency */
   --anim--hover-time: 400ms;
   --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
   --angle-1: -75deg; /* Initial value for outline gradient */
   --angle-2: -45deg; /* Initial value for text highlight gradient */
   --background: #ffffff;
   --foreground: #171717;
+}
+
+/* Adjustment for high-DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  :root {
+    --global--size: clamp(1.65rem, 2.4vw, 2.85rem);
+  }
 }
 
 /* Add missing CSS property definitions */
@@ -1718,77 +1728,62 @@ body {
     --background-rgb: 0, 0, 0;
   }
 }
-
 .hover\:bg-\[\#5d8cb8\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(93 140 184 / var(--tw-bg-opacity, 1));
 }
-
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1));
 }
-
 .hover\:bg-gradient-to-br:hover {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
-
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity, 1));
 }
-
 .hover\:text-blue-900:hover {
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity, 1));
 }
-
 .hover\:text-gray-200:hover {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity, 1));
 }
-
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
-
 .hover\:opacity-80:hover {
   opacity: 0.8;
 }
-
 .hover\:shadow-lg:hover {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-
 .focus\:ring-4:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-
 .focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity, 1));
 }
-
 .focus\:ring-purple-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(216 180 254 / var(--tw-ring-opacity, 1));
 }
-
 @media (min-width: 768px) {
 
   .md\:mb-0 {
@@ -1835,7 +1830,6 @@ body {
     text-align: left;
   }
 }
-
 @media (min-width: 1024px) {
 
   .lg\:w-2\/5 {
@@ -1850,7 +1844,6 @@ body {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
-
 @media (prefers-color-scheme: dark) {
 
   .dark\:focus\:ring-purple-800:focus {
@@ -1858,6 +1851,3 @@ body {
     --tw-ring-color: rgb(107 33 168 / var(--tw-ring-opacity, 1));
   }
 }
-
-
-
