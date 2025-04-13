@@ -3,7 +3,10 @@ import Image from "next/image";
 
 const DemoPage: React.FC = () => {
   return (
-    <section className="demo-page-section mt-[150px] mb-[250px]">
+    <section
+      className="demo-page-section min-h-screen flex items-center bg-grainy"
+     
+    >
       <div className="container mx-auto px-4 w-8/12 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Demo Form */}
         <div className="form-column bg-white p-6 rounded-lg shadow-lg">
@@ -61,17 +64,59 @@ const DemoPage: React.FC = () => {
         </div>
 
         {/* Context Section */}
-        <div className="context-column bg-[#f9f8f5] p-6 rounded-lg shadow-lg">
+        <div className="context-column bg-transparent p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-[#194f90] mb-4">We'd Love to show you all that Grid Monitor can do for you!</h2>
-          <p className="text-sm text-gray-600 mb-4">
+          <p className="text-base text-gray-600 mb-4">
             Discover how GridMonitor can streamline your workflow and provide you with the tools you need to stay ahead of energy legislation and regulatory changes.
           </p>
-          <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
-            <li>Get a personalized walkthrough of our platform.</li>
-            <li>Learn how to track ERCOT, PUCT, and Texas Legislature updates efficiently.</li>
-            <li>See how our tools can save you time and effort.</li>
-          </ul>
-          <p className="text-sm text-gray-600 mt-4">
+          <ul className="text-base text-gray-600 space-y-4">
+  <li className="flex items-start gap-3">
+    <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
+      <svg
+        className="w-4 h-4 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={3}
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </span>
+    <span>Get a personalized walkthrough of our platform.</span>
+  </li>
+  <li className="flex items-start gap-3">
+    <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
+      <svg
+        className="w-4 h-4 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={3}
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </span>
+    <span>Learn how to track ERCOT, PUCT, and Texas Legislature updates efficiently.</span>
+  </li>
+  <li className="flex items-start gap-3">
+    <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
+      <svg
+        className="w-4 h-4 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={3}
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </span>
+    <span>See how our tools can save you time and effort.</span>
+  </li>
+</ul>
+
+
+
+          <p className="text-base text-gray-600 mt-4">
             Our team is here to answer your questions and help you get the most out of GridMonitor.
           </p>
           {/* Added Image Below the Description */}

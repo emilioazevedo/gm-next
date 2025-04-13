@@ -39,6 +39,18 @@ body {
   overflow-y: auto; /* Allow vertical scrolling */
 }
 
+.bg-grainy {
+  background: linear-gradient(135deg, #e1ecfc, #f2f2f2,#e1ecfc);
+  position: relative;
+}
+.bg-grainy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/path-to/noise.png'); /* Use a transparent noise PNG */
+  opacity: 0.1;
+  pointer-events: none;
+}
 /* Font declaration for consistent loading */
 @font-face {
   font-family: 'Inter';

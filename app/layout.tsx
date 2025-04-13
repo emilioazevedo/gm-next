@@ -58,7 +58,7 @@ export default function RootLayout({
                   />
                   <div className="mt-20 bg-white/20 backdrop-blur-md w-12/12 justify-left p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(130deg, white, grey) 1" }}>
                
-                  <h3 className="text-base font-semibold text-gray-700 mb-2 text-left">
+                  <h3 className="text-base font-semibold text-white mb-2 text-left">
                     Stay Updated
                   </h3>
                   <form className="flex flex-row items-start bg-transparent">

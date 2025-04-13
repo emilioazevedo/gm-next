@@ -38,15 +38,15 @@ const Carousel = () => {
 
   return (
     <section
-      className="relative w-full py-12 flex flex-col items-center justify-center"
+      className="relative w-full flex flex-col items-center pt-20 pb-20 justify-center"
       style={{
-        background: "linear-gradient(to bottom, #f3f4f6, #e5e7eb)", // Gradient background
-        minHeight: "1000px", // Minimum height of 800px
+        background: "linear-gradient(to bottom, #f3f4f6, #b2b9c8)", // Gradient background
+        
       }}
     >
       {/* Header and Description */}
-      <div className="text-center mb-8 max-w-4xl">
-        <h2 className="text-4xl font-extrabold text-[#194f90] mb-4">
+      <div className="text-center mb-20 max-w-4xl">
+        <h2 className="text-4xl font-extrabold text-[#194f90] mb-2">
           Grid Monitor for ERCOT
         </h2>
         <p className="text-lg text-gray-600">
@@ -54,7 +54,7 @@ const Carousel = () => {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 w-10/12 relative flex items-center justify-center">
+      <div className="container mx-auto px-6 w-9/12 relative flex items-center justify-center">
         {/* Previous Arrow */}
         <button
           onClick={handlePrev}
@@ -75,22 +75,24 @@ const Carousel = () => {
         {/* Slide Content */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full">
           {/* Description */}
-          <div className="mt-4 md:mt-0 md:mr-6 text-center md:text-left md:w-1/3">
+          <div className="mt-4 md:mt-0 md:mr-12 text-center md:text-left md:w-1/3">
             <h3 className="text-lg font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-900 leading-relaxed">
               {slides[currentSlide].description}
             </p>
           </div>
 
           {/* Video */}
-          <video
-            src={slides[currentSlide].videoSrc}
-            className="w-full md:w-2/3 rounded-lg shadow-lg"
-            muted
-            autoPlay
-            loop
-            playsInline
-          ></video>
+          <div className="w-full md:w-2/3 aspect-video max-h-[500px] rounded-xl shadow-lg overflow-hidden bg-transparent flex items-center justify-center">
+  <video
+    src={slides[currentSlide].videoSrc}
+    className="w-full h-full object-contain"
+    muted
+    autoPlay
+    loop
+    playsInline
+  />
+</div>
         </div>
 
         {/* Next Arrow */}

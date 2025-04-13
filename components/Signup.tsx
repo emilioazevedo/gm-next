@@ -2,7 +2,7 @@ import React from 'react';
 
 const Signup = () => {
   return (
-    <section className="bg-[#f9f8f5] py-1 pt-20 pb-20 w-full relative"> {/* Reduced vertical padding */}
+    <section className="bg-[#f9f8f5] py-1 pt-10 pb-20 w-full relative"> {/* Reduced vertical padding */}
       {/* Gradient Background */}
    
 
@@ -10,7 +10,7 @@ const Signup = () => {
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-[#194f90] to-gray-700 mt-4">
           Ready to stay ahead of Texas energy legislation?
         </h2>
-        <p className="text-sm text-gray-600 mb-4">
+        <p className="text-base text-gray-600 mb-10">
           Join hundreds of energy professionals who rely on GridMonitor to navigate the complex regulatory landscape.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-2 mb-4">

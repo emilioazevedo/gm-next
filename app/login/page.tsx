@@ -2,7 +2,7 @@ import React from "react";
 
 const LoginPage: React.FC = () => {
   return (
-    <section className="login-page-section mt-[70px] mb-[250px]">
+    <section className="login-page-section pt-40 pb-40 bg-grainy">
       <div className="container mx-auto px-4 w-4/12 bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-extrabold text-[#194f90] text-center mb-4">
           Login to Grid Monitor
