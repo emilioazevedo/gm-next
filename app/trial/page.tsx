@@ -4,6 +4,11 @@ const TrialPage: React.FC = () => {
   return (
     <section className="trial-page-section pt-40 pb-40 bg-grainy">
       <div className="container mx-auto px-4 w-4/12 bg-white p-8 rounded-lg shadow-lg">
+        <img
+          src="/assets/logo-vortex.gif"
+          alt="Logo"
+          className="mx-auto mb-6 w-24 h-24"
+        />
         <h2 className="text-2xl font-extrabold text-[#194f90] text-center mb-4">
           Grid Monitor is free to try.
         </h2>
