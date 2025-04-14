@@ -55,8 +55,32 @@ const DemoPage: React.FC = () => {
             <div className="form-group col-span-2">
               <button
                 type="submit"
-                className="w-full text-xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition"
+                className="w-full text-xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition flex items-center justify-center gap-2"
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <rect
+                    x="3"
+                    y="4"
+                    width="18"
+                    height="14"
+                    rx="2"
+                    ry="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M8 20h8m-4-4v4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 Request Demo
               </button>
             </div>
