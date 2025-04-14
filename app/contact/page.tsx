@@ -4,7 +4,7 @@ import Image from "next/image";
 const ContactPage = () => {
   return (
     <section className="contact-page-section min-h-screen flex items-center bg-grainy">
-      <div className="container mx-auto px-4 w-8/12 grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="container mx-auto px-4 w-6/12 grid grid-cols-1 md:grid-cols-2 gap-2">
         {/* Contact Form */}
         <div className="form-column bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-[#194f90] mb-6">Contact Us</h2>

@@ -30,8 +30,8 @@ const Header = () => {
               <Image
                 src="/assets/gridmonitor-logo.png"
                 alt="Logo"
-                width={240}
-                height={51}
+                width={200}
+                height={43}
               />
             </a>
           </div>

@@ -1107,6 +1107,9 @@ button.global-button:active::after {
 .w-full {
   width: 100%;
 }
+.w-6\/12 {
+  width: 50%;
+}
 .max-w-4xl {
   max-width: 56rem;
 }
