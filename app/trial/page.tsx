@@ -3,7 +3,7 @@ import React from "react";
 const TrialPage: React.FC = () => {
   return (
     <section className="trial-page-section pt-40 pb-40 bg-grainy">
-      <div className="container mx-auto px-4 w-6/12 bg-white p-8 rounded-lg shadow-lg">
+      <div className="container mx-auto px-4 w-4/12 bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-extrabold text-[#194f90] text-center mb-4">
           Grid Monitor is free to try.
         </h2>
@@ -131,8 +131,22 @@ const TrialPage: React.FC = () => {
           <div className="form-group col-span-2">
             <button
               type="submit"
-              className="w-full text-2xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition"
+              className="w-full text-2xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition flex items-center justify-center gap-2"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
+                />
+              </svg>
               START FREE TRIAL
             </button>
           </div>

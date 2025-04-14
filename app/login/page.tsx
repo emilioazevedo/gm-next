@@ -3,7 +3,12 @@ import React from "react";
 const LoginPage: React.FC = () => {
   return (
     <section className="login-page-section pt-40 pb-40 bg-grainy">
-      <div className="container mx-auto px-4 w-4/12 bg-white p-8 rounded-lg shadow-lg">
+      <div className="container mx-auto px-4 w-3/12 bg-white p-8 rounded-lg shadow-lg">
+        <img
+          src="/assets/logo-vortex.gif"
+          alt="Logo"
+          className="mx-auto mb-6 w-24 h-24"
+        />
         <h2 className="text-2xl font-extrabold text-[#194f90] text-center mb-4">
           Login to Grid Monitor
         </h2>
@@ -49,8 +54,26 @@ const LoginPage: React.FC = () => {
           <div className="form-group">
             <button
               type="submit"
-              className="w-full text-2xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition"
+              className="w-full text-2xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition flex items-center justify-center gap-2"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <circle cx="12" cy="8" r="4" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M12 12c-4 0-7 2-7 5v1h14v-1c0-3-3-5-7-5z"
+                  strokeLinecap="round" strokeLinejoin="round"
+                />
+                <path
+                  d="M20 4a2 2 0 11-4 0 2 2 0 014 0z"
+                  strokeLinecap="round" strokeLinejoin="round"
+                />
+              </svg>
               LOGIN
             </button>
           </div>
