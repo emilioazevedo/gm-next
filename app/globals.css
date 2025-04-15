@@ -258,3 +258,27 @@ body {
     --angle-1: -075deg;
   }
 }
+
+.bg-blue-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(25, 79, 144, 0.05),
+    rgba(25, 79, 144, 0.15),
+    rgba(25, 79, 144, 0.1),
+    rgba(25, 79, 144, 0.05)
+  );
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-diagonal {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-gradient-diagonal {
+  animation: gradient-diagonal 8s ease infinite;
+}

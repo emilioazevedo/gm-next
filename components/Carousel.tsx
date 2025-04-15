@@ -38,11 +38,7 @@ const Carousel = () => {
 
   return (
     <section
-      className="relative w-full flex flex-col items-center pt-20 pb-20 justify-center"
-      style={{
-        background: "linear-gradient(to bottom, #f3f4f6, #b2b9c8)", // Gradient background
-        
-      }}
+      className="relative w-full flex flex-col items-center pt-20 pb-20 justify-center bg-blue-gradient animate-gradient-diagonal"
     >
       {/* Header and Description */}
       <div className="text-center mb-20 max-w-4xl">
