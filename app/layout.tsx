@@ -100,7 +100,7 @@ export default function RootLayout({
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-blue-700">
+                      <a href="/blog" className="hover:text-blue-700">
                         GridMonitor Blog
                       </a>
                     </li>

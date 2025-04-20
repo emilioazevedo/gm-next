@@ -8,7 +8,11 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
@@ -27,21 +31,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           ></div>
         </div>
 
-        {/* Sidebar with All Blog Entries */}
+        {/* Sidebar with Other Blog Entries */}
         <div className="bg-white/50 p-8 rounded-xl border-2 border-zinc-400/40 bg-clip-border">
-          <h2 className="text-lg font-bold text-[#194f90] mb-4">All Posts</h2>
+          <h2 className="text-lg font-bold text-[#194f90] mb-4">Other Posts</h2>
           <ul className="space-y-4 text-base">
-            {getAllPosts().map((otherPost) => (
-              <li key={otherPost.slug}>
-                <a
-                  href={`/blog/${otherPost.slug}`}
-                  className="text-blue-500 hover:underline"
-                >
-                  {otherPost.metadata.title}
-                </a>
-                <p className="text-sm text-gray-500">{otherPost.metadata.date}</p>
-              </li>
-            ))}
+            {getAllPosts()
+              .filter((otherPost) => otherPost.slug !== params.slug) // Exclude the current post
+              .map((otherPost) => (
+                <li key={otherPost.slug}>
+                  <a
+                    href={`/blog/${otherPost.slug}`}
+                    className="text-blue-500 hover:underline"
+                  >
+                    {otherPost.metadata.title}
+                  </a>
+                  <p className="text-sm text-gray-500">{otherPost.metadata.date}</p>
+                </li>
+              ))}
           </ul>
         </div>
       </div>

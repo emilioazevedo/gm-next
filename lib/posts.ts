@@ -7,26 +7,29 @@ const postsDirectory = path.join(process.cwd(), "posts");
 export function getAllPosts() {
   const fileNames = fs.readdirSync(postsDirectory);
 
-  return fileNames.map((fileName) => {
-    try {
-      const filePath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      const { data, content } = matter(fileContents);
+  return fileNames
+    .filter((fileName) => fileName.endsWith(".md")) // Only process Markdown files
+    .map((fileName) => {
+      try {
+        const filePath = path.join(postsDirectory, fileName);
+        const fileContents = fs.readFileSync(filePath, "utf8");
+        const { data, content } = matter(fileContents);
 
-      if (!data.title || !data.date || !data.excerpt) {
-        throw new Error(`Missing required frontmatter in file: ${fileName}`);
+        if (!data.title || !data.date || !data.excerpt) {
+          throw new Error(`Missing required frontmatter in file: ${fileName}`);
+        }
+
+        return {
+          slug: fileName.replace(/\.md$/, ""), // Remove .md extension
+          metadata: data,
+          content,
+        };
+      } catch (error) {
+        console.error(`Error processing file ${fileName}:`, error.message);
+        return null; // Skip invalid files
       }
-
-      return {
-        slug: fileName.replace(/\.md$/, ""), // Remove .md extension
-        metadata: data,
-        content,
-      };
-    } catch (error) {
-      console.error(`Error processing file ${fileName}:`, error.message);
-      return null; // Skip invalid files
-    }
-  }).filter(Boolean); // Remove null entries
+    })
+    .filter(Boolean); // Remove null entries
 }
 
 export function getPostBySlug(slug: string) {
