@@ -11,7 +11,6 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
-    "@tryghost/content-api": "^1.11.21",
     "autoprefixer": "^10.4.0",
     "gray-matter": "^4.0.3",
     "marked": "^5.1.2",
@@ -25,6 +24,7 @@
     "tailwindcss-filters": "^3.0.0"
   },
   "devDependencies": {
+    "@types/marked": "^5.0.2",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

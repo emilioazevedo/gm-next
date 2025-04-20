@@ -11,7 +11,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'), // Existing plugin
     require('tailwindcss-filters'), // Existing plugin
-    require('@tailwindcss/typography'), // Added typography plugin
+    require('@tailwindcss/typography'), // This is important for the prose classes
   ],
 };
 

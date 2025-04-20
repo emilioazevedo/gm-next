@@ -1,26 +1,32 @@
 import React from "react";
-import { getAllPosts, Post } from "../../lib/posts"; // Import the Post type
+import Link from "next/link";
+import { getAllPosts } from "../../lib/posts";
 
 export default function BlogPage() {
-  const posts: Post[] = getAllPosts(); // Explicitly type the posts variable
-
-  console.log("Posts fetched for blog page:", posts); // Debug log
+  const posts = getAllPosts();
 
   return (
     <section className="blog-page-section min-h-screen pt-20 pb-20 bg-grainy">
       <div className="container mx-auto px-8 w-full max-w-7xl">
-        <h1 className="text-3xl font-bold text-[#194f90] mb-8">Blog</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Changed to grid layout */}
+        <h1 className="text-3xl font-bold text-[#194f90] mb-8">ERCOT - PUCT - Texas Legislature Blog</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {posts.map((post) => (
             <div
               key={post.slug}
-              className="bg-white/50 p-6 rounded-xl border-2 border-zinc-400/40 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white/50 p-6 rounded-xl border-sky-200 bg-gradient-to-b from-gray-200 to-transparent shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <h2 className="text-lg font-semibold text-[#194f90]">
-                <a href={`/blog/${post.slug}`}>{post.metadata.title}</a>
+                <Link href={`/blog/${post.slug}`} className="hover:text-blue-700 transition">
+                  {post.metadata.title}
+                </Link>
               </h2>
-              <p className="text-sm text-gray-500">{post.metadata.date}</p>
-              <p className="text-lg text-gray-700">{post.metadata.excerpt}</p>
+              <p className="text-sm text-gray-500 mb-3">{post.metadata.date}</p>
+              <p className="text-base text-gray-700">{post.metadata.excerpt}</p>
+              <div className="mt-4 text-base">
+                <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:text-blue-800 font-medium">
+                  Read more →
+                </Link>
+              </div>
             </div>
           ))}
         </div>

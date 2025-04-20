@@ -2,58 +2,77 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-// Define the type for a Post metadata
-export interface PostMetadata {
-  title: string;
-  date: string;
-  // Add other metadata properties as needed
-}
+const postsDirectory = path.join(process.cwd(), "posts");
 
-// Define the type for a Post object
 export interface Post {
   slug: string;
-  metadata: PostMetadata;
+  metadata: {
+    title: string;
+    date: string;
+    excerpt: string;
+    author: string;
+    [key: string]: any;
+  };
   content: string;
 }
-
-const postsDirectory = path.join(process.cwd(), "posts");
 
 export function getAllPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames
-    .filter((fileName) => fileName.endsWith(".md")) // Only process Markdown files
+    .filter((fileName) => fileName.endsWith(".md"))
     .map((fileName) => {
       const filePath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(filePath, "utf8");
       const { data, content } = matter(fileContents);
 
-      // Type cast the metadata to PostMetadata
-      const metadata = data as PostMetadata;
+      // Ensure metadata has all required fields
+      const metadata = {
+        title: data.title || "Untitled",
+        date: data.date || new Date().toISOString().split('T')[0],
+        excerpt: data.excerpt || "No excerpt available",
+        author: data.author || "Anonymous",
+        ...data, // Include other fields
+      };
 
       return {
-        slug: fileName.replace(/\.md$/, ""), // Remove .md extension
-        metadata: metadata,
+        slug: fileName.replace(/\.md$/, ""),
+        metadata,
         content,
-      };
+      } as Post;
+    })
+    .sort((a, b) => {
+      // Sort by date (newest first)
+      return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
     });
 }
 
 export function getPostBySlug(slug: string): Post | null {
-  const filePath = path.join(postsDirectory, `${slug}.md`);
-  if (!fs.existsSync(filePath)) {
-    return null; // Return null if the file does not exist
+  try {
+    const filePath = path.join(postsDirectory, `${slug}.md`);
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
+
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    // Ensure metadata has all required fields
+    const metadata = {
+      title: data.title || "Untitled",
+      date: data.date || new Date().toISOString().split('T')[0],
+      excerpt: data.excerpt || "No excerpt available",
+      author: data.author || "Anonymous",
+      ...data, // Include other fields
+    };
+
+    return {
+      slug,
+      metadata,
+      content,
+    } as Post;
+  } catch (error) {
+    console.error(`Error getting post ${slug}:`, error);
+    return null;
   }
-
-  const fileContents = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  // Type cast the metadata to PostMetadata
-  const metadata = data as PostMetadata;
-
-  return {
-    slug: slug, // Add the slug here
-    metadata: metadata,
-    content,
-  };
 }
