@@ -11,11 +11,16 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
+    "@tryghost/content-api": "^1.11.21",
     "autoprefixer": "^10.4.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^5.1.2",
     "next": "^15.2.4",
     "postcss": "^8.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "tailwindcss": "^3.3.0",
     "tailwindcss-filters": "^3.0.0"
   },
