@@ -1,8 +1,8 @@
 import React from "react";
-import { getAllPosts } from "../../lib/posts";
+import { getAllPosts, Post } from "../../lib/posts"; // Import the Post type
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const posts: Post[] = getAllPosts(); // Explicitly type the posts variable
 
   console.log("Posts fetched for blog page:", posts); // Debug log
 
