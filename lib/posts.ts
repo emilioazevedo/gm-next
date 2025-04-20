@@ -10,30 +10,24 @@ export function getAllPosts() {
   return fileNames
     .filter((fileName) => fileName.endsWith(".md")) // Only process Markdown files
     .map((fileName) => {
-      try {
-        const filePath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data, content } = matter(fileContents);
+      const filePath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      const { data, content } = matter(fileContents);
 
-        if (!data.title || !data.date || !data.excerpt) {
-          throw new Error(`Missing required frontmatter in file: ${fileName}`);
-        }
-
-        return {
-          slug: fileName.replace(/\.md$/, ""), // Remove .md extension
-          metadata: data,
-          content,
-        };
-      } catch (error) {
-        console.error(`Error processing file ${fileName}:`, error.message);
-        return null; // Skip invalid files
-      }
-    })
-    .filter(Boolean); // Remove null entries
+      return {
+        slug: fileName.replace(/\.md$/, ""), // Remove .md extension
+        metadata: data,
+        content,
+      };
+    });
 }
 
 export function getPostBySlug(slug: string) {
   const filePath = path.join(postsDirectory, `${slug}.md`);
+  if (!fs.existsSync(filePath)) {
+    return null; // Return null if the file does not exist
+  }
+
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 

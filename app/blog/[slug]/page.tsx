@@ -3,20 +3,25 @@ import { getPostBySlug, getAllPosts } from "../../../lib/posts";
 import { notFound } from "next/navigation";
 import { marked } from "marked";
 
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-interface BlogPostPageProps {
-  params: { slug: string };
-}
+export default function BlogPostPage({ params }: PageProps) {
+  const { slug } = params;
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug);
+  // Fetch the post based on the slug
+  const post = getPostBySlug(slug);
 
   if (!post) {
-    notFound();
+    notFound(); // Handle 404 if the post is not found
   }
 
   return (
@@ -36,7 +41,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           <h2 className="text-lg font-bold text-[#194f90] mb-4">Other Posts</h2>
           <ul className="space-y-4 text-base">
             {getAllPosts()
-              .filter((otherPost) => otherPost.slug !== params.slug) // Exclude the current post
+              .filter((otherPost) => otherPost.slug !== slug) // Exclude the current post
               .map((otherPost) => (
                 <li key={otherPost.slug}>
                   <a
