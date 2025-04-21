@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 const NavMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,31 +26,31 @@ const NavMenu = () => {
       {/* Desktop Navigation */}
       <ul className="hidden md:flex justify-center space-x-8 text-lg items-center">
         <li>
-          <a href="/about" className="text-gray-700 hover:text-blue-700">
+          <Link href="/about" className="text-gray-700 hover:text-blue-700">
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/contact" className="text-gray-700 hover:text-blue-700">
+          <Link href="/contact" className="text-gray-700 hover:text-blue-700">
             Contact Us
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/trial" className="text-gray-700 hover:text-blue-700">
+          <Link href="/trial" className="text-gray-700 hover:text-blue-700">
             Start free trial
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/login" className="text-blue-400 hover:text-blue-900">
+          <Link href="/login" className="text-blue-400 hover:text-blue-900">
             Login
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/demo">
+          <Link href="/demo">
             <button className="demo-button">
               <span>Request a Demo</span>
             </button>
-          </a>
+          </Link>
         </li>
       </ul>
 
@@ -59,48 +60,49 @@ const NavMenu = () => {
           <div className="h-full flex flex-col p-5 pt-16">
             <ul className="flex flex-col space-y-6 text-xl">
               <li>
-                <a 
+                <Link 
                   href="/about" 
                   className="block py-2 text-gray-700 hover:text-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
+                <Link 
                   href="/contact" 
                   className="block py-2 text-gray-700 hover:text-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
+                <Link 
                   href="/trial" 
                   className="block py-2 text-gray-700 hover:text-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Start free trial
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
+                <Link 
                   href="/login" 
                   className="block py-2 text-blue-400 hover:text-blue-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Login
-                </a>
+                </Link>
               </li>
               <li className="pt-4">
-                <a 
+                <Link 
                   href="/demo"
-                  className="block py-2 text-blue-400 hover:text-blue-900">
-                    <span>Request a Demo</span>
-                 
-                </a>
+                  className="block py-2 text-blue-400 hover:text-blue-900"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span>Request a Demo</span>
+                </Link>
               </li>
             </ul>
           </div>

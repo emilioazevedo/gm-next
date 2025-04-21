@@ -3,6 +3,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css"; // Ensure this matches the actual file path
 import Header from "@/components/Header"; // Import the Header component
+import Link from "next/link"; // Import Link component
 import { ReactNode, useEffect, useState } from "react";
 
 const geistSans = Geist({
@@ -100,24 +101,24 @@ export default function RootLayout({
                       </a>
                     </li>
                     <li>
-                      <a href="/blog" className="hover:text-blue-700">
+                      <Link href="/blog" className="hover:text-blue-700">
                         GridMonitor Blog
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-blue-700">
+                      <Link href="/about-ercot" className="hover:text-blue-700">
                         About ERCOT
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-blue-700">
+                      <Link href="/about-puct" className="hover:text-blue-700">
                         About PUCT
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-blue-700">
+                      <Link href="/about-lege" className="hover:text-blue-700">
                         About LEGE
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -126,7 +127,7 @@ export default function RootLayout({
                 <div>
                   <h3 className="text-lg font-semibold text-gray-700 mb-2">Follow Us</h3>
                   <div className="flex space-x-4">
-                    <a href="#" className="hover:opacity-80">
+                    <Link href="https://twitter.com/gridmonitor" className="hover:opacity-80">
                       <img
                         src="/assets/x-b.png"
                         alt="X Logo"
@@ -134,8 +135,8 @@ export default function RootLayout({
                         height={24}
                         className="object-contain"
                       />
-                    </a>
-                    <a href="#" className="hover:opacity-80">
+                    </Link>
+                    <Link href="https://linkedin.com/company/gridmonitor" className="hover:opacity-80">
                       <img
                         src="/assets/linkedin-b.png"
                         alt="LinkedIn Logo"
@@ -143,7 +144,7 @@ export default function RootLayout({
                         height={24}
                         className="object-contain"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -152,11 +153,11 @@ export default function RootLayout({
 
               {/* Regulatory Information */}
               <div className="text-center mt-0 mb-6">
-                <a
-                  href="#"
+                <Link
+                  href="/regulatory"
                   className="text-sm text-gray-600 hover:text-blue-700">
                   Regulatory Information Management for ERCOT
-                </a>
+                </Link>
               </div>
               <div className="border-t border-gray-300 pt-4 w-full">
                 <p className="text-sm text-gray-900 text-center">

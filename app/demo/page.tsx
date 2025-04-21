@@ -5,86 +5,82 @@ const DemoPage: React.FC = () => {
   return (
     <section
       className="demo-page-section min-h-screen flex items-center bg-grainy"
-     
     >
       <div className="container mx-auto px-4 w-8/12 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Demo Form */}
-        <div className="form-column bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold text-[#194f90] mb-6">Take the first step, we will take care for the rest.</h2>
-          <form className="demo-form grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="company"
-                placeholder="Company"
-                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone Number"
-                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group col-span-2">
-              <textarea
-                name="comments"
-                placeholder="Comments"
-                rows={5}
-                className="w-full text-sm px-4 py-2 border bg-sky-100/40 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
-            <div className="form-group col-span-2">
-              <button
-                type="submit"
-                className="w-full text-xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition flex items-center justify-center gap-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+        <div className="lg:w-2/2">
+          <div className="bg-white rounded-xl shadow-lg p-8 sm:p-10 border border-gray-100">
+            <h2 className="text-2xl font-bold text-[#194f90] mb-6">Request a Demo</h2>
+            
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    required
+                    className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    required
+                    className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              
+              <div>
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Company Name"
+                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              
+              <div>
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your needs"
+                  rows={4}
+                  className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                ></textarea>
+              </div>
+              
+              <div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#194f90] hover:bg-blue-800 text-white py-3 px-4 rounded-lg transition-all duration-300 font-medium text-lg"
                 >
-                  <rect
-                    x="3"
-                    y="4"
-                    width="18"
-                    height="14"
-                    rx="2"
-                    ry="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M8 20h8m-4-4v4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Request Demo
-              </button>
-            </div>
-          </form>
+                  Request Demo
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
 
         {/* Context Section */}
@@ -94,51 +90,49 @@ const DemoPage: React.FC = () => {
             Discover how GridMonitor can streamline your workflow and provide you with the tools you need to stay ahead of energy legislation and regulatory changes.
           </p>
           <ul className="text-base text-gray-600 space-y-4">
-  <li className="flex items-start gap-3">
-    <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
-      <svg
-        className="w-4 h-4 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={3}
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-      </svg>
-    </span>
-    <span>Get a personalized walkthrough of our platform.</span>
-  </li>
-  <li className="flex items-start gap-3">
-    <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
-      <svg
-        className="w-4 h-4 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={3}
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-      </svg>
-    </span>
-    <span>Learn how to track ERCOT, PUCT, and Texas Legislature updates efficiently.</span>
-  </li>
-  <li className="flex items-start gap-3">
-    <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
-      <svg
-        className="w-4 h-4 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={3}
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-      </svg>
-    </span>
-    <span>See how our tools can save you time and effort.</span>
-  </li>
-</ul>
-
-
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span>Get a personalized walkthrough of our platform.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span>Learn how to track ERCOT, PUCT, and Texas Legislature updates efficiently.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 flex items-center justify-center bg-green-500 rounded-md shadow-inner shadow-white">
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span>See how our tools can save you time and effort.</span>
+            </li>
+          </ul>
 
           <p className="text-base text-gray-600 mt-4">
             Our team is here to answer your questions and help you get the most out of GridMonitor.

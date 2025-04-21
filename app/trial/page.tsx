@@ -1,164 +1,201 @@
-import React from "react";
+"use client";
 
-const TrialPage: React.FC = () => {
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+export default function TrialPage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
+    regCode: "",
+    option: "",
+    agreeTerms: false
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
+    
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form data submitted:", formData);
+    // Handle form submission logic here
+  };
+
   return (
-    <section className="trial-page-section pt-40 pb-40 bg-grainy">
-      <div className="container mx-auto px-4 w-4/12 bg-white p-8 rounded-lg shadow-lg">
-        <img
-          src="/assets/logo-vortex.gif"
-          alt="Logo"
-          className="mx-auto mb-6 w-24 h-24"
-        />
-        <h2 className="text-2xl font-extrabold text-[#194f90] text-center mb-4">
-          Grid Monitor is free to try.
-        </h2>
-        <p className="text-sm text-gray-600 text-center mb-8">
-          No credit card required. Already a member?{" "}
-          <a href="/login" className="text-blue-600 hover:underline">
-            Log in here.
-          </a>
-        </p>
-
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-0"> {/* Changed from gap-4 to gap-2 */}
-          {/* First Name */}
-          <div className="form-group">
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              placeholder="First Name"
-              className="w-full px-4 py-3  border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+    <div className="min-h-screen bg-grainy flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 lg:py-20">
+      <div className="bg-white rounded-xl shadow-lg w-full max-w-2xl mx-auto p-8 sm:p-10 space-y-8 border border-gray-100">
+        <div className="text-center">
+          <div className="flex justify-center mb-8">
+            <Image 
+              src="/assets/logo-vortex.gif" 
+              alt="GridMonitor Logo" 
+              width={120} 
+              height={120}
+              className="mx-auto"
             />
           </div>
+          <h1 className="text-3xl font-bold text-center text-[#194f90]">
+            Grid Monitor is free to try.
+          </h1>
+          <p className="mt-4 text-gray-600 text-lg">
+            No credit card required.
+          </p>
+          <p className="mt-2 text-gray-500 text-lg">
+            Already a member? <Link href="/login" className="text-blue-600 hover:text-blue-800">Log in here.</Link>
+          </p>
+        </div>
 
-          {/* Last Name */}
-          <div className="form-group pl-2">
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              placeholder="Last Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
-            />
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                placeholder="First Name"
+                className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            
+            <div>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                placeholder="Last Name"
+                className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                value={formData.lastName}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-
-          {/* Company Email Address */}
-          <div className="form-group col-span-2">
+          
+          <div>
             <input
-              type="email"
               id="email"
               name="email"
+              type="email"
+              required
               placeholder="you@company.com"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
-
-          {/* Password */}
-          <div className="form-group">
+          
+          <div>
             <input
-              type="password"
               id="password"
               name="password"
+              type="password"
+              required
               placeholder="Password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              value={formData.password}
+              onChange={handleChange}
             />
           </div>
-
-          {/* Confirm Password */}
-          <div className="form-group pl-2">
+          
+          <div>
             <input
-              type="password"
               id="confirmPassword"
               name="confirmPassword"
+              type="password"
+              required
               placeholder="Confirm Password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              value={formData.confirmPassword}
+              onChange={handleChange}
             />
           </div>
-
-          {/* Phone Number */}
-          <div className="form-group col-span-2">
+          
+          <div>
             <input
-              type="tel"
               id="phone"
               name="phone"
+              type="tel"
               placeholder="123-456-7890"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              value={formData.phone}
+              onChange={handleChange}
             />
           </div>
-
-          {/* How did you hear about us? */}
-          <div className="form-group col-span-2">
+          
+          <div>
             <select
-              id="referral"
-              name="referral"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              id="option"
+              name="option"
+              className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+              value={formData.option}
+              onChange={handleChange}
             >
-              <option value="">Select an option</option>
-              <option value="Referral">Referral</option>
-              <option value="Search Engine">Search Engine</option>
-              <option value="Social Media">Social Media</option>
-              <option value="Other">Other</option>
+              <option value="" disabled>Select an option</option>
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
             </select>
           </div>
-
-          {/* Registration Code */}
-          <div className="form-group col-span-2">
+          
+          <div>
             <input
+              id="regCode"
+              name="regCode"
               type="text"
-              id="registrationCode"
-              name="registrationCode"
-              placeholder="Registration Code"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-sky-100/40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              placeholder="Registration Code (Optional)"
+              className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              value={formData.regCode}
+              onChange={handleChange}
             />
           </div>
-
-          {/* Terms and Conditions */}
-          <div className="form-group col-span-2 flex items-center">
+          
+          <div className="flex items-start">
             <input
+              id="agreeTerms"
+              name="agreeTerms"
               type="checkbox"
-              id="terms"
-              name="terms"
-              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 text-sm"
+              required
+              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
+              checked={formData.agreeTerms}
+              onChange={handleChange}
             />
-            <label htmlFor="terms" className="ml-2 text-sm text-gray-700">
+            <label htmlFor="agreeTerms" className="ml-2 block text-sm text-gray-700">
               I agree to the{" "}
-              <a href="/terms" className="text-blue-600 hover:underline">
+              <Link href="/terms" className="text-blue-600 hover:text-blue-500">
                 Terms & Conditions
-              </a>{" "}
+              </Link>{" "}
               and{" "}
-              <a href="/privacy" className="text-blue-600 hover:underline">
+              <Link href="/privacy" className="text-blue-600 hover:text-blue-500">
                 Privacy Policy
-              </a>
+              </Link>
             </label>
           </div>
-
-          {/* Submit Button */}
-          <div className="form-group col-span-2">
+          
+          <div>
             <button
               type="submit"
-              className="w-full text-2xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition flex items-center justify-center gap-2"
+              className="w-full bg-[#194f90] hover:bg-blue-800 text-white py-3 px-4 rounded-lg transition-all duration-300 font-medium text-lg"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
-                />
-              </svg>
               START FREE TRIAL
             </button>
           </div>
         </form>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default TrialPage;
+}

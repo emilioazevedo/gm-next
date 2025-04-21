@@ -1,137 +1,150 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 
-const ContactPage = () => {
-  return (
-    <section className="contact-page-section min-h-screen flex items-center bg-grainy">
-      <div className="container mx-auto px-4 w-6/12 grid grid-cols-1 md:grid-cols-2 gap-2">
-        {/* Contact Form */}
-        <div className="form-column bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold text-[#194f90] mb-6">Contact Us</h2>
-          <form className="contact-form grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="w-full bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="Company"
-                placeholder="Company"
-                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone"
-                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="form-group col-span-2">
-              <textarea
-                name="message"
-                placeholder="Message"
-                rows={5}
-                className="w-full  bg-sky-100/50 text-lg px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
-            <div className="form-group col-span-2">
-              <button
-                type="submit"
-                className="w-full text-2xl bg-[#194f90] text-white py-2 px-2 rounded-md hover:bg-[#5d8cb8] transition"
-              >
-                Send Now
-              </button>
-            </div>
-          </form>
-        </div>
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    firstName: "",
+    lastName: "",
+    company: "",
+    phone: "",
+  });
 
-        {/* Contact Information */}
-        <div className="info-column text-xl bg-[#194f90] text-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-semibold mb-6">Contact Details</h2>
-          <ul className="space-y-4">
-            <li className="flex items-center">
-              <i className=" mr-4"></i>
-              <span>Available from 10:00 – 5:00 PM CST</span>
-            </li>
-            <li className="flex items-center">
-              <i className=" mr-4"></i>
-              <a href="mailto:customercare@gridmonitor.com" className="hover:underline">
-              customercare@gridmonitor.com
-              </a>
-            </li>
-            <li className="flex items-center">
-              <i className="mr-4"></i>
-              <span>1-800-981-6638</span>
-            </li>
-            <li className="font-semibold pt-8 flex items-center">
-              <i className="mr-4"></i>
-              <span>Mail Address</span>
-            </li>
-         
-          <li className="flex items-center">
-              <i className="mr-4"></i>
-              <span>PO Box 160882</span>
-            </li>
-            <li className="flex items-center">
-              <i className="mr-4"></i>
-              <span> Austin, TX  78716</span>
-            </li>
-          </ul>
-          <div className="mt-10 flex justify-center">
-            <Image
-              src="/assets/gm-icon.png"
-              alt="GridMonitor Icon"
-              width={200}
-              height={200}
-              className="object-contain"
-            />
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Contact form submitted:", formData);
+    // Handle form submission logic here
+  };
+
+  return (
+    <div className="min-h-screen bg-grainy py-16 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl">
+        <h1 className="text-3xl font-bold text-[#194f90] mb-8">Contact Us</h1>
+        
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Contact Form - Apply trial page styling */}
+          <div className="lg:w-1/2">
+            <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {/* Style form inputs like trial page */}
+                <div>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your Name"
+                    className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                <div>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="you@company.com"
+                    className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    placeholder="Your message"
+                    className="appearance-none relative block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                {/* Style button like trial page */}
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full bg-[#194f90] hover:bg-blue-800 text-white py-3 px-4 rounded-lg transition-all duration-300 font-medium text-lg"
+                  >
+                    SEND MESSAGE
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-          <ul className="flex space-x-4 mt-4">
-            <li>
-              <a href="#" className="text-white hover:text-gray-200">
-                <i className="text-2xl"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-white hover:text-gray-200">
-                <i className="text-2xl"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-white hover:text-gray-200">
-                <i className="text-2xl"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-white hover:text-gray-200">
-                <i className="text-2xl"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-white hover:text-gray-200">
-                <i className="text-2xl"></i>
-              </a>
-            </li>
-          </ul>
+          
+          {/* Contact Information - Keep existing content */}
+          <div className="lg:w-1/2">
+            <div className="bg-white rounded-xl shadow-lg w-full max-w-2xl mx-auto p-8 sm:p-10 space-y-8 border border-gray-100">
+              <div className="text-center">
+                <div className="flex justify-center mb-8">
+                  <Image 
+                    src="/assets/logo-vortex.gif" 
+                    alt="GridMonitor Logo" 
+                    width={120} 
+                    height={120}
+                    className="mx-auto"
+                  />
+                </div>
+                <h1 className="text-3xl font-bold text-center text-[#194f90]">
+                  Contact Us
+                </h1>
+                <p className="mt-4 text-gray-600 text-lg">
+                  Have questions? We're here to help.
+                </p>
+                
+                {/* Contact Information */}
+                <div className="mt-6 bg-white/50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                  <div className="grid grid-cols-1 gap-6 text-left">
+                    {/* Address and Phone in one row */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h3 className="font-semibold text-lg text-[#194f90] mb-1">Address</h3>
+                        <p className="text-gray-600 text-sm">PO Box 160882</p>
+                        <p className="text-gray-600 text-sm">Austin, TX 78716</p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="font-semibold text-lg text-[#194f90] mb-1">Phone & Hours</h3>
+                        <p className="text-gray-600 text-sm">1-800-981-6638</p>
+                        <p className="text-gray-600 text-sm">10:00 – 5:00 PM CST</p>
+                      </div>
+                    </div>
+                    
+                    {/* Email in second row */}
+                    <div>
+                      <h3 className="font-semibold text-lg text-[#194f90] mb-1">Email</h3>
+                      <p className="text-gray-600 text-sm">
+                        <a href="mailto:customercare@gridmonitor.com" className="hover:text-blue-700">
+                          customercare@gridmonitor.com
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default ContactPage;
+}

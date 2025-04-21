@@ -1556,9 +1556,6 @@ button.global-button:active::after {
 .left-\[-4rem\] {
   left: -4rem;
 }
-.right-0 {
-  right: 0px;
-}
 .right-12 {
   right: 3rem;
 }
@@ -1580,9 +1577,6 @@ button.global-button:active::after {
 .top-2 {
   top: 0.5rem;
 }
-.top-full {
-  top: 100%;
-}
 .z-0 {
   z-index: 0;
 }
@@ -1592,17 +1586,14 @@ button.global-button:active::after {
 .z-20 {
   z-index: 20;
 }
+.z-40 {
+  z-index: 40;
+}
 .z-50 {
   z-index: 50;
 }
 .z-\[9999\] {
   z-index: 9999;
-}
-.z-40 {
-  z-index: 40;
-}
-.col-span-2 {
-  grid-column: span 2 / span 2;
 }
 .m-px {
   margin: 1px;
@@ -1614,8 +1605,8 @@ button.global-button:active::after {
 .mb-0 {
   margin-bottom: 0px;
 }
-.mb-1\.5 {
-  margin-bottom: 0.375rem;
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 .mb-10 {
   margin-bottom: 2.5rem;
@@ -1656,17 +1647,11 @@ button.global-button:active::after {
 .mr-2 {
   margin-right: 0.5rem;
 }
-.mr-4 {
-  margin-right: 1rem;
-}
 .mt-0 {
   margin-top: 0px;
 }
-.mt-1\.5 {
-  margin-top: 0.375rem;
-}
-.mt-10 {
-  margin-top: 2.5rem;
+.mt-1 {
+  margin-top: 0.25rem;
 }
 .mt-16 {
   margin-top: 4rem;
@@ -1682,6 +1667,12 @@ button.global-button:active::after {
 }
 .mt-4 {
   margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
 }
 .block {
   display: block;
@@ -1707,14 +1698,14 @@ button.global-button:active::after {
 .h-0\.5 {
   height: 0.125rem;
 }
-.h-10 {
-  height: 2.5rem;
-}
 .h-24 {
   height: 6rem;
 }
 .h-4 {
   height: 1rem;
+}
+.h-5 {
+  height: 1.25rem;
 }
 .h-6 {
   height: 1.5rem;
@@ -1722,20 +1713,17 @@ button.global-button:active::after {
 .h-8 {
   height: 2rem;
 }
-.h-full {
-  height: 100%;
-}
-.h-5 {
-  height: 1.25rem;
-}
 .h-auto {
   height: auto;
 }
-.max-h-\[500px\] {
-  max-height: 500px;
+.h-full {
+  height: 100%;
 }
 .max-h-9 {
   max-height: 2.25rem;
+}
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1743,20 +1731,11 @@ button.global-button:active::after {
 .w-1\/3 {
   width: 33.333333%;
 }
-.w-10 {
-  width: 2.5rem;
-}
 .w-10\/12 {
   width: 83.333333%;
 }
 .w-11\/12 {
   width: 91.666667%;
-}
-.w-24 {
-  width: 6rem;
-}
-.w-3\/12 {
-  width: 25%;
 }
 .w-3\/5 {
   width: 60%;
@@ -1764,14 +1743,8 @@ button.global-button:active::after {
 .w-4 {
   width: 1rem;
 }
-.w-4\/12 {
-  width: 33.333333%;
-}
 .w-6 {
   width: 1.5rem;
-}
-.w-6\/12 {
-  width: 50%;
 }
 .w-8 {
   width: 2rem;
@@ -1782,11 +1755,14 @@ button.global-button:active::after {
 .w-9\/12 {
   width: 75%;
 }
+.w-auto {
+  width: auto;
+}
 .w-full {
   width: 100%;
 }
-.w-auto {
-  width: auto;
+.max-w-2xl {
+  max-width: 42rem;
 }
 .max-w-4xl {
   max-width: 56rem;
@@ -1796,6 +1772,9 @@ button.global-button:active::after {
 }
 .max-w-full {
   max-width: 100%;
+}
+.max-w-md {
+  max-width: 28rem;
 }
 .max-w-none {
   max-width: none;
@@ -1843,8 +1822,16 @@ button.global-button:active::after {
 .list-disc {
   list-style-type: disc;
 }
+.appearance-none {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -1866,9 +1853,6 @@ button.global-button:active::after {
 }
 .justify-between {
   justify-content: space-between;
-}
-.gap-0 {
-  gap: 0px;
 }
 .gap-1 {
   gap: 0.25rem;
@@ -1893,11 +1877,6 @@ button.global-button:active::after {
 }
 .gap-8 {
   gap: 2rem;
-}
-.space-x-12 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(3rem * var(--tw-space-x-reverse));
-  margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1934,14 +1913,16 @@ button.global-button:active::after {
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
 .overflow-hidden {
   overflow: hidden;
 }
 .overflow-visible {
   overflow: visible;
-}
-.overflow-x-auto {
-  overflow-x: auto;
 }
 .overflow-y-auto {
   overflow-y: auto;
@@ -1972,6 +1953,10 @@ button.global-button:active::after {
 }
 .border-blue-300\/50 {
   border-color: rgb(147 197 253 / 0.5);
+}
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
 }
 .border-gray-300 {
   --tw-border-opacity: 1;
@@ -2043,12 +2028,6 @@ button.global-button:active::after {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
 }
-.bg-sky-100\/40 {
-  background-color: rgb(224 242 254 / 0.4);
-}
-.bg-sky-100\/50 {
-  background-color: rgb(224 242 254 / 0.5);
-}
 .bg-sky-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity, 1));
@@ -2068,6 +2047,9 @@ button.global-button:active::after {
 }
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
+}
+.bg-white\/80 {
+  background-color: rgb(255 255 255 / 0.8);
 }
 .bg-white\/90 {
   background-color: rgb(255 255 255 / 0.9);
@@ -2132,11 +2114,17 @@ button.global-button:active::after {
 .p-1 {
   padding: 0.25rem;
 }
+.p-2 {
+  padding: 0.5rem;
+}
 .p-3 {
   padding: 0.75rem;
 }
 .p-4 {
   padding: 1rem;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .p-6 {
   padding: 1.5rem;
@@ -2144,19 +2132,9 @@ button.global-button:active::after {
 .p-8 {
   padding: 2rem;
 }
-.p-2 {
-  padding: 0.5rem;
-}
-.p-5 {
-  padding: 1.25rem;
-}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -2198,14 +2176,14 @@ button.global-button:active::after {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
 .pb-20 {
   padding-bottom: 5rem;
 }
-.pb-40 {
-  padding-bottom: 10rem;
-}
-.pb-80 {
-  padding-bottom: 20rem;
+.pb-28 {
+  padding-bottom: 7rem;
 }
 .pl-2 {
   padding-left: 0.5rem;
@@ -2216,20 +2194,11 @@ button.global-button:active::after {
 .pt-16 {
   padding-top: 4rem;
 }
-.pt-2 {
-  padding-top: 0.5rem;
-}
 .pt-20 {
   padding-top: 5rem;
 }
 .pt-4 {
   padding-top: 1rem;
-}
-.pt-40 {
-  padding-top: 10rem;
-}
-.pt-8 {
-  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -2364,13 +2333,14 @@ button.global-button:active::after {
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .shadow-white {
   --tw-shadow-color: #fff;
   --tw-shadow: var(--tw-shadow-colored);
-}
-.blur {
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -2635,14 +2605,19 @@ button.demo-button:hover { transform: scale(0.975);
   animation: gradient-diagonal 8s ease infinite;
 }
 
-.hover\:bg-\[\#5d8cb8\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(93 140 184 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-blue-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:text-blue-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-blue-700:hover {
@@ -2658,11 +2633,6 @@ button.demo-button:hover { transform: scale(0.975);
 .hover\:text-blue-900:hover {
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-gray-200:hover {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -2685,6 +2655,11 @@ button.demo-button:hover { transform: scale(0.975);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.focus\:border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2699,6 +2674,26 @@ button.demo-button:hover { transform: scale(0.975);
 .focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity, 1));
+}
+
+@media (min-width: 640px) {
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sm\:p-10 {
+    padding: 2.5rem;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2735,6 +2730,10 @@ button.demo-button:hover { transform: scale(0.975);
     width: 33.333333%;
   }
 
+  .md\:w-10\/12 {
+    width: 83.333333%;
+  }
+
   .md\:w-2\/3 {
     width: 66.666667%;
   }
@@ -2747,12 +2746,20 @@ button.demo-button:hover { transform: scale(0.975);
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
 
   .md\:items-start {
     align-items: flex-start;
+  }
+
+  .md\:p-12 {
+    padding: 3rem;
   }
 
   .md\:px-8 {
@@ -2767,16 +2774,16 @@ button.demo-button:hover { transform: scale(0.975);
 
 @media (min-width: 1024px) {
 
-  .lg\:flex {
-    display: flex;
-  }
-
-  .lg\:hidden {
-    display: none;
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:w-2\/5 {
     width: 40%;
+  }
+
+  .lg\:w-8\/12 {
+    width: 66.666667%;
   }
 
   .lg\:grid-cols-3 {
@@ -2785,5 +2792,19 @@ button.demo-button:hover { transform: scale(0.975);
 
   .lg\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }

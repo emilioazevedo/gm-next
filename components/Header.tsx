@@ -31,9 +31,9 @@ const Header = () => {
               <a href="/">
                 <Image
                   src="/assets/gridmonitor-logo.png"
-                  alt="Logo"
-                  width={180}
-                  height={38}
+                  alt="GridMonitor"
+                  width={210}
+                  height={44}
                   className="h-auto w-auto max-h-9"
                 />
               </a>
