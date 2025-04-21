@@ -51,7 +51,7 @@ const Advantages = () => {
               className="bg-white rounded-lg shadow-2xl p-6 text-left hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex items-center mb-4">
-                <div className="flex-shrink-0 bg-blue-200 rounded-full p-3">
+                <div className="flex-shrink-0 bg-gradient-to-br from-violet-700 via-[#2780ed] to-blue-300 rounded-full p-3">
                   <Image
                     src={feature.icon}
                     alt={feature.title}
