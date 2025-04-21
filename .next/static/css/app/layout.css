@@ -2417,7 +2417,7 @@ body {
 }
 
 .bg-grainy {
-  background: linear-gradient(135deg, #eeeff0, #edf0f2,#e7e7e8);
+  background: linear-gradient(135deg, #eeeff0, #f7faf7,#e7e7e8);
   position: relative;
 }
 .bg-grainy::before {
