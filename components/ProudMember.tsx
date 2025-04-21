@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ProudMember = () => {
   return (
-    <section className="bg-gray-50 py-12 w-full">
+    <section className="bg-white py-12 w-full">
       <div className="container mx-auto px-6 w-11/12 text-center">
         <h2 className="text-2xl font-semibold text-gray-700 mb-8">
           Proud Member Of

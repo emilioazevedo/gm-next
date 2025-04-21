@@ -27,14 +27,14 @@ const Header = () => {
       <div className="container mx-auto">
         <nav className="w-full">
           <div className="flex justify-between items-center py-4 px-4 md:px-8">
-            <div className="flex items-center z-50">
+            <div className="flex items-center">
               <a href="/">
                 <Image
                   src="/assets/gridmonitor-logo.png"
                   alt="GridMonitor"
-                  width={210}
-                  height={44}
-                  className="h-auto w-auto max-h-9"
+                  width={180}
+                  height={38}
+                  className="max-h-12 sm:max-h-14"
                 />
               </a>
             </div>

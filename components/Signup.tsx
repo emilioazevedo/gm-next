@@ -2,7 +2,7 @@ import React from 'react';
 
 const Signup = () => {
   return (
-    <section className="bg-[#f9f8f5] py-1 pt-10 pb-20 w-full relative"> {/* Reduced vertical padding */}
+    <section className="bg-white py-1 pt-10 pb-20 w-full relative"> {/* Reduced vertical padding */}
       {/* Gradient Background */}
    
 

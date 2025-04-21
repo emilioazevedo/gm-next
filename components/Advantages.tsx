@@ -36,7 +36,7 @@ const Advantages = () => {
   ];
 
   return (
-    <section className="py-16 w-full bg-[#f9f8f5]">
+    <section className="py-16 w-full ">
       <div className="container mx-auto px-6 w-11/12 text-center">
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-300 mb-4">
           Comprehensive Monitoring Solutions
@@ -48,7 +48,7 @@ const Advantages = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg transition-shadow duration-300"
+              className="bg-white rounded-lg shadow-2xl p-6 text-left hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex items-center mb-4">
                 <div className="flex-shrink-0 bg-blue-200 rounded-full p-3">

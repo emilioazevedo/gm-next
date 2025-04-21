@@ -1719,8 +1719,8 @@ button.global-button:active::after {
 .h-full {
   height: 100%;
 }
-.max-h-9 {
-  max-height: 2.25rem;
+.max-h-12 {
+  max-height: 3rem;
 }
 .max-h-\[500px\] {
   max-height: 500px;
@@ -2338,8 +2338,25 @@ button.global-button:active::after {
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .shadow-white {
   --tw-shadow-color: #fff;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.shadow-inherit {
+  --tw-shadow-color: inherit;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.shadow-current {
+  --tw-shadow-color: currentColor;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.shadow-black {
+  --tw-shadow-color: #000;
   --tw-shadow: var(--tw-shadow-colored);
 }
 .filter {
@@ -2677,6 +2694,10 @@ button.demo-button:hover { transform: scale(0.975);
 }
 
 @media (min-width: 640px) {
+
+  .sm\:max-h-14 {
+    max-height: 3.5rem;
+  }
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
