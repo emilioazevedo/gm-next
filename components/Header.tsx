@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import NavMenu from "./NavMenu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,60 +20,28 @@ const Header = () => {
     <header
       className={`sticky top-0 z-[9999] w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/50 backdrop-blur-lg shadow-md" // Translucent with blur when scrolled
-          : "bg-white/50 backdrop-blur-lg shadow-md" // Solid white background when not scrolled
+          ? "bg-white/90 backdrop-blur-lg shadow-md" 
+          : "bg-white/90 backdrop-blur-lg"
       }`}
     >
-      <nav className="w-full">
-        <div className="flex flex-row justify-between items-center py-4 w-full px-8">
-          <div className="flex items-center">
-            <a href="/">
-              <Image
-                src="/assets/gridmonitor-logo.png"
-                alt="Logo"
-                width={200}
-                height={43}
-              />
-            </a>
+      <div className="container mx-auto">
+        <nav className="w-full">
+          <div className="flex justify-between items-center py-4 px-4 md:px-8">
+            <div className="flex items-center z-50">
+              <a href="/">
+                <Image
+                  src="/assets/gridmonitor-logo.png"
+                  alt="Logo"
+                  width={180}
+                  height={38}
+                  className="h-auto w-auto max-h-9"
+                />
+              </a>
+            </div>
+            <NavMenu />
           </div>
-          <ul className="flex justify-center space-x-12 text-lg items-center">
-            <li>
-              <a href="/about" className="text-gray-700 hover:text-blue-700">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="text-gray-700 hover:text-blue-700">
-                Contact Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="/trial"
-                className="text-gray-700 hover:text-blue-700"
-              >
-                Start free trial
-              </a>
-            </li>
-            <li>
-              <a
-                href="/login"
-                className="text-blue-400 hover:text-blue-900"
-              >
-                Login
-              </a>
-            </li>
-            <li>
-              <a
-                href="/demo"
-                className="text-white bg-gradient-to-r from-[#194f90] via-[#2481c0] to-[#194f90] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center"
-              >
-                Request a Demo
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 };
