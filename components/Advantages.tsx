@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import SvgBackground from './SvgBackground';
 
 const Advantages = () => {
   const features = [
@@ -36,42 +37,44 @@ const Advantages = () => {
   ];
 
   return (
-    <section className="py-16 w-full ">
-      <div className="container mx-auto px-6 w-11/12 text-center">
-        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-300 mb-4">
-          Comprehensive Monitoring Solutions
-        </h2>
-        <p className="text-xl text-gray-600 mb-12">
-          GridMonitor provides all the tools you need to stay ahead of energy legislation and regulatory changes in Texas.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-2xl p-6 text-left hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <div className="flex-shrink-0 bg-gradient-to-br from-violet-700 via-[#2780ed] to-blue-300 rounded-full p-3">
-                  <Image
-                    src={feature.icon}
-                    alt={feature.title}
-                    width={40}
-                    height={40}
-                    className="object-contain"
-                  />
+    <SvgBackground>
+      <section className="py-16 w-full">
+        <div className="container mx-auto px-6 w-11/12 text-center">
+          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-300 mb-4">
+            Comprehensive Monitoring Solutions
+          </h2>
+          <p className="text-xl text-gray-600 mb-12">
+            GridMonitor provides all the tools you need to stay ahead of energy legislation and regulatory changes in Texas.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-2xl p-6 text-left hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="flex-shrink-0 bg-gradient-to-br from-violet-700 via-[#2780ed] to-blue-300 rounded-full p-3">
+                    <Image
+                      src={feature.icon}
+                      alt={feature.title}
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#194f90] ml-4">
+                    {feature.title}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-semibold text-[#194f90] ml-4">
-                  {feature.title}
-                </h3>
+                <p className="text-gray-500 text-lg">
+                  {feature.description}
+                </p>
               </div>
-              <p className="text-gray-500 text-lg">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SvgBackground>
   );
 };
 

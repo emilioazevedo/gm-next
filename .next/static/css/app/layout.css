@@ -1994,10 +1994,6 @@ button.global-button:active::after {
 .bg-blue-200\/30 {
   background-color: rgb(191 219 254 / 0.3);
 }
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
-}
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
@@ -2047,11 +2043,11 @@ button.global-button:active::after {
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 .from-gray-200 {
   --tw-gradient-from: #e5e7eb var(--tw-gradient-from-position);
@@ -2073,11 +2069,6 @@ button.global-button:active::after {
   --tw-gradient-to: rgb(55 65 81 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-sky-700 {
-  --tw-gradient-from: #0369a1 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(3 105 161 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-violet-700 {
   --tw-gradient-from: #6d28d9 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(109 40 217 / 0) var(--tw-gradient-to-position);
@@ -2091,6 +2082,9 @@ button.global-button:active::after {
   --tw-gradient-to: rgb(39 128 237 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #2780ed var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
+.to-blue-300 {
+  --tw-gradient-to: #93c5fd var(--tw-gradient-to-position);
+}
 .to-gray-100 {
   --tw-gradient-to: #f3f4f6 var(--tw-gradient-to-position);
 }
@@ -2102,9 +2096,6 @@ button.global-button:active::after {
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
-}
-.to-blue-300 {
-  --tw-gradient-to: #93c5fd var(--tw-gradient-to-position);
 }
 .bg-clip-border {
   background-clip: border-box;
