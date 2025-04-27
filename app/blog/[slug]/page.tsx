@@ -38,10 +38,10 @@ export default async function BlogPostPage({ params }: PageProps) {
   const otherPosts = getAllPosts().filter((otherPost) => otherPost.slug !== slug);
 
   return (
-    <section className="blog-post-section min-h-screen pt-20 pb-20 bg-grainy">
-      <div className="container mx-auto px-8 w-full max-w-8xl grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="blog-post-section min-h-screen pt-20 pb-20 bg-white">
+      <div className="container mx-auto px-8 w-full max-w-8xl grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Main Blog Content */}
-        <div className="md:col-span-2 bg-white/100 p-8 rounded-ms bg-clip-border">
+        <div className="md:col-span-3 bg-white/100 p-8 rounded-ms bg-clip-border">
           <h1 className="text-2xl font-bold text-[#194f90] mb-4">{post.metadata.title}</h1>
           <div className="flex items-center justify-between mb-6">
             <p className="text-base text-gray-500">{post.metadata.date}</p>
@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* Sidebar with Other Blog Entries */}
-        <div className="bg-white/20 p-8 rounded-sm border-2 bg-clip-border">
+        <div className="bg-white/20 p-8 rounded-sm border-2 bg-clip-border md:col-span-1">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold text-[#194f90]">Other Posts</h2>
             <Link
