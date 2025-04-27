@@ -3,6 +3,7 @@ import { getPostBySlug, getAllPosts } from "../../../lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { marked } from "marked";
+import { FaShareAlt } from "react-icons/fa"; // Import the share icon
 
 interface PageProps {
   params: Promise<{ slug: string }>; // Ensure params is treated as a Promise
@@ -42,7 +43,13 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Main Blog Content */}
         <div className="md:col-span-2 bg-white/100 p-8 rounded-ms bg-clip-border">
           <h1 className="text-2xl font-bold text-[#194f90] mb-4">{post.metadata.title}</h1>
-          <p className="text-base text-gray-500 mb-6">{post.metadata.date}</p>
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-base text-gray-500">{post.metadata.date}</p>
+            <div className="flex items-center">
+              <FaShareAlt className="text-blue-500 text-xl mr-2" />
+              <span className="text-sm text-gray-600">Share</span>
+            </div>
+          </div>
           <div
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: marked(post.content) }}

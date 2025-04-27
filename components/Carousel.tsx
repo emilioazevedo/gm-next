@@ -79,7 +79,7 @@ const Carousel = () => {
           </div>
 
           {/* Video */}
-          <div className="w-full md:w-2/3 aspect-video max-h-[500px] rounded-xl shadow-lg overflow-hidden bg-transparent flex items-center justify-center">
+          <div className="w-full md:w-2/3 aspect-video max-h-[500px] rounded-xl shadow-xl overflow-hidden bg-transparent flex items-center justify-center">
   <video
     src={slides[currentSlide].videoSrc}
     className="w-full h-full object-contain"
