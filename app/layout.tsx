@@ -1,10 +1,30 @@
-"use client";
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css"; // Ensure this matches the actual file path
 import Header from "@/components/Header"; // Import the Header component
 import Link from "next/link"; // Import Link component
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
+import { Metadata } from "next";
+
+// Define metadata for the layout
+export const metadata: Metadata = {
+  title: "GridMonitor",
+  description: "GridMonitor provides regulatory information for ERCOT, PUCT, and the Texas Legislature.",
+  metadataBase: new URL("https://www.gridmonitor.com"), // Set the base URL for resolving relative URLs
+  openGraph: {
+    title: "GridMonitor",
+    description: "Stay updated with ERCOT, PUCT, and Texas Legislature regulatory information.",
+    siteName: "GridMonitor",
+    images: [
+      {
+        url: "/assets/gridmonitor-logo.png",
+        alt: "GridMonitor",
+      },
+    ],
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,30 +36,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Removed metadata export as it is not allowed in a client component
+// Removed client-side hooks (useState, useEffect) for SSR compatibility
 
 export default function RootLayout({
   children,
 }: { children: ReactNode }) {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="bg-gray-50 text-gray-900 antialiased min-h-screen overflow-y-auto">
         <div className="flex flex-col min-h-screen">
-          <header
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-              isScrolled ? "bg-white/70 backdrop-blur-lg shadow-lg" : "bg-transparent"
-            }`}
-          >
+          <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-lg shadow-lg transition-all duration-300">
             <Header /> {/* Ensure the Header is included at the top */}
           </header>
           <main className="flex-grow w-full overflow-visible z-0 pt-16">{children}</main> {/* Ensure no overflow issues */}
@@ -58,23 +64,23 @@ export default function RootLayout({
                     className="object-contain"
                   />
                   <div className="mt-20 bg-white/20 backdrop-blur-md w-12/12 justify-left p-4 mb-0 md:mb-0 mx-auto border border-transparent rounded-lg" style={{ borderImage: "linear-gradient(130deg, white, grey) 1" }}>
-               
-                  <h3 className="text-base font-semibold text-white mb-2 text-left">
-                    Stay Updated
-                  </h3>
-                  <form className="flex flex-row items-start bg-transparent">
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      className="flex-grow bg-white pl-2 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-                    <button
-                      type="submit"
-                      className="bg-[#194f90] text-white px-4 py-2 rounded-lg text-base hover:bg-blue-700 transition">
-                      Subscribe
-                    </button>
-                  </form>
-                
-              </div>
+                    <h3 className="text-base font-semibold text-white mb-2 text-left">
+                      Stay Updated
+                    </h3>
+                    <form className="flex flex-row items-start bg-transparent">
+                      <input
+                        type="email"
+                        placeholder="Your email"
+                        className="flex-grow bg-white pl-2 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                      <button
+                        type="submit"
+                        className="bg-[#194f90] text-white px-4 py-2 rounded-lg text-base hover:bg-blue-700 transition"
+                      >
+                        Subscribe
+                      </button>
+                    </form>
+                  </div>
                 </div>
 
                 {/* Get in Touch Section */}
@@ -149,13 +155,12 @@ export default function RootLayout({
                 </div>
               </div>
 
-              
-
               {/* Regulatory Information */}
               <div className="text-center mt-0 mb-6">
                 <Link
                   href="/regulatory"
-                  className="text-sm text-gray-600 hover:text-blue-700">
+                  className="text-sm text-gray-600 hover:text-blue-700"
+                >
                   Regulatory Information Management for ERCOT
                 </Link>
               </div>

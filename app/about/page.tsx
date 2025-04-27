@@ -1,7 +1,6 @@
-import React from "react";
 import Image from "next/image";
 
-const AboutPage: React.FC = () => {
+const AboutPage = () => {
   return (
     <section className="about-page-section pt-20 pb-28 bg-grainy">
       <div className="container mx-auto px-4 w-full md:w-10/12 lg:w-8/12">

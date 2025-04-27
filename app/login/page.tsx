@@ -1,8 +1,7 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const LoginPage: React.FC = () => {
+export default function LoginPage() {
   return (
     <div className="min-h-screen bg-grainy flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
       <div className="bg-white rounded-xl shadow-lg w-full max-w-md mx-auto p-8 sm:p-10 space-y-8 border border-gray-100">
@@ -21,7 +20,8 @@ const LoginPage: React.FC = () => {
           </h1>
         </div>
 
-        <form className="mt-8 space-y-6">
+        {/* Replace with your API endpoint */}
+        <form className="mt-8 space-y-6" action="/api/login" method="POST">
           <div>
             <input
               type="email"
@@ -82,6 +82,4 @@ const LoginPage: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default LoginPage;
+}
