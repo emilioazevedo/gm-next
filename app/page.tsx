@@ -12,7 +12,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Grid Monitor – Regulatory Information Management for ERCOT',
   description: 'Comprehensive download of every filing in the system and track what is important to you. Never miss a mention of a docket, control number, or bill again. Bill tracking software',
-  keywords: 'venues, events, booking, [other relevant keywords]',
+  keywords: 'ERCOT tracking software, regulatory information management for ERCOT, ERCOT bill tracking software, PUCT Meeting Summaries,Texas Legislature Bill Tracking, ERCOT regulatory information',
   openGraph: {
     title: 'Grid Monitor - Helps you collect, organize, and update your ERCOT, PUCT, and TXLEGE regulatory information',
     description: 'Comprehensive download of every filing in the system and track what is important to you. Never miss a mention of a docket, control number, or bill again. Bill tracking software',
@@ -24,6 +24,10 @@ export const metadata: Metadata = {
         alt: 'GridMonitor',
       },
     ],
+  },
+  icons: {
+    icon: '/favicon.png', // Ensure the favicon is correctly referenced here
+    apple: '/apple-touch-icon.png', // Optional: Add an Apple touch icon if available
   },
 };
 
