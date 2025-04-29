@@ -53,7 +53,7 @@ export default function RootLayout({
           <footer className="bg-[#a9bdcf] p-6 w-full">
             <div className="container mx-auto px-6">
               {/* Top row with 4 columns side by side */}
-              <div className="flex flex-col md:flex-row justify-between mb-12 w-full">
+              <div className="flex flex-col md:flex-row justify-between mb-8 w-full">
                 {/* Logo Section */}
                 <div className="flex flex-col items-center md:items-start mb-6 md:mb-0">
                   <img
@@ -112,7 +112,7 @@ export default function RootLayout({
                       </Link>
                     </li>
                     <li>
-                      <Link href="/about-ercot" className="hover:text-blue-700">
+                      <Link href="/what-is-ercot-managing-texas-power-grid" className="hover:text-blue-700">
                         About ERCOT
                       </Link>
                     </li>
@@ -122,7 +122,7 @@ export default function RootLayout({
                       </Link>
                     </li>
                     <li>
-                      <Link href="/about-lege" className="hover:text-blue-700">
+                      <Link href="/texas-lege" className="hover:text-blue-700">
                         About LEGE
                       </Link>
                     </li>
