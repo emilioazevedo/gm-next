@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Venues = () => {
   return (
-    <section className="py-8 w-full bg-white">
+    <section className="py-12 w-full bg-white">
     <div className="container mx-auto px-6 w-11/12 text-center">
       <div className="container mx-auto px-0 w-full flex flex-wrap justify-center gap-32">
         {/* Repeat this block for each item */}

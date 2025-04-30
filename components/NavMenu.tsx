@@ -58,7 +58,7 @@ const NavMenu = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-white z-40 md:hidden">
           <div className="h-full flex flex-col p-5 pt-16">
-            <ul className="flex flex-col space-y-6 text-xl">
+            <ul className="flex flex-col text-xl">
               <li>
                 <Link 
                   href="/about" 
@@ -89,16 +89,16 @@ const NavMenu = () => {
               <li>
                 <Link 
                   href="/login" 
-                  className="block py-2 text-blue-400 hover:text-blue-900"
+                  className="block bg-slate-100 py-2 text-blue-400 hover:text-blue-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Login
                 </Link>
               </li>
-              <li className="pt-4">
+              <li>
                 <Link 
                   href="/demo"
-                  className="block py-2 text-blue-400 hover:text-blue-900"
+                  className="block bg-slate-200 py-2 text-blue-400 hover:text-blue-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span>Request a Demo</span>

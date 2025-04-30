@@ -38,7 +38,7 @@ const Carousel = () => {
 
   return (
     <section
-      className="relative w-full flex flex-col items-center pt-20 pb-20 justify-center"
+      className="relative w-full flex flex-col items-center bg-slate-200 pt-20 pb-20 justify-center"
     >
       {/* Header and Description */}
       <div className="text-center mb-20 max-w-4xl">
@@ -54,7 +54,7 @@ const Carousel = () => {
         {/* Previous Arrow */}
         <button
           onClick={handlePrev}
-          className="absolute left-[-4rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
+          className="absolute left-[8rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,32 +69,32 @@ const Carousel = () => {
         </button>
 
         {/* Slide Content */}
-        <div className="flex flex-col md:flex-row items-center justify-center w-full">
+        <div className="flex flex-col items-center justify-center w-full">
+          {/* Video */}
+          <div className="w-[70%] bg-white aspect-video max-h-[500px] rounded-xl shadow-2xl overflow-hidden bg-transparent flex items-center justify-center">
+            <video
+              src={slides[currentSlide].videoSrc}
+              className="w-full h-full object-contain"
+              muted
+              autoPlay
+              loop
+              playsInline
+            />
+          </div>
+
           {/* Description */}
-          <div className="mt-4 md:mt-0 md:mr-12 text-center md:text-left md:w-1/3">
-            <h3 className="text-lg font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
+          <div className="mt-4 text-center w-[70%]">
+            <h3 className="text-3xl font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
             <p className="text-lg text-gray-900 leading-relaxed">
               {slides[currentSlide].description}
             </p>
           </div>
-
-          {/* Video */}
-          <div className="w-full md:w-2/3 aspect-video max-h-[500px] rounded-xl shadow-xl overflow-hidden bg-transparent flex items-center justify-center">
-  <video
-    src={slides[currentSlide].videoSrc}
-    className="w-full h-full object-contain"
-    muted
-    autoPlay
-    loop
-    playsInline
-  />
-</div>
         </div>
 
         {/* Next Arrow */}
         <button
           onClick={handleNext}
-          className="absolute right-[-4rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
+          className="absolute right-[8rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

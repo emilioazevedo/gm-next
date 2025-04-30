@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-white overflow-hidden z-20">
+    <section className="relative bg-slate-400 overflow-hidden z-20">
       {/* Gradient Background */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -51,7 +51,7 @@ const Hero = () => {
             <p className="text-lg text-gray-700 mb-8">
               Stay ahead with our comprehensive tracking of ERCOT, PUCT, Texas Legislature, TexasRE, and industry conferences.
             </p>
-            <div className="button-wrap relative flex items-center">
+            <div className="button-wrap mb-10 relative flex items-center">
               <a href="/trial">
                 <button className="global-button">
                   <span>Start your free trial today</span>
@@ -76,7 +76,7 @@ const Hero = () => {
             {/* Features */}
             <div className="grid grid-cols-1 gap-4 w-1/3 absolute top-1/4 right-12 transform -translate-y-1/4 z-0"> {/* Adjusted right alignment */}
               {/* Meetings */}
-              <div className="relative bg-blue-200/10 backdrop-blur-md border border-blue-300/50 p-4 rounded-lg shadow">
+              <div className="relative bg-blue-200/55 backdrop-blur-xl border border-slate-300/50 p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/meetings.png"
                   alt="Meetings Icon"
@@ -91,7 +91,7 @@ const Hero = () => {
               </div>
 
               {/* Streaming */}
-              <div className="relative bg-blue-200/15 backdrop-blur-md border border-blue-300/50 p-4 rounded-lg shadow">
+              <div className="relative bg-blue-200/55 backdrop-blur-md border border-slate-300/50 p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/video.png"
                   alt="Streaming Icon"
@@ -106,7 +106,7 @@ const Hero = () => {
               </div>
 
               {/* Following */}
-              <div className="relative bg-blue-200/20 backdrop-blur-md border border-blue-300/50 p-4 rounded-lg shadow">
+              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/fallowing.png"
                   alt="Following Icon"
@@ -121,7 +121,7 @@ const Hero = () => {
               </div>
 
               {/* Filings Browser */}
-              <div className="relative bg-blue-200/30 backdrop-blur-md border border-blue-300/50 p-4 rounded-lg shadow">
+              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/filling-browser.png"
                   alt="Filings Browser Icon"
