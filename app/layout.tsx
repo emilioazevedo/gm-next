@@ -117,7 +117,7 @@ export default function RootLayout({
                       </Link>
                     </li>
                     <li>
-                      <Link href="/about-puct" className="hover:text-blue-700">
+                      <Link href="/puct" className="hover:text-blue-700">
                         About PUCT
                       </Link>
                     </li>

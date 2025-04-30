@@ -62,7 +62,7 @@ const NavMenu = () => {
               <li>
                 <Link 
                   href="/about" 
-                  className="block py-2 text-gray-700 hover:text-blue-700"
+                  className="block bg-white py-2 text-gray-700 hover:text-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
@@ -71,7 +71,7 @@ const NavMenu = () => {
               <li>
                 <Link 
                   href="/contact" 
-                  className="block py-2 text-gray-700 hover:text-blue-700"
+                  className="block bg-white py-2 text-gray-700 hover:text-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact Us
@@ -80,7 +80,7 @@ const NavMenu = () => {
               <li>
                 <Link 
                   href="/trial" 
-                  className="block py-2 text-gray-700 hover:text-blue-700"
+                  className="block bg-white py-2 text-gray-700 hover:text-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Start free trial

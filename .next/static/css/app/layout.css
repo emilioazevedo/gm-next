@@ -1632,6 +1632,9 @@ button.global-button:active::after {
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mb-\[40px\] {
+  margin-bottom: 40px;
+}
 .mb-\[80px\] {
   margin-bottom: 80px;
 }
@@ -1652,6 +1655,9 @@ button.global-button:active::after {
 }
 .mt-1 {
   margin-top: 0.25rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
 }
 .mt-12 {
   margin-top: 3rem;
@@ -1676,12 +1682,6 @@ button.global-button:active::after {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mt-10 {
-  margin-top: 2.5rem;
-}
-.mb-\[40px\] {
-  margin-bottom: 40px;
 }
 .block {
   display: block;
@@ -1722,17 +1722,8 @@ button.global-button:active::after {
 .h-8 {
   height: 2rem;
 }
-.h-full {
-  height: 100%;
-}
-.h-20 {
-  height: 5rem;
-}
-.h-\[300\] {
-  height: 300;
-}
-.h-\[200\] {
-  height: 200;
+.h-\[108px\] {
+  height: 108px;
 }
 .h-\[200px\] {
   height: 200px;
@@ -1740,14 +1731,8 @@ button.global-button:active::after {
 .h-\[220px\] {
   height: 220px;
 }
-.h-\[100px\] {
-  height: 100px;
-}
-.h-\[300px\] {
-  height: 300px;
-}
-.h-\[108px\] {
-  height: 108px;
+.h-full {
+  height: 100%;
 }
 .max-h-12 {
   max-height: 3rem;
@@ -1785,32 +1770,17 @@ button.global-button:active::after {
 .w-9\/12 {
   width: 75%;
 }
-.w-full {
-  width: 100%;
-}
-.w-20 {
-  width: 5rem;
-}
-.w-\[500\] {
-  width: 500;
-}
-.w-\[400\] {
-  width: 400;
-}
-.w-\[400px\] {
-  width: 400px;
-}
-.w-\[100px\] {
-  width: 100px;
-}
-.w-\[300px\] {
-  width: 300px;
-}
 .w-\[200px\] {
   width: 200px;
 }
 .w-\[220px\] {
   width: 220px;
+}
+.w-\[400px\] {
+  width: 400px;
+}
+.w-full {
+  width: 100%;
 }
 .max-w-2xl {
   max-width: 42rem;
@@ -2185,6 +2155,9 @@ button.global-button:active::after {
 .p-1 {
   padding: 0.25rem;
 }
+.p-10 {
+  padding: 2.5rem;
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -2202,9 +2175,6 @@ button.global-button:active::after {
 }
 .p-8 {
   padding: 2rem;
-}
-.p-10 {
-  padding: 2.5rem;
 }
 .px-0 {
   padding-left: 0px;
@@ -2250,10 +2220,6 @@ button.global-button:active::after {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -2265,6 +2231,12 @@ button.global-button:active::after {
 }
 .pl-2 {
   padding-left: 0.5rem;
+}
+.pr-10 {
+  padding-right: 2.5rem;
+}
+.pr-20 {
+  padding-right: 5rem;
 }
 .pt-10 {
   padding-top: 2.5rem;
@@ -2278,20 +2250,11 @@ button.global-button:active::after {
 .pt-4 {
   padding-top: 1rem;
 }
-.pr-10 {
-  padding-right: 2.5rem;
-}
-.pr-20 {
-  padding-right: 5rem;
-}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
-}
-.align-middle {
-  vertical-align: middle;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -2336,9 +2299,6 @@ button.global-button:active::after {
 }
 .font-semibold {
   font-weight: 600;
-}
-.font-normal {
-  font-weight: 400;
 }
 .italic {
   font-style: italic;
