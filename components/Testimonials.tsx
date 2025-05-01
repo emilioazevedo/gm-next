@@ -4,7 +4,7 @@ const Testimonials = () => {
   return (
     <section className="relative z-0 bg-gradient-to-b from-gray-50 to-gray-100 py-12">
       <div className="container mx-auto px-6">
-      <h2 className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-300 mb-4">
+      <h2 className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-700 mb-4">
       What Our Customers Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">

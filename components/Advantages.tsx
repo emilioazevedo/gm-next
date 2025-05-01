@@ -40,7 +40,7 @@ const Advantages = () => {
     <SvgBackground>
       <section className="py-16 w-full">
         <div className="container mx-auto px-6 w-11/12 text-center">
-          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-300 mb-4">
+          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-[#194f90] to-gray-700 mb-4">
             Comprehensive Monitoring Solutions
           </h2>
           <p className="text-xl text-gray-600 mb-12">

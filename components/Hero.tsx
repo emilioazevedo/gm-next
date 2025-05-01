@@ -58,10 +58,10 @@ const Hero = () => {
               />
               Comprehensive Energy Legislation Tracking
             </div>
-            <h1 className="text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
               Keep Track of Texas Energy <span className="text-[#194f90]">Legislation</span> & <span className="text-[#194f90]">Regulation</span>
             </h1>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-base md:text-lg text-gray-700 mb-8">
               Stay ahead with our comprehensive tracking of ERCOT, PUCT, Texas Legislature, TexasRE, and industry conferences.
             </p>
             <div className="button-wrap mb-10 relative flex items-center">
@@ -75,11 +75,11 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Video and Features Section */}
-          <div className="h-128 flex items-start justify-between space-x-8 relative"> {/* Adjusted justify-between and reduced space-x */}
+          <div className="h-128 flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-0 relative">
             {/* Video */}
             <video
               ref={videoRef} // Attach the ref to the video element
-              className="rounded-lg shadow-lg w-3/5 relative z-10"
+              className="rounded-lg shadow-lg w-full md:w-3/5 relative z-10"
               autoPlay
               muted
               playsInline
@@ -87,9 +87,9 @@ const Hero = () => {
             ></video>
 
             {/* Features */}
-            <div className="grid grid-cols-1 gap-4 w-1/3 absolute top-1/4 right-12 transform -translate-y-1/4 z-0"> {/* Adjusted right alignment */}
+            <div className="grid grid-cols-1 gap-2 w-full md:w-2/5 lg:w-2/5">
               {/* Meetings */}
-              <div className="relative bg-blue-200/55 backdrop-blur-xl border border-slate-300/50 p-4 rounded-lg shadow-lg">
+              <div className="relative bg-blue-200/55 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/meetings.png"
                   alt="Meetings Icon"
@@ -98,13 +98,13 @@ const Hero = () => {
                   className="absolute top-2 right-2"
                 />
                 <div>
-                  <p className="text-lg font-bold text-[#194f90]">3400+</p>
-                  <p className="text-sm text-gray-600">meetings archived</p>
+                  <p className="text-base md:text-lg font-bold text-[#194f90]">3400+</p>
+                  <p className="text-xs md:text-sm text-gray-600">meetings archived</p>
                 </div>
               </div>
 
               {/* Streaming */}
-              <div className="relative bg-blue-200/55 backdrop-blur-md border border-slate-300/50 p-4 rounded-lg shadow-lg">
+              <div className="relative bg-blue-200/55 backdrop-blur-md border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/video.png"
                   alt="Streaming Icon"
@@ -113,13 +113,13 @@ const Hero = () => {
                   className="absolute top-2 right-2"
                 />
                 <div>
-                  <p className="text-lg font-bold text-[#194f90]">Streaming</p>
-                  <p className="text-sm text-gray-600">meetings, hearings and conferences</p>
+                  <p className="text-base md:text-lg font-bold text-[#194f90]">Streaming</p>
+                  <p className="text-xs md:text-sm text-gray-600">meetings, hearings and conferences</p>
                 </div>
               </div>
 
               {/* Following */}
-              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-4 rounded-lg shadow-lg">
+              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/fallowing.png"
                   alt="Following Icon"
@@ -128,13 +128,13 @@ const Hero = () => {
                   className="absolute top-2 right-2"
                 />
                 <div>
-                  <p className="text-lg font-bold text-[#194f90]">Following</p>
-                  <p className="text-sm text-gray-600">projects, bills, and revisions requests</p>
+                  <p className="text-base md:text-lg font-bold text-[#194f90]">Following</p>
+                  <p className="text-xs md:text-sm text-gray-600">projects, bills, and revisions requests</p>
                 </div>
               </div>
 
               {/* Filings Browser */}
-              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-4 rounded-lg shadow-lg">
+              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/filling-browser.png"
                   alt="Filings Browser Icon"
@@ -143,8 +143,8 @@ const Hero = () => {
                   className="absolute top-2 right-2"
                 />
                 <div>
-                  <p className="text-lg font-bold text-[#194f90]">Filings Browser</p>
-                  <p className="text-sm text-gray-600">ERCOT and PUCT in one location</p>
+                  <p className="text-base md:text-lg font-bold text-[#194f90]">Filings Browser</p>
+                  <p className="text-xs md:text-sm text-gray-600">ERCOT and PUCT in one location</p>
                 </div>
               </div>
             </div>

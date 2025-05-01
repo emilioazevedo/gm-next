@@ -37,9 +37,7 @@ const Carousel = () => {
   };
 
   return (
-    <section
-      className="relative w-full flex flex-col items-center bg-slate-200 pt-20 pb-20 justify-center"
-    >
+    <section className="relative w-full flex flex-col items-center bg-slate-200 pt-10 pb-20 justify-center">
       {/* Header and Description */}
       <div className="text-center mb-20 max-w-4xl">
         <h2 className="text-4xl font-extrabold text-[#194f90] mb-2">
@@ -50,11 +48,11 @@ const Carousel = () => {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 w-9/12 relative flex items-center justify-center">
+      <div className="container mx-auto px-6 w-11/12 md:w-9/12 relative flex items-center justify-center">
         {/* Previous Arrow */}
         <button
           onClick={handlePrev}
-          className="absolute left-[8rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
+          className="absolute left-[1rem] md:left-[2rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,10 +69,10 @@ const Carousel = () => {
         {/* Slide Content */}
         <div className="flex flex-col items-center justify-center w-full">
           {/* Video */}
-          <div className="w-[70%] bg-white aspect-video max-h-[500px] rounded-xl shadow-2xl overflow-hidden bg-transparent flex items-center justify-center">
+          <div className="w-full md:w-[80%] lg:w-[70%] bg-white aspect-video rounded-xl shadow-2xl overflow-hidden bg-transparent flex items-center justify-center">
             <video
               src={slides[currentSlide].videoSrc}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
               muted
               autoPlay
               loop
@@ -83,8 +81,8 @@ const Carousel = () => {
           </div>
 
           {/* Description */}
-          <div className="mt-4 text-center w-[70%]">
-            <h3 className="text-3xl font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
+          <div className="mt-4 text-center w-full md:w-[80%] lg:w-[70%]">
+            <h3 className="text-2xl font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
             <p className="text-lg text-gray-900 leading-relaxed">
               {slides[currentSlide].description}
             </p>
@@ -94,7 +92,7 @@ const Carousel = () => {
         {/* Next Arrow */}
         <button
           onClick={handleNext}
-          className="absolute right-[8rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
+          className="absolute right-[1rem] md:right-[2rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
