@@ -158,7 +158,7 @@ export default function RootLayout({
               {/* Regulatory Information */}
               <div className="text-center mt-0 mb-6">
                 <Link
-                  href="/regulatory"
+                  href="/"
                   className="text-sm text-gray-600 hover:text-blue-700"
                 >
                   Regulatory Information Management for ERCOT

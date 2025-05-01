@@ -37,13 +37,13 @@ const Carousel = () => {
   };
 
   return (
-    <section className="relative w-full flex flex-col items-center bg-slate-200 pt-10 pb-20 justify-center">
+    <section className="relative w-full flex flex-col items-center bg-slate-200 pt-10 pb-10 justify-center">
       {/* Header and Description */}
-      <div className="text-center mb-20 max-w-4xl">
-        <h2 className="text-4xl font-extrabold text-[#194f90] mb-2">
+      <div className="text-center mb-10 max-w-4xl">
+        <h2 className="text-4xl font-extrabold text-[#194f90]">
           Grid Monitor for ERCOT
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg p-4 text-gray-600">
           We collect, organize, and continuously track your ERCOT Regulatory projects of interest with filings, agendas, curated news, and original reporting across all three relevant regulatory venues — ERCOT, PUCT, and the TX State Legislature — in one, easy-to-use platform.
         </p>
       </div>

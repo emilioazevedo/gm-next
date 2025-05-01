@@ -89,7 +89,7 @@ const Hero = () => {
             {/* Features */}
             <div className="grid grid-cols-1 gap-2 w-full md:w-2/5 lg:w-2/5">
               {/* Meetings */}
-              <div className="relative bg-blue-200/55 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
+              <div className="relative bg-slate-200/55 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/meetings.png"
                   alt="Meetings Icon"
@@ -104,7 +104,7 @@ const Hero = () => {
               </div>
 
               {/* Streaming */}
-              <div className="relative bg-blue-200/55 backdrop-blur-md border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
+              <div className="relative bg-slate-200/55 backdrop-blur-md border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/video.png"
                   alt="Streaming Icon"
@@ -119,7 +119,7 @@ const Hero = () => {
               </div>
 
               {/* Following */}
-              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
+              <div className="relative bg-slate-200/55 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/fallowing.png"
                   alt="Following Icon"
@@ -134,7 +134,7 @@ const Hero = () => {
               </div>
 
               {/* Filings Browser */}
-              <div className="relative bg-blue-200/35 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
+              <div className="relative bg-slate-200/55 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg">
                 <Image
                   src="/assets/filling-browser.png"
                   alt="Filings Browser Icon"
