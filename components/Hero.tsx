@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [meetingTypes, setMeetingTypes] = useState<string[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,6 +16,18 @@ const Hero = () => {
     }, 30000); // Restart every 30 seconds
 
     return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
+
+  // Fetch meeting types from the markdown file
+  useEffect(() => {
+    const fetchMeetingTypes = async () => {
+      const res = await fetch("/mettings-types/meeting_types.md");
+      const text = await res.text();
+      const types = text.split("\n").filter((line) => line.trim() !== "");
+      setMeetingTypes(types);
+    };
+
+    fetchMeetingTypes();
   }, []);
 
   return (
@@ -136,6 +149,22 @@ const Hero = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Meeting Types Ticker */}
+      <div className="scroll-container bg-white/20 bg-blur py-4 mt-10 -z-50">
+        <div className="animate-scroll">
+          {meetingTypes.map((type, index) => (
+            <span key={`first-${index}`} className="text-[#194f90] font-semibold shadow-sm text-sm mx-6">
+              {type}
+            </span>
+          ))}
+          {meetingTypes.map((type, index) => (
+            <span key={`second-${index}`} className="text-[#194f90] font-semibold shadow-sm text-sm mx-6">
+              {type}
+            </span>
+          ))}
         </div>
       </div>
     </section>

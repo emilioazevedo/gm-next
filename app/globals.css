@@ -329,6 +329,56 @@ button.demo-button:hover { transform: scale(0.975);
   background-size: 200% 200%;
 }
 
+/* Define the fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Define the animation globally */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-container {
+  display: flex;
+  overflow: hidden; /* Hide overflowing content */
+  width: 100%; /* Ensure it spans the full width */
+}
+
+.animate-scroll {
+  display: flex; /* Ensure items are aligned in a row */
+  animation: fadeIn 1s ease-in, scroll 220s linear infinite; /* Add fade-in on load */
+  white-space: nowrap; /* Prevent wrapping */
+  will-change: transform, opacity; /* Optimize performance */
+}
+
+.animate-scroll span {
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Ensure the animation works on all screen sizes */
+@media (max-width: 1024px) {
+  .animate-scroll {
+    animation: scroll 220s linear infinite; /* Same speed for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation: scroll 220s linear infinite; /* Same speed for smaller screens */
+  }
+}
+
 /* Mobile menu animation */
 .menu-slide-in {
   animation: slideIn 0.3s ease-out forwards;
@@ -382,25 +432,4 @@ button.demo-button:hover { transform: scale(0.975);
     animation: fadeIn 0.3s ease-out forwards;
   }
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-
-@keyframes gradient-diagonal {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-}
-
-.animate-gradient-diagonal {
-  animation: gradient-diagonal 8s ease infinite;
 }
