@@ -433,3 +433,20 @@ button.demo-button:hover { transform: scale(0.975);
   }
   
 }
+
+/* Define the fade-in up effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1.8s ease-out forwards;
+  opacity: 0; /* Ensure the element is hidden initially */
+}

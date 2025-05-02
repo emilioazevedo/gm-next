@@ -6,6 +6,7 @@ import Signup from '../components/Signup';
 import Process from '../components/Process';
 import ProudMember from '../components/ProudMember';
 import Carousel from '../components/Carousel';
+import FadeInOnScroll from '@/components/FadeInOnScroll';
 import { Metadata } from 'next';
 
 // Add this metadata export for SEO
@@ -36,13 +37,39 @@ export default function Home() {
     <div className="w-full">
       <main className="w-full">
         <Hero />
-        <Venues />
-        <Testimonials />
-        <Advantages />
-        <Carousel />
-        <Signup />
-        <Process />
-        <ProudMember />
+        <FadeInOnScroll offset={40} duration={1200}>
+          <Venues />
+        </FadeInOnScroll>
+        
+     
+        <FadeInOnScroll offset={60} duration={800}>
+          <Testimonials />
+        </FadeInOnScroll>
+        
+       
+        <FadeInOnScroll offset={40} duration={600}>
+          <Advantages />
+        </FadeInOnScroll>
+        
+        {/* Regular animation */}
+        <FadeInOnScroll offset={40} duration={400}>
+          <Carousel />
+        </FadeInOnScroll>
+        
+        {/* Slightly delayed animation */}
+        <FadeInOnScroll offset={40} duration={200}>
+          <Signup />
+        </FadeInOnScroll>
+        
+        {/* Higher threshold means it needs to be more visible before animating */}
+        <FadeInOnScroll offset={40} duration={100}>
+          <Process />
+        </FadeInOnScroll>
+        
+        {/* Faster animation for the last component */}
+        <FadeInOnScroll offset={40} duration={800}>
+          <ProudMember />
+        </FadeInOnScroll>
       </main>
     </div>
   );
