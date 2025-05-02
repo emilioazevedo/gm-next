@@ -40,71 +40,73 @@ const Carousel = () => {
     <section className="relative w-full flex flex-col items-center bg-slate-200 pt-10 pb-10 justify-center">
       {/* Header and Description */}
       <div className="text-center mb-10 max-w-4xl">
-        <h2 className="text-4xl font-extrabold text-[#194f90]">
+        <h2 className="text-3xl font-extrabold text-[#194f90]">
           Grid Monitor for ERCOT
         </h2>
-        <p className="text-lg p-4 text-gray-600">
+        <p className="text-sm p-4 text-gray-600">
           We collect, organize, and continuously track your ERCOT Regulatory projects of interest with filings, agendas, curated news, and original reporting across all three relevant regulatory venues — ERCOT, PUCT, and the TX State Legislature — in one, easy-to-use platform.
         </p>
       </div>
 
-      <div className="container mx-auto px-6 w-11/12 md:w-9/12 relative flex items-center justify-center">
-        {/* Previous Arrow */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-[1rem] md:left-[2rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
+      <div className="container mx-auto px-6 w-11/12 md:w-9/12 relative flex flex-col items-center">
         {/* Slide Content */}
         <div className="flex flex-col items-center justify-center w-full">
-          {/* Video */}
-          <div className="w-full md:w-[80%] lg:w-[70%] bg-white aspect-video rounded-xl shadow-2xl overflow-hidden bg-transparent flex items-center justify-center">
+          <div className="bg-white w-full md:w-[90%] lg:w-[90%] rounded-xl overflow-hidden shadow-lg">
+            {/* Video */}
             <video
               src={slides[currentSlide].videoSrc}
-              className="w-full h-full object-cover"
+              className="border-black/20 border-b-2 w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
               muted
               autoPlay
               loop
               playsInline
             />
-          </div>
-
-          {/* Description */}
-          <div className="mt-4 text-center w-full md:w-[80%] lg:w-[70%]">
-            <h3 className="text-2xl font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
-            <p className="text-lg text-gray-900 leading-relaxed">
-              {slides[currentSlide].description}
-            </p>
+            {/* Description */}
+            <div className="p-4 text-left">
+              <h3 className="text-lg font-semibold text-[#194f90] mb-2">{slides[currentSlide].title}</h3>
+              <p className="text-base text-gray-900 leading-relaxed">
+                {slides[currentSlide].description}
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Next Arrow */}
-        <button
-          onClick={handleNext}
-          className="absolute right-[1rem] md:right-[2rem] top-1/2 transform -translate-y-1/2 z-10 bg-[#194f90] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
+        {/* Arrows */}
+        <div className="flex items-center justify-center mt-6 space-x-6">
+          {/* Previous Arrow */}
+          <button
+            onClick={handlePrev}
+            className="bg-white text-gray-500 p-2 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 ease-in-out flex items-center justify-center"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Next Arrow */}
+          <button
+            onClick={handleNext}
+            className="bg-white text-gray-500 p-2 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 ease-in-out flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   );
