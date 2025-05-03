@@ -1553,20 +1553,11 @@ button.global-button:active::after {
 .left-0 {
   left: 0px;
 }
-.left-\[1rem\] {
-  left: 1rem;
-}
 .right-2 {
   right: 0.5rem;
 }
-.right-\[1rem\] {
-  right: 1rem;
-}
 .top-0 {
   top: 0px;
-}
-.top-1\/2 {
-  top: 50%;
 }
 .top-2 {
   top: 0.5rem;
@@ -1684,9 +1675,6 @@ button.global-button:active::after {
 .mt-8 {
   margin-top: 2rem;
 }
-.box-border {
-  box-sizing: border-box;
-}
 .block {
   display: block;
 }
@@ -1704,9 +1692,6 @@ button.global-button:active::after {
 }
 .hidden {
   display: none;
-}
-.aspect-video {
-  aspect-ratio: 16 / 9;
 }
 .h-0\.5 {
   height: 0.125rem;
@@ -1735,11 +1720,11 @@ button.global-button:active::after {
 .h-\[220px\] {
   height: 220px;
 }
-.h-full {
-  height: 100%;
-}
 .h-\[300px\] {
   height: 300px;
+}
+.h-full {
+  height: 100%;
 }
 .max-h-12 {
   max-height: 3rem;
@@ -1905,6 +1890,11 @@ button.global-button:active::after {
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1929,11 +1919,6 @@ button.global-button:active::after {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-.space-x-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
   overflow: hidden;
@@ -1968,11 +1953,11 @@ button.global-button:active::after {
 .border-2 {
   border-width: 2px;
 }
-.border-t {
-  border-top-width: 1px;
-}
 .border-b-2 {
   border-bottom-width: 2px;
+}
+.border-t {
+  border-top-width: 1px;
 }
 .border-black\/20 {
   border-color: rgb(0 0 0 / 0.2);
@@ -1998,13 +1983,6 @@ button.global-button:active::after {
 }
 .border-transparent {
   border-color: transparent;
-}
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
-}
-.border-black\/40 {
-  border-color: rgb(0 0 0 / 0.4);
 }
 .bg-\[\#194f90\] {
   --tw-bg-opacity: 1;
@@ -2811,14 +2789,6 @@ button.demo-button:hover { transform: scale(0.975);
 
 @media (min-width: 768px) {
 
-  .md\:left-\[2rem\] {
-    left: 2rem;
-  }
-
-  .md\:right-\[2rem\] {
-    right: 2rem;
-  }
-
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -2865,10 +2835,6 @@ button.demo-button:hover { transform: scale(0.975);
 
   .md\:w-9\/12 {
     width: 75%;
-  }
-
-  .md\:w-\[80\%\] {
-    width: 80%;
   }
 
   .md\:w-\[90\%\] {
@@ -2954,24 +2920,12 @@ button.demo-button:hover { transform: scale(0.975);
     height: 500px;
   }
 
-  .lg\:h-\[600px\] {
-    height: 600px;
-  }
-
   .lg\:w-2\/5 {
     width: 40%;
   }
 
   .lg\:w-8\/12 {
     width: 66.666667%;
-  }
-
-  .lg\:w-\[70\%\] {
-    width: 70%;
-  }
-
-  .lg\:w-\[80\%\] {
-    width: 80%;
   }
 
   .lg\:w-\[90\%\] {
