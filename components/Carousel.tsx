@@ -42,9 +42,20 @@ const Carousel = () => {
   };
 
   return (
-    <section className="relative w-full flex flex-col items-center bg-slate-200 pt-10 pb-10 justify-center">
+    <section className="relative w-full flex flex-col items-center bg-slate-400 pt-10 pb-10 justify-center">
+       <div
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
+        style={{
+          background: `
+            radial-gradient(circle at 60% 15%, rgba(218, 232, 254, 0.9), rgba(168, 232, 254, 0) 25%),
+            radial-gradient(circle at 60% 85%, rgba(218, 232, 254, 0.9), rgba(168, 232, 254, 0) 25%),
+            radial-gradient(circle at 70% 40%, rgba(223, 244, 254, 0.8), rgba(215, 248, 254, 0) 35%),
+            radial-gradient(circle at 30% 30%, rgba(254, 249, 245, 0.5), rgba(254, 245, 245, 0) 35%)
+          `,
+        }}
+      ></div>
       {/* Header and Description */}
-      <div className="text-center mb-10 max-w-4xl">
+      <div className="text-center mb-10 max-w-4xl z-30">
         <h2 className="text-3xl font-extrabold text-[#194f90]">
           Grid Monitor for ERCOT
         </h2>
@@ -124,8 +135,8 @@ const Carousel = () => {
           </button>
         </div>
 
-        {/* Additional Content */}
-        <div className="flex flex-col md:flex-row p-4 rounded-md justify-between max-w-screen-2xl mt-20 gap-6">
+        {/* Streaming Meetings */}
+        <div className="flex flex-col md:flex-row p-4 bg-white/40 backdrop-blur-xl border-zinc-400 border-[1px] rounded-md justify-between max-w-screen-2xl mt-20 gap-6">
           {/* Left Side */}
           <div className="flex p-4 text-left flex-col">
             <div className="flex items-left text-xl font-extrabold text-[#194f90]">
@@ -136,7 +147,7 @@ const Carousel = () => {
                 height={30}
                 className="mr-2"
               />
-              Streaming meetings
+              Streaming Meetings
             </div>
             <div className="text-base w-96 mt-2">
               Access Grid Monitor’s entire catalog of meeting videos across ERCOT, PUCT, and the Texas Legislature. We archive the publicly available ERCOT stakeholder process from top to bottom.
@@ -157,6 +168,39 @@ const Carousel = () => {
             <Image
               src="/assets/meeting-calendar.webp"
               alt="Meeting Calendar"
+              width={800}
+              height={500}
+              className="rounded-md shadow-md"
+            />
+          </div>
+        </div>
+
+        {/* Meeting Summaries */}
+        <div className="flex flex-col md:flex-row p-4 bg-white/40 backdrop-blur-xl border-zinc-400 border-[1px] rounded-md justify-between max-w-screen-2xl mt-20 gap-6">
+          {/* Left Side */}
+          <div className="flex p-4 text-left flex-col">
+            <div className="flex items-left text-xl font-extrabold text-[#194f90]">
+              <Image
+                src="/assets/news.png"
+                alt="Streaming Icon"
+                width={39}
+                height={30}
+                className="mr-2"
+              />
+              Meeting Summaries
+            </div>
+            <div className="text-base w-96 mt-2">
+            Just the facts. Grid Monitor’s unbiased meeting summaries make it easy to digest previously overwhelming amounts of information. Tagged with Related Controls and links to corresponding video, taking a closer look has never been more efficient.            </div>
+            <div className="mt-4">
+             
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="flex w-full md:w-[90%] flex-col overflow-y-scroll h-[500px] border-2 p-0">
+            <Image
+              src="/assets/meeting-summary.webp"
+              alt="Meeting Summary"
               width={800}
               height={500}
               className="rounded-md shadow-md"
