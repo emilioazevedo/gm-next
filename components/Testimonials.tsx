@@ -16,7 +16,7 @@ const Testimonials = () => {
               </div>
               <p className="font-semibold text-gray-800 text-sm">Market Participant</p>
             </div>
-            <p className="text-lg text-gray-600 italic">
+            <p className="text-base text-gray-600 italic">
             “I have to read 100k words a day. Grid Monitor’s curation keeps the fluff and noise off my screen”
             </p>
           </div>
@@ -28,7 +28,7 @@ const Testimonials = () => {
               </div>
               <p className="font-semibold text-gray-800 text-sm">Consultant</p>
             </div>
-            <p className="text-lg text-gray-600 italic">
+            <p className="text-base text-gray-600 italic">
             “I was able to do 20 minutes worth of agenda research in 20 seconds with Grid Monitor’s integrated Smart Agenda.”
             </p>
           </div>
@@ -40,7 +40,7 @@ const Testimonials = () => {
               </div>
               <p className="font-semibold text-gray-800 text-sm">Lawyer</p>
             </div>
-            <p className="text-lg text-gray-600 italic">
+            <p className="text-base text-gray-600 italic">
             “The main banefit I initially found was the convenience of having all three relevent venues in one product. It saves so much time”
             </p>
           </div>
@@ -52,7 +52,7 @@ const Testimonials = () => {
               </div>
               <p className="font-semibold text-gray-800 text-sm">Market Participant</p>
             </div>
-            <p className="text-lg text-gray-600 italic">
+            <p className="text-base text-gray-600 italic">
             “Having the ERCOT Working Groups not only captured. but key docs and transcripts on one page – this is a huge time-saver.”
             </p>
           </div>
@@ -64,7 +64,7 @@ const Testimonials = () => {
               </div>
               <p className="font-semibold text-gray-800 text-sm">Lobbyist</p>
             </div>
-            <p className="text-lg text-gray-600 italic">
+            <p className="text-base text-gray-600 italic">
             “As a one-person shop. I am overwhelmed by the need to be in more than one place simultaneously. Grid Monitor helps me keep up when I miss things”
             </p>
           </div>
