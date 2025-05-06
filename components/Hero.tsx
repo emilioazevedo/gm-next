@@ -37,9 +37,9 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
         style={{
           background: `
-            radial-gradient(circle at 60% 85%, rgba(218, 232, 254, 0.9), rgba(168, 232, 254, 0) 25%),
-            radial-gradient(circle at 70% 40%, rgba(223, 244, 254, 0.8), rgba(215, 248, 254, 0) 35%),
-            radial-gradient(circle at 30% 30%, rgba(254, 249, 245, 0.5), rgba(254, 245, 245, 0) 35%)
+            radial-gradient(circle at 60% 85%, rgba(218, 232, 254, 1), rgba(168, 232, 254, 0) 45%),
+            radial-gradient(circle at 70% 40%, rgba(223, 244, 254, 1), rgba(215, 248, 254, 0) 45%),
+            radial-gradient(circle at 30% 30%, rgba(254, 255, 255, 0.8), rgba(254, 245, 245, 0) 35%)
           `,
         }}
       ></div>
@@ -48,7 +48,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-full mx-auto">
           {/* Left Column - Verbiage and Button */}
           <div className="text-left">
-            <div className="inline-flex items-center px-4 py-2 mb-6 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
+            <div className="inline-flex items-center px-4 py-2 mb-6 text-sm font-medium text-blue-700 bg-white/50 shadow-sm rounded-full">
               <Image
                 src="/assets/tx-flag.png"
                 alt="Texas Flag"
