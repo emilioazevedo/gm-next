@@ -58,8 +58,14 @@ const Hero = () => {
               />
               Comprehensive Energy Legislation Tracking
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-              Keep Track of Texas Energy <span className="text-[#194f90]">Legislation</span> & <span className="text-[#194f90]">Regulation</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 -z-40">
+              <span
+                className="bg-clip-text text-transparent bg-gradient-to-r from-black via-sky-900 to-black"
+              >
+                Keep Track of Texas Energy 
+              </span>{" "}
+              <span className="text-sky-700">Legislation</span> &{" "}
+              <span className="text-sky-700">Regulation</span>
             </h1>
             <p className="text-base md:text-lg text-gray-700 mb-8">
               Stay ahead with our comprehensive tracking of ERCOT, PUCT, Texas Legislature, TexasRE, and industry conferences.

@@ -186,7 +186,7 @@ body {
     position: relative;
     display: block;
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: inherit; /* Ensure the span inherits the button's font size */
     color: rgb(255, 255, 255);
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
@@ -194,6 +194,7 @@ body {
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflow */
     text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    
   }
 
   button.global-button:hover {
