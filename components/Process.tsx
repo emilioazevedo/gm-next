@@ -24,7 +24,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="bg-gray-100 py-16 w-full">
+    <section className="bg-gradient-to-br hover:from-blue-50/30 hover:to-blue-100 hover:duration-600 py-16 w-full">
       <div className="container mx-auto px-6 w-11/12 mt-0 text-center">
         <div className="mb-12">
          <div className="mb-12 flex items-center justify-center space-x-2">
@@ -50,7 +50,7 @@ const Process = () => {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="bg-white rounded-lg shadow-md p-6 text-center relative"
+              className="bg-white rounded-lg shadow-md p-6 text-center relative transform transition-transform duration-300 hover:-translate-y-2 bg-gradient-to-br hover:from-white hover:to-blue-50 hover:duration-600"
             >
               {/* Smaller number in the top-left corner */}
               <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-[#194f90] text-white text-lg font-bold rounded-full flex items-center justify-center shadow-md">
