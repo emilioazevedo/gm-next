@@ -14,7 +14,7 @@ const Signup = () => {
           Join hundreds of energy professionals who rely on GridMonitor to navigate the complex regulatory landscape.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-2 mb-4">
-          <div className="button-wrap relative"> {/* Kept smaller button */}
+          <div className=""> {/* Kept smaller button */}
           <a href="/trial">
             <button className="global-button">
               <span>Start your free trial today</span>

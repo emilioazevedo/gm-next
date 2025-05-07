@@ -1399,79 +1399,81 @@ select {
 .prose-lg :where(.prose-lg > :last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   margin-bottom: 0;
 }
+/* Global button wrapper */
+/* Button shadow */
+/* Main button style */
 .global-button {
-    --border-width: clamp(0, 0.0625em, 2px);
     all: unset;
     cursor: pointer;
     position: relative;
     pointer-events: auto;
     z-index: 3;
+    transition: all var(--anim--hover-time) var(--anim--hover-ease), 
+    background 0.4s ease;
     background: linear-gradient(
       -75deg,
       rgb(13, 72, 174),
       rgb(38, 135, 225),
       rgb(13, 72, 174)
+      
     );
     border-radius: 999vw;
-    box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
-      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0),
-      0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+    box-shadow: 
+      inset 0 0.925em 0.925em rgba(20, 86, 119, 0.4),
+      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.4),
+      0 0.15em 0.125em -0.125em rgba(11, 0, 0, 0.2),
       0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
-      0 0 0 0 rgba(255, 255, 255, 0);
+      0 0 0 0 rgba(255, 255, 255, 1);
     -webkit-backdrop-filter: blur(4px);
             backdrop-filter: blur(4px);
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
-    padding: 0.75em 2em; /* Simplified padding */
-    width: auto; /* Allow button to resize based on content */
-    max-width: 100%; /* Prevent overflow on small screens */
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    padding: 0.75em 2em;
+    width: auto;
+    max-width: 100%;
   }
-/* Additional responsive adjustments */
-@media (max-width: 640px) {
-    .global-button {
-      padding: 0.5em 1.5em; /* Smaller padding on mobile */
-      font-size: 1rem; /* Smaller font size on mobile */
-    }
-    
-    button.global-button span {
-      padding: 0.025em 1em; /* Reduced horizontal padding */
-    }
-  }
-/* Ensure text inside button also scales properly */
+/* Button hover effects */
+button.global-button:hover {
+  transform: scale(0.985);
+  background: linear-gradient(
+    -125deg,
+    rgb(13, 72, 174),
+    rgb(38, 135, 225),
+    rgb(13, 72, 174)
+);
+  box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.5),
+    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+    0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+    0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
+    0 0 0 0 rgba(255, 255, 255, 1);
+}
+/* Button text styling */
 button.global-button span {
     position: relative;
     display: block;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    font-size: inherit; /* Ensure the span inherits the button's font size */
+    font-size: inherit;
     color: rgb(255, 255, 255);
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    padding: 0.025em 4em; /* Simplified padding */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis for overflow text */
-    
-  }
-button.global-button:hover {
-    transform: scale(0.975);
-    box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
-      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
-      0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
-      0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
-      0 0 0 0 rgba(255, 255, 255, 1);
+    padding: 0.025em 4em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 button.global-button:hover span {
     text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
   }
+/* Button highlight effect */
 button.global-button span::after {
     content: "";
     display: block;
     position: absolute;
     z-index: 1;
-    width: calc(100% - var(--border-width));
-    height: calc(100% - var(--border-width));
-    top: calc(0% + var(--border-width) / 2);
-    left: calc(0% + var(--border-width) / 2);
+    width: calc(100% - var(--button-border-width));
+    height: calc(100% - var(--button-border-width));
+    top: calc(0% + var(--button-border-width) / 2);
+    left: calc(0% + var(--button-border-width) / 2);
     border-radius: 999vw;
     background: linear-gradient(
       var(--angle-2),
@@ -1492,17 +1494,18 @@ button.global-button:active span::after {
     background-position: 50% 15%;
     --angle-2: -15deg;
   }
+/* Button outline effect */
 button.global-button::after {
     content: "";
     position: absolute;
     z-index: 1;
     inset: 0;
     border-radius: 999vw;
-    width: calc(100% + var(--border-width));
-    height: calc(100% + var(--border-width));
-    top: calc(0% - var(--border-width) / 2);
-    left: calc(0% - var(--border-width) / 2);
-    padding: var(--border-width);
+    width: calc(100% + var(--button-border-width));
+    height: calc(100% + var(--button-border-width));
+    top: calc(0% - var(--button-border-width) / 2);
+    left: calc(0% - var(--button-border-width) / 2);
+    padding: var(--button-border-width);
     box-sizing: border-box;
     background: conic-gradient(
         from var(--angle-1) at 50% 50%,
@@ -1519,10 +1522,10 @@ button.global-button::after {
             mask-composite: exclude;
     transition: all var(--anim--hover-time) var(--anim--hover-ease),
       --angle-1 500ms ease;
-    box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 0 calc(var(--button-border-width) / 2) rgba(255, 255, 255, 0.5);
   }
 button.global-button:hover::after {
-    --angle-1: -125deg;
+    --angle-1: -180deg;
   }
 button.global-button:active::after {
     --angle-1: -075deg;
@@ -2470,67 +2473,25 @@ html {
 
 html,
 body {
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  width: 100%; /* Ensure full width */
-  height: 100%; /* Ensure full height */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-header {
-  margin: 0; /* Ensure no margin above the header */
-  padding: 0; /* Ensure no extra padding */
-  position: sticky; /* Ensure the header sticks to the top */
-  top: 0; /* Ensure the header starts at the top */
-  z-index: 9999; /* Set a high z-index to ensure it is above all other elements */
-  background-color: white; /* Ensure the header has a background to cover content below */
-}
-
-body {
-  /* Ensure the body takes up the full height and allows scrolling */
-  display: flex;
-  flex-direction: column; /* Stack header, main, and footer properly */
-  margin: 0; /* Ensure no extra margin */
-  padding: 0; /* Ensure no extra padding */
-  font-family: "Inter", sans-serif;
-  font-size: var(--global--size);
-  background-color: rgba(215, 215, 215, 0);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-y: auto; /* Allow vertical scrolling */
-}
-
-.bg-grainy {
-  background: linear-gradient(135deg, #eeeff0, #f7faf7,#e7e7e8);
-  position: relative;
-}
-.bg-grainy::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('/path-to/noise.png'); /* Use a transparent noise PNG */
-  opacity: 0.1;
-  pointer-events: none;
-}
-/* Font declaration for consistent loading */
-@font-face {
-  font-family: 'Inter';
-  font-display: swap;
-  /* Add your font sources if loading locally */
-  /* src: url('/fonts/Inter-Regular.woff2') format('woff2'); */
-}
-
-/* Root Variables - Tightened clamp range */
+/* Root Variables for consistent theming */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-  --global--size: clamp(1.75rem, 2.5vw, 3rem); /* Reduced range for consistency */
+  --global--size: clamp(1.75rem, 2.5vw, 3rem);
   --anim--hover-time: 400ms;
   --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
-  --angle-1: -75deg; /* Initial value for outline gradient */
-  --angle-2: -45deg; /* Initial value for text highlight gradient */
+  --angle-1: -75deg;
+  --angle-2: -45deg;
   --background: #ffffff;
   --foreground: #171717;
+  --button-border-width: clamp(0, 0.0625em, 2px);
 }
 
 /* Adjustment for high-DPI displays */
@@ -2540,7 +2501,15 @@ body {
   }
 }
 
-/* Add missing CSS property definitions */
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
+  }
+}
+
+/* CSS property declarations */
 @property --angle-1 {
   syntax: "<angle>";
   inherits: false;
@@ -2553,53 +2522,42 @@ body {
   initial-value: -45deg;
 }
 
-/* Dark Mode Variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+/* Layout elements */
+header {
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: white;
 }
 
-/* Add responsive styling for Request a Demo button */
-.demo-button {
-  font-size: clamp(0.675rem, 2.1vw, 1.15rem);
-  white-space: nowrap;
-  border-radius: 0.5vw;
-  display: inline-block;
-  color: rgb(255, 255, 255);
-  max-width: 100%;
-  overflow: hidden;
-  padding: 0.45em 1em; /* Simplified padding */
-  text-overflow: ellipsis;
-  background: linear-gradient(
-    -75deg,
-    rgb(13, 72, 174),
-    rgb(40, 121, 197),
-    rgb(13, 72, 174)
-  )
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  font-size: var(--global--size);
+  background-color: rgba(215, 215, 215, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto;
 }
 
-button.demo-button:hover { transform: scale(0.975);
-  box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
-    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
-    0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
-    0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
-    0 0 0 0 rgba(255, 255, 255, 1);
+/* Background styles */
+.bg-grainy {
+  background: linear-gradient(135deg, #eeeff0, #f7faf7, #e7e7e8);
+  position: relative;
 }
 
-@media (max-width: 640px) {
-  .demo-button {
-    font-size: 0.875rem;
-    padding: 0.5em 1em;
-  }
-  
-  /* If the button needs to wrap text on very small screens */
-  .demo-button-small-screen {
-    white-space: normal;
-    text-align: center;
-    line-height: 1.2;
-  }
+.bg-grainy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/path-to/noise.png');
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 .bg-blue-gradient {
@@ -2613,59 +2571,34 @@ button.demo-button:hover { transform: scale(0.975);
   background-size: 200% 200%;
 }
 
-/* Define the fade-in effect */
+/* Font declaration */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  /* Add your font sources if loading locally */
+  /* src: url('/fonts/Inter-Regular.woff2') format('woff2'); */
+}
+
+/* Animations */
 @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
   0% {
     opacity: 0;
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Define the animation globally */
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.scroll-container {
-  display: flex;
-  overflow: hidden; /* Hide overflowing content */
-  width: 100%; /* Ensure it spans the full width */
-}
-
-.animate-scroll {
-  display: flex; /* Ensure items are aligned in a row */
-  animation: fadeIn 1s ease-in, scroll 220s linear infinite; /* Add fade-in on load */
-  white-space: nowrap; /* Prevent wrapping */
-  will-change: transform, opacity; /* Optimize performance */
-}
-
-.animate-scroll span {
-  white-space: nowrap; /* Prevent text wrapping */
-}
-
-/* Ensure the animation works on all screen sizes */
-@media (max-width: 1024px) {
-  .animate-scroll {
-    animation: scroll 220s linear infinite; /* Same speed for mobile */
-  }
-}
-
-@media (max-width: 768px) {
-  .animate-scroll {
-    animation: scroll 220s linear infinite; /* Same speed for smaller screens */
-  }
-}
-
-/* Mobile menu animation */
-.menu-slide-in {
-  animation: slideIn 0.3s ease-out forwards;
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 @keyframes slideIn {
@@ -2679,7 +2612,76 @@ button.demo-button:hover { transform: scale(0.975);
   }
 }
 
-/* Mobile menu style overrides */
+/* Animation classes */
+.fade-in-up {
+  animation: fadeInUp 1.8s ease-out forwards;
+  opacity: 0;
+}
+
+.menu-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Scrolling content */
+.scroll-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.animate-scroll {
+  display: flex;
+  animation: fadeIn 1s ease-in, scroll 220s linear infinite;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.animate-scroll span {
+  white-space: nowrap;
+}
+
+/* Buttons */
+
+/* Demo button - simplified version of global button */
+.demo-button {
+  font-size: clamp(0.675rem, 2.1vw, 1.15rem);
+  white-space: nowrap;
+  border-radius: 0.5vw;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.45em 1em;
+  text-overflow: ellipsis;
+  background: linear-gradient(
+    -75deg,
+    rgb(13, 72, 174),
+    rgb(40, 121, 197),
+    rgb(13, 72, 174)
+  )
+}
+
+button.demo-button:hover {
+  transform: scale(0.975);
+  box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+    0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+    0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
+    0 0 0 0 rgba(255, 255, 255, 1);
+}
+
+/* Misc effects */
+.glowing-shadow {
+  position: relative;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(29, 78, 216, 0.4), 0 0 30px rgba(29, 78, 216, 0.2);
+  transition: box-shadow 1s ease-in-out;
+}
+
+.glowing-shadow:hover {
+  box-shadow: 0 0 15px rgba(29, 78, 216, 1), 0 0 25px rgba(29, 78, 216, 0.8), 0 0 35px rgba(29, 78, 216, 0.6);
+}
+
+/* Responsive styles */
 @media (max-width: 1024px) {
   .demo-button {
     font-size: 0.875rem;
@@ -2697,42 +2699,31 @@ button.demo-button:hover { transform: scale(0.975);
 }
 
 @media (max-width: 768px) {
-  .demo-button {
-    font-size: 0.875rem;
-    padding: 0.5em 1.5em;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .demo-button span {
-    padding: 0.025em 0;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-  }
-  
-  /* Full-screen mobile menu animation */
   .fixed {
     animation: fadeIn 0.3s ease-out forwards;
   }
+}
+
+@media (max-width: 640px) {
+  .global-button {
+    padding: 0.5em 1.5em;
+    font-size: 1rem;
+  }
   
-}
-
-/* Define the fade-in up effect */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+  button.global-button span {
+    padding: 0.025em 1em;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .demo-button {
+    font-size: 0.875rem;
+    padding: 0.5em 1em;
   }
-}
-
-.fade-in-up {
-  animation: fadeInUp 1.8s ease-out forwards;
-  opacity: 0; /* Ensure the element is hidden initially */
+  
+  .demo-button-small-screen {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+  }
 }
 
 .hover\:bg-blue-700:hover {
