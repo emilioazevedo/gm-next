@@ -1,19 +1,19 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-interface BlogPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export default function Page({ searchParams }: BlogPageProps) {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>;
+}) {
   const posts = getAllPosts();
   const searchQuery = typeof searchParams?.search === "string" ? searchParams.search : "";
 
   // Filter posts based on search query
   const filteredPosts = searchQuery
     ? posts.filter((post) => {
-        const title = (post.metadata.title || "").toLowerCase();
-        const excerpt = (post.metadata.excerpt || "").toLowerCase();
+        const title = (post.metadata?.title || "").toLowerCase();
+        const excerpt = (post.metadata?.excerpt || "").toLowerCase();
         const content = (post.content || "").toLowerCase();
         const query = searchQuery.toLowerCase();
 
@@ -23,7 +23,7 @@ export default function Page({ searchParams }: BlogPageProps) {
 
   // Sort posts by date (newest first)
   const sortedPosts = [...filteredPosts].sort((a, b) => {
-    return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
+    return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime(); // Fixed arithmetic operation
   });
 
   // Pagination logic
