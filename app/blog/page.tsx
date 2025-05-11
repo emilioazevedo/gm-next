@@ -1,27 +1,23 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-// Define the correct type for search params
-type SearchParams = {
-  page?: string;
-  search?: string;
-};
-
-type PageProps = {
+// Next.js 15 uses this type signature for pages
+export default function BlogPage({
+  params,
+  searchParams,
+}: {
   params: {};
-  searchParams: SearchParams;
-};
-
-export default async function BlogPage({ searchParams }: PageProps) {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const posts = getAllPosts(); // Fetch posts directly in the Server Component
-  const searchQuery = searchParams?.search || "";
+  const searchQuery = typeof searchParams.search === 'string' ? searchParams.search : '';
   
   // Filter posts based on search query
   const filteredPosts = searchQuery 
     ? posts.filter(post => {
-        const title = post.metadata.title.toLowerCase();
-        const excerpt = post.metadata.excerpt.toLowerCase();
-        const content = (post.content || "").toLowerCase(); // Add null check for content
+        const title = (post.metadata.title || "").toLowerCase();
+        const excerpt = (post.metadata.excerpt || "").toLowerCase();
+        const content = (post.content || "").toLowerCase();
         const query = searchQuery.toLowerCase();
         
         return title.includes(query) || 
@@ -37,7 +33,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
   
   // Pagination logic
   const postsPerPage = 6; // Number of posts per page
-  const currentPage = Number(searchParams?.page) || 1;
+  const currentPage = Number(searchParams.page) || 1;
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
