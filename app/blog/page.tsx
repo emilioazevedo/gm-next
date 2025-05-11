@@ -1,16 +1,12 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-// Next.js 15 uses this type signature for pages
-export default function BlogPage({
-  params,
-  searchParams,
-}: {
-  params: {};
-  searchParams: { [key: string]: string | string[] | undefined };
+// Using the basic page structure that works with Next.js 15
+export default function Page({ searchParams }: { 
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const posts = getAllPosts(); // Fetch posts directly in the Server Component
-  const searchQuery = typeof searchParams.search === 'string' ? searchParams.search : '';
+  const posts = getAllPosts();
+  const searchQuery = typeof searchParams?.search === 'string' ? searchParams.search : '';
   
   // Filter posts based on search query
   const filteredPosts = searchQuery 
@@ -33,7 +29,7 @@ export default function BlogPage({
   
   // Pagination logic
   const postsPerPage = 6; // Number of posts per page
-  const currentPage = Number(searchParams.page) || 1;
+  const currentPage = Number(typeof searchParams?.page === 'string' ? searchParams.page : '1');
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
