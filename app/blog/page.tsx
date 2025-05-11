@@ -1,35 +1,34 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-// Using the basic page structure that works with Next.js 15
-export default function Page({ searchParams }: { 
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+interface BlogPageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default function Page({ searchParams }: BlogPageProps) {
   const posts = getAllPosts();
-  const searchQuery = typeof searchParams?.search === 'string' ? searchParams.search : '';
-  
+  const searchQuery = typeof searchParams?.search === "string" ? searchParams.search : "";
+
   // Filter posts based on search query
-  const filteredPosts = searchQuery 
-    ? posts.filter(post => {
+  const filteredPosts = searchQuery
+    ? posts.filter((post) => {
         const title = (post.metadata.title || "").toLowerCase();
         const excerpt = (post.metadata.excerpt || "").toLowerCase();
         const content = (post.content || "").toLowerCase();
         const query = searchQuery.toLowerCase();
-        
-        return title.includes(query) || 
-               excerpt.includes(query) || 
-               content.includes(query);
-      }) 
+
+        return title.includes(query) || excerpt.includes(query) || content.includes(query);
+      })
     : posts;
-  
+
   // Sort posts by date (newest first)
   const sortedPosts = [...filteredPosts].sort((a, b) => {
-    return new Date(b.metadata.date) - new Date(a.metadata.date);
+    return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
   });
-  
+
   // Pagination logic
   const postsPerPage = 6; // Number of posts per page
-  const currentPage = Number(typeof searchParams?.page === 'string' ? searchParams.page : '1');
+  const currentPage = Number(typeof searchParams?.page === "string" ? searchParams.page : "1");
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
@@ -45,7 +44,7 @@ export default function Page({ searchParams }: {
     <section className="blog-page-section min-h-screen pt-20 pb-20 bg-grainy">
       <div className="container mx-auto px-8 w-full max-w-7xl">
         <h1 className="text-3xl font-bold text-[#194f90] mb-8">ERCOT - PUCT - Texas Legislature Blog</h1>
-        
+
         {/* Search Form */}
         <form className="mb-8">
           <div className="flex gap-2">
@@ -56,7 +55,7 @@ export default function Page({ searchParams }: {
               placeholder="Search blog posts..."
               className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button 
+            <button
               type="submit"
               className="px-6 py-2 bg-[#194f90] text-white rounded-md hover:bg-blue-700 transition"
             >
@@ -76,10 +75,10 @@ export default function Page({ searchParams }: {
         {/* Search Results Count */}
         {searchQuery && (
           <p className="mb-6 text-gray-600">
-            Found {filteredPosts.length} result{filteredPosts.length !== 1 ? 's' : ''} for "{searchQuery}"
+            Found {filteredPosts.length} result{filteredPosts.length !== 1 ? "s" : ""} for "{searchQuery}"
           </p>
         )}
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {paginatedPosts.map((post) => (
             <div
@@ -101,23 +100,23 @@ export default function Page({ searchParams }: {
             </div>
           ))}
         </div>
-        
+
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center items-center space-x-2 mt-12">
             {currentPage > 1 && (
               <Link
-                href={`/blog?page=${currentPage - 1}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ''}`}
+                href={`/blog?page=${currentPage - 1}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ""}`}
                 className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
               >
                 Previous
               </Link>
             )}
-            
+
             {paginationLinks.map((page) => (
               <Link
                 key={page}
-                href={`/blog?page=${page}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ''}`}
+                href={`/blog?page=${page}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ""}`}
                 className={`px-4 py-2 rounded-md ${
                   currentPage === page
                     ? "bg-[#194f90] text-white"
@@ -127,10 +126,10 @@ export default function Page({ searchParams }: {
                 {page}
               </Link>
             ))}
-            
+
             {currentPage < totalPages && (
               <Link
-                href={`/blog?page=${currentPage + 1}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ''}`}
+                href={`/blog?page=${currentPage + 1}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ""}`}
                 className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
               >
                 Next
