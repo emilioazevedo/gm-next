@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-export default async function BlogPage({ searchParams }) {
+interface SearchParams {
+  search?: string;
+  page?: string;
+}
+
+export default async function BlogPage({ searchParams }: { searchParams: SearchParams }) {
   const posts = getAllPosts(); // Fetch posts directly in the Server Component
   const searchQuery = searchParams?.search || "";
   
@@ -21,7 +26,7 @@ export default async function BlogPage({ searchParams }) {
   
   // Sort posts by date (newest first)
   const sortedPosts = [...filteredPosts].sort((a, b) => {
-    return new Date(b.metadata.date) - new Date(a.metadata.date);
+    return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
   });
   
   // Pagination logic
