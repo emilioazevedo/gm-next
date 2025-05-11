@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-interface SearchParams {
-  search?: string;
+// Define the correct type for search params
+type SearchParams = {
   page?: string;
-}
+  search?: string;
+};
 
-export default async function BlogPage({ searchParams }: { searchParams: SearchParams }) {
+type PageProps = {
+  params: {};
+  searchParams: SearchParams;
+};
+
+export default async function BlogPage({ searchParams }: PageProps) {
   const posts = getAllPosts(); // Fetch posts directly in the Server Component
   const searchQuery = searchParams?.search || "";
   
@@ -15,7 +21,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
     ? posts.filter(post => {
         const title = post.metadata.title.toLowerCase();
         const excerpt = post.metadata.excerpt.toLowerCase();
-        const content = post.content.toLowerCase();
+        const content = (post.content || "").toLowerCase(); // Add null check for content
         const query = searchQuery.toLowerCase();
         
         return title.includes(query) || 
@@ -26,11 +32,11 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
   
   // Sort posts by date (newest first)
   const sortedPosts = [...filteredPosts].sort((a, b) => {
-    return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
+    return new Date(b.metadata.date) - new Date(a.metadata.date);
   });
   
   // Pagination logic
-  const postsPerPage = 10; // Number of posts per page
+  const postsPerPage = 6; // Number of posts per page
   const currentPage = Number(searchParams?.page) || 1;
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
@@ -56,18 +62,18 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
               name="search"
               defaultValue={searchQuery}
               placeholder="Search blog posts..."
-              className="flex-grow px4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button 
               type="submit"
-              className="px-6 py-2 bg-[#194f90] text-sm text-white rounded-md hover:bg-blue-700 transition"
+              className="px-6 py-2 bg-[#194f90] text-white rounded-md hover:bg-blue-700 transition"
             >
               Search
             </button>
             {searchQuery && (
               <Link
                 href="/blog"
-                className="px-6 py-2 bg-gray-200 text-sm text-gray-700 rounded-md hover:bg-gray-300 transition"
+                className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
               >
                 Clear
               </Link>
@@ -106,11 +112,11 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
         
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center text-sm items-center space-x-2 mt-12">
+          <div className="flex justify-center items-center space-x-2 mt-12">
             {currentPage > 1 && (
               <Link
                 href={`/blog?page=${currentPage - 1}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ''}`}
-                className="px-4 py-2 bg-gray-200 text-sm rounded-md hover:bg-gray-300 transition"
+                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
               >
                 Previous
               </Link>
@@ -133,7 +139,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
             {currentPage < totalPages && (
               <Link
                 href={`/blog?page=${currentPage + 1}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ''}`}
-                className="px-4 py-2 bg-gray-200 text-sm rounded-md hover:bg-gray-300 transition"
+                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
               >
                 Next
               </Link>
