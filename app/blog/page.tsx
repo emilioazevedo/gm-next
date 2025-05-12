@@ -1,15 +1,28 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-export default async function BlogPage() {
-  const posts = getAllPosts(); // Fetch posts directly in the Server Component
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ page?: string }>;
+}) {
+  const { page } = await params; // Await the params to resolve
+  const posts = getAllPosts(); // Fetch posts statically from the posts folder
+
+  const postsPerPage = 10; // Number of posts per page
+  const currentPage = Number(page) || 1; // Parse the current page from params, default to 1
+  const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate total pages
+
+  // Slice posts for the current page
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const paginatedPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
   return (
     <section className="blog-page-section min-h-screen pt-20 pb-20 bg-grainy">
       <div className="container mx-auto px-8 w-full max-w-7xl">
         <h1 className="text-3xl font-bold text-[#194f90] mb-8">ERCOT - PUCT - Texas Legislature Blog</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {posts.map((post) => (
+          {paginatedPosts.map((post) => (
             <div
               key={post.slug}
               className="bg-white/80 p-6 rounded-xl border-sky-200 bg-gradient-to-b from-slate-100 to-transparent shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -29,6 +42,31 @@ export default async function BlogPage() {
             </div>
           ))}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            {currentPage > 1 && (
+              <Link
+                href={`?page=${currentPage - 1}`}
+                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
+              >
+                Previous
+              </Link>
+            )}
+            <span className="text-gray-700">
+              Page {currentPage} of {totalPages}
+            </span>
+            {currentPage < totalPages && (
+              <Link
+                href={`?page=${currentPage + 1}`}
+                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
+              >
+                Next
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

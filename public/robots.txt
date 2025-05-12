@@ -7,7 +7,7 @@ User-agent: Googlebot
 Disallow: /admin
 
 # Host
-Host: https://yourwebsite.com
+Host: https://example.com
 
 # Sitemaps
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://example.com/sitemap.xml
