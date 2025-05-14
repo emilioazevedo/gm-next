@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-export default function BlogPage({
-  searchParams,
+export default async function BlogPage({
+  params,
 }: {
-  searchParams?: Record<string, string | undefined>;
+  params: Promise<{ page?: string }>;
 }) {
+  const { page } = await params;
   const posts = getAllPosts(); // Fetch posts statically from the posts folder
 
-  const postsPerPage = 10; // Number of posts per page
-  const currentPage = Number(searchParams?.page) || 1; // Parse the current page from query params, default to 1
-  const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate total pages
+  const postsPerPage = 10;
+  const currentPage = Number(page) || 1;
+  const totalPages = Math.ceil(posts.length / postsPerPage);
 
   // Slice posts for the current page
   const startIndex = (currentPage - 1) * postsPerPage;
