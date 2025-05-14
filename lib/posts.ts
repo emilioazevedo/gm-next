@@ -18,18 +18,20 @@ export interface Post {
 
 export function getAllPosts() {
   const fileNames = fs.readdirSync(postsDirectory); // Read all files in the posts directory
-  const posts = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, ""); // Remove the .md extension
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8"); // Read the file contents
-    const { data: metadata, content } = matter(fileContents); // Parse the frontmatter and content
+  const posts = fileNames
+    .filter((fileName) => fileName.endsWith(".md")) // Filter out non-.md files like .DS_Store
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, ""); // Remove the .md extension
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8"); // Read the file contents
+      const { data: metadata, content } = matter(fileContents); // Parse the frontmatter and content
 
-    return {
-      slug,
-      metadata, // Metadata from the frontmatter
-      content, // Markdown content
-    };
-  });
+      return {
+        slug,
+        metadata, // Metadata from the frontmatter
+        content, // Markdown content
+      };
+    });
 
   return posts.sort((a, b) => {
     // Sort posts by date (newest first)

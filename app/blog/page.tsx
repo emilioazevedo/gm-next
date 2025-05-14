@@ -1,16 +1,15 @@
 import Link from "next/link";
 import { getAllPosts } from "../../lib/posts";
 
-export default async function BlogPage({
-  params,
+export default function BlogPage({
+  searchParams,
 }: {
-  params: Promise<{ page?: string }>;
+  searchParams?: Record<string, string | undefined>;
 }) {
-  const { page } = await params; // Await the params to resolve
   const posts = getAllPosts(); // Fetch posts statically from the posts folder
 
   const postsPerPage = 10; // Number of posts per page
-  const currentPage = Number(page) || 1; // Parse the current page from params, default to 1
+  const currentPage = Number(searchParams?.page) || 1; // Parse the current page from query params, default to 1
   const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate total pages
 
   // Slice posts for the current page
@@ -45,11 +44,11 @@ export default async function BlogPage({
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center mt-8 space-x-4">
+          <div className="flex justify-center text-sm items-center mt-8 space-x-4">
             {currentPage > 1 && (
               <Link
                 href={`?page=${currentPage - 1}`}
-                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
+                className="px-4 py-2 text-sm bg-gray-200 rounded-md hover:bg-gray-300 transition"
               >
                 Previous
               </Link>
@@ -60,7 +59,7 @@ export default async function BlogPage({
             {currentPage < totalPages && (
               <Link
                 href={`?page=${currentPage + 1}`}
-                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
+                className="px-4 py-2 text-sm bg-gray-200 rounded-md hover:bg-gray-300 transition"
               >
                 Next
               </Link>
