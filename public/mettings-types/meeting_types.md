@@ -35,7 +35,6 @@ RPG
 RRS
 RTC+B Workshop
 RTCBTF
-RUC
 SAWG
 SPWG
 TDTMS
@@ -59,7 +58,6 @@ Energy Resources
 Environmental Regulation
 Finance
 House Appropriations
-Jurisprudence
 Lege Session
 Natural Resources
 Nominations

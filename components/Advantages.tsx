@@ -6,7 +6,7 @@ const Advantages = () => {
   const features = [
     {
       icon: "/assets/ercot-monitoring.png",
-      title: "ERCOT Monitoring",
+      title: "ERCOT Monitoring*",
       description: "Real-time tracking of ERCOT meetings, decisions, and market notices that impact your business."
     },
     {
@@ -16,17 +16,17 @@ const Advantages = () => {
     },
     {
       icon: "/assets/document-analysis.png",
-      title: "Document Analysis",
+      title: "Document Analysis*",
       description: "Stay informed with detailed analysis of legislative documents, rule changes, and regulatory filings."
     },
     {
       icon: "/assets/legislative-calendar.png",
-      title: "Legislative Calendar",
-      description: "Never miss an important date with our comprehensive calendar of hearings and sessions."
+      title: "Meeting Calendar",
+      description: "Never miss an important date with our comprehensive calendar of open meetings, workshops, working groups, and legislative committies and sessions."
     },
     {
       icon: "/assets/conference-coverage.png",
-      title: "Conference Coverage",
+      title: "Conference Coverage*",
       description: "Get insights from energy industry conferences and events without having to attend in person."
     },
     {

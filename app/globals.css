@@ -83,7 +83,7 @@ body {
 
 /* Background styles */
 .bg-grainy {
-  background: linear-gradient(135deg, #eeeff0, #f7faf7, #e7e7e8);
+  background: linear-gradient(135deg, #ffffff, #f7faf7, #feffff);
   position: relative;
 }
 
@@ -91,7 +91,6 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('/path-to/noise.png');
   opacity: 0.1;
   pointer-events: none;
 }

@@ -1,25 +1,129 @@
+// Only /blog, /blog/2, /blog/3, /blog/[post-slug] will work with this file.
+
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getAllPosts } from "../../../lib/posts";
+import { redirect } from "next/navigation";
+import React from "react";
+import { marked } from "marked"; // You need to install 'marked' or use your preferred markdown renderer
+
+// Import the ShareButton directly (do NOT use dynamic)
+import ShareButton from "./ShareButton";
+
+// Useful Resources Component
+function UsefulResources() {
+  return (
+    <div className="text-sm p-6 text-center">
+      <h2 className="text-lg mb-4">Useful Resources:</h2>
+      <div className="flex-auto gap-2 items-center">
+        <Link href="https://gridmonitor.com" className="text-blue-500 hover:underline">
+          GridMonitor
+        </Link>
+        <Link href="https://ercot.com" className="text-blue-500 hover:underline">
+          ERCOT
+        </Link>
+        <Link href="https://www.puc.texas.gov/" className="text-blue-500 hover:underline">
+          Texas PUC
+        </Link>
+        <Link href="https://capitol.texas.gov/" className="text-blue-500 hover:underline">
+          Texas Legislature
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 type tParams = Promise<{ slug?: string[] }>;
 
 export default async function BlogPage({ params }: { params: tParams }) {
   const { slug } = await params;
-  // If your route is /blog/page/2, then slug = ['page', '2']
-  const pageFromSlug = slug && slug[0] === "page" && slug[1] ? Number(slug[1]) : 1;
+
+  // If the slug is a single string and not a page number, treat as a post slug
+  if (Array.isArray(slug) && slug.length === 1 && !/^\d+$/.test(slug[0])) {
+    const posts = getAllPosts();
+    const post = posts.find((p) => p.slug === slug[0]);
+    if (!post) {
+      return <h1 className="text-2xl text-center mt-20">Post not found</h1>;
+    }
+    return (
+      <section className="blog-page-section min-h-screen pt-20 pb-20 bg-grainy">
+        <div className="container mx-auto px-8 w-full max-w-7xl flex flex-auto md:flex-row gap-2">
+          {/* Main post content */}
+          <div className="flex-1 max-w-3xl">
+            <h1 className="text-4xl font-bold text-[#194f90] mb-6">{post.metadata.title}</h1>
+            <div className="flex items-center text-sm text-gray-500 mb-4">
+              <span>{post.metadata.date}</span>
+              {/* Use the client ShareButton */}
+              <ShareButton title={post.metadata.title} />
+            </div>
+            <div
+              className="prose prose-lg max-w-none mb-8"
+              dangerouslySetInnerHTML={{ __html: marked.parse(post.content) }}
+            />
+            {/* Useful Resources at the bottom of the post */}
+            <UsefulResources />
+          </div>
+          {/* Right column with Back button and blog list */}
+          <div className="w-full p-4 md:w-72 flex-shrink-0">
+            <div className="sticky top-24">
+              <Link
+                href="/blog"
+                className="block w-[60%] text-center text-sm px-0 py-2 mb-4 bg-gray-200 rounded-md hover:bg-gray-300 transition font-medium"
+              >
+                ← Back to Blog
+              </Link>
+              {/* Blog list */}
+              <div className="mt-4">
+                <h3 className="text-base font-semibold mb-2">All Blog Posts</h3>
+                <ul className="space-y-1 text-sm">
+                  {posts.map((b) => (
+                    <li key={b.slug}>
+                      <Link
+                        href={`/blog/${b.slug}`}
+                        className={`hover:underline ${b.slug === post.slug ? "font-bold text-[#194f90]" : "text-gray-700"}`}
+                      >
+                        {b.metadata.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Treat undefined, [] or [''] as page 1
+  let currentPage = 1;
+  if (!slug || (Array.isArray(slug) && slug.length === 0) || (Array.isArray(slug) && slug.length === 1 && slug[0] === "")) {
+    currentPage = 1;
+  } else if (Array.isArray(slug) && slug.length === 1 && /^\d+$/.test(slug[0])) {
+    currentPage = Number(slug[0]);
+  }
 
   const posts = getAllPosts();
-  const postsPerPage = 10;
-  const currentPage = pageFromSlug;
+  const postsPerPage = 6;
   const totalPages = Math.max(1, Math.ceil(posts.length / postsPerPage));
+  currentPage = Math.min(Math.max(1, currentPage), totalPages);
 
   const startIndex = (currentPage - 1) * postsPerPage;
-  const paginatedPosts = posts.slice(startIndex, startIndex + postsPerPage);
+  const endIndex = startIndex + postsPerPage;
+  const paginatedPosts = posts.slice(startIndex, endIndex);
+
+  // Redirect /blog/1 to /blog for canonical URL
+  if (currentPage === 1 && Array.isArray(slug) && slug[0] === "1") {
+    redirect("/blog");
+  }
 
   return (
     <section className="blog-page-section min-h-screen pt-20 pb-20 bg-grainy">
       <div className="container mx-auto px-8 w-full max-w-7xl">
-        <h1 className="text-3xl font-bold text-[#194f90] mb-8">ERCOT - PUCT - Texas Legislature Blog</h1>
+        <h1 className="text-3xl font-bold text-[#194f90] mb-8">
+          ERCOT - PUCT - Texas Legislature Blog
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {paginatedPosts.map((post) => (
             <div
@@ -41,14 +145,12 @@ export default async function BlogPage({ params }: { params: tParams }) {
             </div>
           ))}
         </div>
-
-        {/* Pagination Controls */}
         {totalPages > 1 && (
           <div className="flex justify-center text-sm items-center mt-8 space-x-4">
             {currentPage > 1 && (
               <Link
-                href={currentPage - 1 === 1 ? `/blog` : `/blog/page/${currentPage - 1}`}
-                className="px-4 py-2 text-sm bg-gray-200 rounded-md hover:bg-gray-300 transition"
+                href={currentPage - 1 === 1 ? `/blog` : `/blog/${currentPage - 1}`}
+                className="px-4 py-2 text-sm rounded-md transition bg-gray-200 hover:bg-gray-300"
               >
                 Previous
               </Link>
@@ -58,8 +160,8 @@ export default async function BlogPage({ params }: { params: tParams }) {
             </span>
             {currentPage < totalPages && (
               <Link
-                href={`/blog/page/${currentPage + 1}`}
-                className="px-4 py-2 text-sm bg-gray-200 rounded-md hover:bg-gray-300 transition"
+                href={`/blog/${currentPage + 1}`}
+                className="px-4 py-2 text-sm rounded-md transition bg-gray-200 hover:bg-gray-300"
               >
                 Next
               </Link>
