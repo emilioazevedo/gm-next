@@ -48,7 +48,7 @@ export default async function BlogPage({ params }: { params: tParams }) {
     }
     return (
       <section className="blog-page-section min-h-screen pt-20 pb-20 bg-grainy">
-        <div className="container mx-auto px-8 w-full max-w-7xl flex flex-auto md:flex-row gap-2">
+        <div className="container mx-auto px-8 w-full max-w-7xl flex flex-col md:flex-row gap-8">
           {/* Main post content */}
           <div className="flex-1 max-w-3xl">
             <h1 className="text-4xl font-bold text-[#194f90] mb-6">{post.metadata.title}</h1>
@@ -59,7 +59,7 @@ export default async function BlogPage({ params }: { params: tParams }) {
             </div>
             <div
               className="prose prose-lg max-w-none mb-8"
-              dangerouslySetInnerHTML={{ __html: marked.parse(post.content) }}
+              dangerouslySetInnerHTML={{ __html: marked(post.content) }}
             />
             {/* Useful Resources at the bottom of the post */}
             <UsefulResources />

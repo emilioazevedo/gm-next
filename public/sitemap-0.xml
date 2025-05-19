@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://example.com/contact</loc><lastmod>2025-05-15T19:33:48.804Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/about</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/demo</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/what-is-ercot-managing-texas-power-grid</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/puct</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/login</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/texas-lege</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/trial</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/Analyzing-Recent-ERCOT-Price-Volatility</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/Approaches-to-Grid-Weatherization</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/CenterPoint-Energy-Storm-Response</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/ERCOT-Operating-Reserve-Demand-Curve-Mechanics</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/ERCOTs-Capacity-Demand-and-Reserves-Report-Analysis</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/Load-Forecasting-Methodologies-in-ERCOT</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/Nodal-Market-Operations-in-ERCOT</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/Recent-PUCT-Decisions-and-Market-Implications</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/Retail-Electric-Provider-Strategies-Texas</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/State-Affairs-07-31-24</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/The-Relationship-Between-PUCT-and-ERCOT-Governance</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/grid-reliability-meeting-summary</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/nogrr245-update-08-08-2024</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/ros-meeting-summary</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://example.com/blog/texas-energy-article</loc><lastmod>2025-05-15T19:33:48.805Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/what-is-ercot-managing-texas-power-grid</loc><lastmod>2025-05-19T16:51:17.953Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/demo</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/texas-lege</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/contact</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/trial</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/login</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/about</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/puct</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://example.com/blog</loc><lastmod>2025-05-19T16:51:17.954Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
