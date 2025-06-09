@@ -144,3 +144,4 @@ const Carousel = () => {
 };
 
 export default Carousel;
+// No further changes needed. The code is valid for Vercel deployment.

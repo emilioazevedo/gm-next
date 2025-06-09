@@ -50,7 +50,7 @@ const Hero = () => {
   ];
 
   // Tab click handler
-  const handleTabClick = (index) => {
+  const handleTabClick = (index: number) => {
     setActiveTab(index);
   };
 
