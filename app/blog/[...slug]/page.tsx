@@ -18,16 +18,16 @@ function UsefulResources() {
       <h2 className="text-lg mb-4">Useful Resources:</h2>
       <div className="flex-auto gap-2 items-center">
         <Link href="https://gridmonitor.com" className="text-blue-500 hover:underline">
-          GridMonitor
+          GridMonitor - 
         </Link>
         <Link href="https://ercot.com" className="text-blue-500 hover:underline">
-          ERCOT
+          - ERCOT -
         </Link>
         <Link href="https://www.puc.texas.gov/" className="text-blue-500 hover:underline">
-          Texas PUC
+          - Texas PUC -
         </Link>
         <Link href="https://capitol.texas.gov/" className="text-blue-500 hover:underline">
-          Texas Legislature
+           -Texas Legislature
         </Link>
       </div>
     </div>
@@ -58,7 +58,7 @@ export default async function BlogPage({ params }: { params: tParams }) {
               <ShareButton title={post.metadata.title} />
             </div>
             <div
-              className="prose prose-lg max-w-none mb-8"
+              className="prose prose-h2: max-w-none mb-8"
               dangerouslySetInnerHTML={{ __html: marked(post.content) }}
             />
             {/* Useful Resources at the bottom of the post */}
@@ -105,7 +105,7 @@ export default async function BlogPage({ params }: { params: tParams }) {
   }
 
   const posts = getAllPosts();
-  const postsPerPage = 6;
+  const postsPerPage = 10; // Changed from 6 to 10
   const totalPages = Math.max(1, Math.ceil(posts.length / postsPerPage));
   currentPage = Math.min(Math.max(1, currentPage), totalPages);
 

@@ -7,7 +7,6 @@ The Texas power grid is a unique and complex system that has gar..."
 author: "Energy Markets Expert"
 ---
 
-# ERCOT's Capacity, Demand and Reserves Report Analysis
 
 ![ERCOT's Capacity, Demand and Reserves Report Analysis](https://blog-images-folder.s3.eu-west-1.amazonaws.com/ERCOT-s-Capacity--Demand-and-Reserves-Report-Analysis.jpg)
 ## Understanding the Texas Power Grid: An Overview of Its Structure and Challenges

@@ -6,17 +6,87 @@ import Image from "next/image";
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [meetingTypes, setMeetingTypes] = useState<string[]>([]);
+  const [activeTab, setActiveTab] = useState(0);
 
+  const videos = [
+    {
+      id: 'video1',
+      title: '',
+      url: '/assets/3400-meetings.mp4', // Correct path for public assets in Next.js
+      description: 'Watch recordings of key hearings, meetings, and sessions from all relevant regulatory bodies.'
+    },
+    {
+      id: 'video2', 
+      title: '',
+      url: '/assets/streaming-lege1.mp4',
+      description: 'Meetings, hearings and conferences'
+    },
+    {
+      id: 'video3',
+      title: '', 
+      url: '/assets/following2.mp4',
+      description: 'Projects, bills, and revisions requests'
+    },
+    {
+      id: 'video4',
+      title: '',
+      url: '/assets/streaming1.mp4', 
+      description: 'ERCOT and PUCT in one location'
+    },
+    {
+      id: 'video5',
+      title: '',
+      url: '/assets/GM-AI.mp4',
+      description: 'Ask our AI assistant questions about ERCOT, PUCT, and Texas Legislature to get quick answers.'
+    }
+  ];
+
+  const tabs = [
+    '3400+ Meetings',
+    'Streaming', 
+    'Following',
+    'Filings Browser',
+    'GridMonitor AI'
+  ];
+
+  // Tab click handler
+  const handleTabClick = (index) => {
+    setActiveTab(index);
+  };
+
+  // Auto-play effect for tab videos
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0; // Restart the video
-        videoRef.current.play(); // Explicitly play the video
-      }
-    }, 30000); // Restart every 30 seconds
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(error => {
+        console.log('Video autoplay prevented:', error);
+      });
+    }
+  }, [activeTab]);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+  // Play each video in full, then move to the next, looping back after the last
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Handler for when the video ends
+    const handleEnded = () => {
+      setActiveTab((prev) => (prev + 1) % videos.length);
+    };
+
+    video.addEventListener("ended", handleEnded);
+
+    // Always play from the start when activeTab changes
+    video.currentTime = 0;
+    video.play().catch((error) => {
+      console.log("Video autoplay prevented:", error);
+    });
+
+    return () => {
+      video.removeEventListener("ended", handleEnded);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, videos.length]);
 
   // Fetch meeting types from the markdown file
   useEffect(() => {
@@ -82,94 +152,48 @@ const Hero = () => {
 
           {/* Right Column - Video and Features Section */}
           <div className="h-128 flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-0 relative">
-            {/* Video */}
-            <video
-              ref={videoRef} // Attach the ref to the video element
-              className="rounded-lg shadow-lg w-full md:w-3/5 relative z-10"
-              autoPlay
-              muted
-              playsInline
-              src="/assets/sb6AI.mp4"
-            ></video>
-
-            {/* Features */}
-            <div className="grid grid-cols-1 gap-2 w-full md:w-2/5 lg:w-2/5">
-              {/* Meetings */}
-              <div
-                className="relative border-slate-100 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg"
-                style={{
-                  background: "linear-gradient(135deg, #d1dae5, transparent)", // Angled gradient
-                }}
-              >
-                <Image
-                  src="/assets/meetings.png"
-                  alt="Meetings Icon"
-                  width={12}
-                  height={12}
-                  className="absolute top-2 right-2"
-                />
-                <div>
-                  <p className="text-base md:text-lg font-bold text-[#194f90]">3400+</p>
-                  <p className="text-xs md:text-sm text-gray-600">meetings archived</p>
-                </div>
+            <div className="mx-auto p-4" style={{ backgroundColor: 'transparent', width: '700px', height: '550px' }}>
+              {/* Tab Navigation */}
+              <div className="flex bg-white bg-opacity-30 rounded-full p-2 mb-4 shadow-lg">
+                {tabs.map((tab, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleTabClick(index)}
+                    className={`flex-1 px-3 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+                      activeTab === index
+                        ? 'bg-white text-gray-800 shadow-md'
+                        : 'text-gray-600 hover:text-gray-800 hover:bg-white hover:bg-opacity-50'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
               </div>
 
-              <div
-                className="relative border-slate-100 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg"
-                style={{
-                  background: "linear-gradient(135deg, #d1dae5, transparent)", // Angled gradient
-                }}
-              >
-                <Image
-                  src="/assets/video.png"
-                  alt="Streaming Icon"
-                  width={12}
-                  height={12}
-                  className="absolute top-2 right-2"
-                />
-                <div>
-                  <p className="text-base md:text-lg font-bold text-[#194f90]">Streaming</p>
-                  <p className="text-xs md:text-sm text-gray-600">meetings, hearings and conferences</p>
+              {/* Content Area */}
+              <div className="bg-white bg-opacity-40 rounded-3xl p-4 shadow-xl" style={{ height: 'calc(100% - 100px)' }}>
+                <h2 className="text-sm  text-gray-800 pb-2">
+                  {videos[activeTab].title}
+                </h2>
+                
+                {/* Video Player */}
+                <div className="mb-3 mt-0">
+                  <video
+                    ref={videoRef}
+                    key={videos[activeTab].id}
+                    className="w-full rounded-lg"
+                    style={{ height: '340px' }}
+                    muted
+                    playsInline
+                  >
+                    <source src={videos[activeTab].url} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
-              </div>
 
-              {/* Following */}
-              <div
-                className="relative border-slate-100 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg"
-                style={{
-                  background: "linear-gradient(135deg, #d1dae5, transparent)", // Angled gradient
-                }}
-              >
-                <Image
-                  src="/assets/fallowing.png"
-                  alt="Following Icon"
-                  width={12}
-                  height={12}
-                  className="absolute top-2 right-2"
-                />
-                <div>
-                  <p className="text-base md:text-lg font-bold text-[#194f90]">Following</p>
-                  <p className="text-xs md:text-sm text-gray-600">projects, bills, and revisions requests</p>
-                </div>
-              </div>
-
-              {/* Filings Browser */}
-              <div
-                className="relative border-slate-100 backdrop-blur-xl border border-slate-300/50 p-3 md:p-4 rounded-lg shadow-lg"
-                style={{
-                  background: "linear-gradient(135deg, #d1dae5, transparent)", // Angled gradient
-                }}
-              >
-                <Image
-                  src="/assets/filling-browser.png"
-                  alt="Filings Browser Icon"
-                  width={12}
-                  height={12}
-                  className="absolute top-2 right-2"
-                />
-                <div>
-                  <p className="text-base md:text-lg font-bold text-[#194f90]">Filings Browser</p>
-                  <p className="text-xs md:text-sm text-gray-600">ERCOT and PUCT in one location</p>
+                {/* Video Description */}
+                <div className="text-gray-700 text-sm">
+                  <p className="truncate">{videos[activeTab].description}</p>
                 </div>
               </div>
             </div>

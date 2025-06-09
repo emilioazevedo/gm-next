@@ -9,7 +9,6 @@ The recent power grid failure in Texas has underscored the urgency of examining 
 author: "Energy Markets Expert"
 ---
 
-# Load Forecasting Methodologies in ERCOT
 
 ![Load Forecasting Methodologies in ERCOT](https://blog-images-folder.s3.eu-west-1.amazonaws.com/Load-Forecasting-Methodologies-in-ERCOT.jpg)
 

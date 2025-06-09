@@ -7,7 +7,6 @@ The Texas power grid, primarily managed by the Electric Reliability Council of .
 author: "Energy Markets Expert"
 ---
 
-# Retail Electric Provider Strategies in Texas
 
 ![Retail Electric Provider Strategies in Texas](https://cdk-hnb659fds-assets-039612890387-eu-west-1.s3.eu-west-1.amazonaws.com/Retail-Electric-Provider-Strategies-in-Texas.jpg)
 

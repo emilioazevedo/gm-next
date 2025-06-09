@@ -8,7 +8,6 @@ unto itself. Th..."
 author: "Energy Markets Expert"
 ---
 
-# Analyzing Recent ERCOT Price Volatility
 
 ![Analyzing Recent ERCOT Price
 Volatility](https://blog-images-folder.s3.eu-west-1.amazonaws.com/Analyzing-Recent-ERCOT-Price-Volatility.jpg)

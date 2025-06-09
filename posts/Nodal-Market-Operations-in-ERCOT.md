@@ -7,7 +7,6 @@ The Texas power grid, operated by the Electric Reliability Council of Texas (ERC
 author: "Energy Markets Expert"
 ---
 
-# Nodal Market Operations in ERCOT
 
 ![Nodal Market Operations in ERCOT](https://blog-images-folder.s3.eu-west-1.amazonaws.com/Nodal-Market-Operations-in-ERCOT.jpg)
 

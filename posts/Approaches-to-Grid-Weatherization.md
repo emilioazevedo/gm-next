@@ -7,7 +7,6 @@ The Texas power grid, known as the Electric Reliability Council of Texas (ERCOT)
 author: "Energy Markets Expert"
 ---
 
-# Legislative Approaches to Grid Weatherization
 
 ![Legislative Approaches to Grid Weatherization](https://blog-images-folder.s3.eu-west-1.amazonaws.com/Legislative-Approaches-to-Grid-Weatherization.jpg)
 

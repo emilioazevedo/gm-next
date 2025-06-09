@@ -7,7 +7,6 @@ In the realm of energy production, renewable sources are increasingly taking cen
 author: "Energy Markets Expert"
 ---
 
-## ERCOT's Operating Reserve Demand Curve Mechanics
 
 ![ERCOT's Operating Reserve Demand Curve Mechanics](https://blog-images-folder.s3.eu-west-1.amazonaws.com/ERCOT-s-Operating-Reserve-Demand-Curve-Mechanics.jpg)
 

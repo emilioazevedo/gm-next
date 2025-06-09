@@ -7,7 +7,6 @@ The sprawling state of Texas, known for its vast landscapes and unique energy la
 author: "Energy Markets Expert"
 ---
 
-# The Relationship Between PUCT and ERCOT Governance
 
 ![The Relationship Between PUCT and ERCOT Governance](https://blog-images-folder.s3.eu-west-1.amazonaws.com/The-Relationship-Between-PUCT-and-ERCOT-Governance.jpg)
 

@@ -135,78 +135,9 @@ const Carousel = () => {
           </button>
         </div>
 
-        {/* Streaming Meetings */}
-        <div className="flex flex-col md:flex-row p-4 bg-white/40 backdrop-blur-xl border-zinc-400 border-[1px] rounded-md justify-between max-w-screen-2xl mt-20 gap-6">
-          {/* Left Side */}
-          <div className="flex p-4 text-left flex-col">
-            <div className="flex items-left text-xl font-extrabold text-[#194f90]">
-              <Image
-                src="/assets/streaming.png"
-                alt="Streaming Icon"
-                width={39}
-                height={30}
-                className="mr-2"
-              />
-              Streaming Meetings
-            </div>
-            <div className="text-base w-96 mt-2">
-              Access Grid Monitor’s entire catalog of meeting videos across ERCOT, PUCT, and the Texas Legislature. We archive the publicly available ERCOT stakeholder process from top to bottom.
-            </div>
-            <div className="mt-4">
-              <Image
-                src="/assets/Grid-Monitor-Meeting-Video.webp"
-                alt="Grid Monitor Meeting Video"
-                width={400}
-                height={200}
-                className="rounded-md shadow-md"
-              />
-            </div>
-          </div>
 
-          {/* Right Side */}
-          <div className="flex w-full md:w-[90%] flex-col overflow-y-scroll h-[500px] border-2 p-0">
-            <Image
-              src="/assets/meeting-calendar.webp"
-              alt="Meeting Calendar"
-              width={800}
-              height={500}
-              className="rounded-md shadow-md"
-            />
-          </div>
-        </div>
 
-        {/* Meeting Summaries */}
-        <div className="flex flex-col md:flex-row p-4 bg-white/40 backdrop-blur-xl border-zinc-400 border-[1px] rounded-md justify-between max-w-screen-2xl mt-20 gap-6">
-          {/* Left Side */}
-          <div className="flex p-4 text-left flex-col">
-            <div className="flex items-left text-xl font-extrabold text-[#194f90]">
-              <Image
-                src="/assets/news.png"
-                alt="Streaming Icon"
-                width={39}
-                height={30}
-                className="mr-2"
-              />
-              Meeting Summaries
-            </div>
-            <div className="text-base w-96 mt-2">
-            Just the facts. Grid Monitor’s unbiased meeting summaries make it easy to digest previously overwhelming amounts of information. Tagged with Related Controls and links to corresponding video, taking a closer look has never been more efficient.            </div>
-            <div className="mt-4">
-             
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div className="flex w-full md:w-[90%] flex-col overflow-y-scroll h-[500px] border-2 p-0">
-            <Image
-              src="/assets/meeting-summary.webp"
-              alt="Meeting Summary"
-              width={800}
-              height={500}
-              className="rounded-md shadow-md"
-            />
-          </div>
-        </div>
+     
       </div>
     </section>
   );

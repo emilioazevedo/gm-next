@@ -8,7 +8,6 @@ The Lone Star State, as many of us know, has a rich history of energy production
 author: "Energy Markets Expert"
 ---
 
-# Recent PUCT Decisions and Market Implications
 
 ![Recent PUCT Decisions and Market Implications](https://blog-images-folder.s3.eu-west-1.amazonaws.com/Recent-PUCT-Decisions-and-Market-Implications.jpg)
 
