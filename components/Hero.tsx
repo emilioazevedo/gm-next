@@ -30,13 +30,13 @@ const Hero = () => {
     {
       id: 'video4',
       title: '',
-      url: '/assets/streaming1.mp4', 
+      url: '/assets/filingbrowser2.mp4', 
       description: 'ERCOT and PUCT in one location'
     },
     {
       id: 'video5',
       title: '',
-      url: '/assets/GM-AI.mp4',
+      url: '/assets/GM-AI1.mp4',
       description: 'Ask our AI assistant questions about ERCOT, PUCT, and Texas Legislature to get quick answers.'
     }
   ];
